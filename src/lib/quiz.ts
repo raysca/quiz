@@ -32,7 +32,7 @@ const renderListItem = (listText: string, isAnswer: boolean) => {
     `
 }
 
-export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
+const markdownChunkToQuiz = async (markdown: string): Promise<QuizDocument> => {
     const frontMatter = matter(markdown, {});
     let quiz: Quiz | undefined = undefined;
 
@@ -91,6 +91,10 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
     }
 }
 
+export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
+    return markdownChunkToQuiz(markdown);
+}
+
 export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
 
     const files = fs.readdirSync(folder);
@@ -117,6 +121,29 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
     }
 
     return quizzes;
+}
+
+export const loadCategories = async (folder: string): Promise<string[]> => {
+    const files = fs.readdirSync(folder);
+    const categories: string[] = [];
+
+    for (const file of files) {
+        const filePath = path.resolve(path.join(folder, file));
+
+        if (fs.statSync(filePath).isDirectory()) {
+            const subCategories = await loadCategories(filePath);
+            categories.push(...subCategories);
+            continue;
+        }
+
+        const frontMatter = matter(fs.readFileSync(filePath, 'utf-8'), {});
+        const category = frontMatter.data.category as string;
+        if (category) {
+            categories.push(category);
+        }
+    }
+
+    return categories;
 }
 
 export const checkAnswer = (quiz: Quiz, answers: string[]): boolean => {
