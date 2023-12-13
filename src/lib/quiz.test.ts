@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { describe, it, expect, beforeAll } from 'vitest';
-import { documentToQuiz, type QuizDocument } from './quiz';
+import { documentToQuiz, type QuizDocument, checkAnswer } from './quiz';
 
 describe('Quiz', () => {
 
@@ -110,6 +110,40 @@ describe('Quiz', () => {
         it('create the question', async () => {
             return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Quiz has no answers, see the README.md for how to define a quiz document."');
         });
+    });
+
+    describe('No question', () => {
+        it('create the question', async () => {
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-question.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"No quiz question found, see the README.md for how to define a quiz document."');
+        });
+    });
+
+    describe('Check Quiz', () => {
+
+        describe('Single option', () => {
+            it('correct single option answer', async () => {
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
+                expect(checkAnswer(result.quiz, ['Option 2'])).toEqual(true);
+            });
+    
+            it('incorrect single option answer', async () => {
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
+                expect(checkAnswer(result.quiz, ['Option 1'])).toEqual(false);
+            });
+        })
+
+        describe('Multi option', () => {
+            it('correct single option answer', async () => {
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
+                expect(checkAnswer(result.quiz, ['Option 2', 'Option 3'])).toEqual(true);
+            });
+    
+            it('incorrect single option answer', async () => {
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
+                expect(checkAnswer(result.quiz, ['Option 2', 'Option 4'])).toEqual(false);
+            });
+        })
+       
     });
 
 });

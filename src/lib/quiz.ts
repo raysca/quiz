@@ -65,7 +65,7 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
 
     const content = await marked.parse(frontMatter.content, { gfm: true, breaks: true })
     if (quiz === undefined) {
-        throw new Error('Quiz is undefined, see the README.md for how to define a quiz document.');
+        throw new Error('No quiz question found, see the README.md for how to define a quiz document.');
     }
 
     if (quiz.answers.length === 0) {
@@ -90,28 +90,35 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
     }
 }
 
-// export const loadAllQuiz = async (id: string) => {
-//     const quizzes = fs.readdirSync(`quizzes/${id}`).map((file: string) => {
-//         const frontMatter = matter.read(`quizzes/${id}/${file}`, {});
-//         const { data: { answers } } = frontMatter;
-//         const isMultipleChoice = answers.length > 1;
-//         const content = marked.parse(frontMatter.content, { gfm: true, breaks: true });
+export const loadAllQuiz = async (id: string) => {
+    const quizzes = fs.readdirSync(`quizzes/${id}`).map((file: string) => {
+        const frontMatter = matter.read(`quizzes/${id}/${file}`, {});
+        const { data: { answers } } = frontMatter;
+        const isMultipleChoice = answers.length > 1;
+        const content = marked.parse(frontMatter.content, { gfm: true, breaks: true });
 
-//         let answerIndex = 0;
-//         marked.use({
-//             renderer: {
-//                 listitem(text: string) {
-//                     return renderListItem(text, isMultipleChoice,);
-//                 }
-//             }
-//         })
+        let answerIndex = 0;
+        marked.use({
+            renderer: {
+                listitem(text: string) {
+                    return renderListItem(text, isMultipleChoice,);
+                }
+            }
+        })
 
-//         return {
-//             body: {
-//                 content,
-//                 metadata: frontMatter.data,
-//             }
-//         }
-//     })
-//     return quizzes;
-// }
+        return {
+            body: {
+                content,
+                metadata: frontMatter.data,
+            }
+        }
+    })
+    return quizzes;
+}
+
+
+export const checkAnswer = (quiz: Quiz, answers: string[]): boolean => {
+    const correctAnswers = quiz.answers.sort();
+    const givenAnswers = answers.sort();
+    return correctAnswers.every((answer, index) => answer === givenAnswers[index]);
+}
