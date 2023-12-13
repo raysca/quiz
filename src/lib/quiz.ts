@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import matter from 'gray-matter';
 import * as marked from 'marked';
 
@@ -90,32 +91,33 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
     }
 }
 
-export const loadAllQuiz = async (id: string) => {
-    const quizzes = fs.readdirSync(`quizzes/${id}`).map((file: string) => {
-        const frontMatter = matter.read(`quizzes/${id}/${file}`, {});
-        const { data: { answers } } = frontMatter;
-        const isMultipleChoice = answers.length > 1;
-        const content = marked.parse(frontMatter.content, { gfm: true, breaks: true });
+export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
 
-        let answerIndex = 0;
-        marked.use({
-            renderer: {
-                listitem(text: string) {
-                    return renderListItem(text, isMultipleChoice,);
-                }
-            }
-        })
+    const files = fs.readdirSync(folder);
+    const quizzes: QuizDocument[] = [];
 
-        return {
-            body: {
-                content,
-                metadata: frontMatter.data,
-            }
+    for (const file of files) {
+        const filePath = path.resolve(path.join(folder, file));
+        if (!file.endsWith('.md')) {
+            continue;
         }
-    })
+
+        if (file.startsWith('_')) {
+            continue;
+        }
+
+        if (fs.statSync(filePath).isDirectory()) {
+            const subQuizzes = await loadAllQuiz(filePath);
+            quizzes.push(...subQuizzes);
+            continue;
+        }
+
+        const quiz = await documentToQuiz(fs.readFileSync(filePath, 'utf-8'));
+        quizzes.push(quiz);
+    }
+
     return quizzes;
 }
-
 
 export const checkAnswer = (quiz: Quiz, answers: string[]): boolean => {
     const correctAnswers = quiz.answers.sort();
