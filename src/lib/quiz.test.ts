@@ -11,15 +11,15 @@ describe('Quiz', () => {
         });
 
         it('create the question', async () => {
-            expect(result.quiz.question).toEqual('Question 1');
+            expect(result.quizzes[0].question).toEqual('Question 1');
         });
 
         it('create the options', async () => {
-            expect(result.quiz.options).toEqual(['Option 1', 'Option 2', 'Option 3']);
+            expect(result.quizzes[0].options).toEqual(['Option 1', 'Option 2', 'Option 3']);
         });
 
         it('create the answers', async () => {
-            expect(result.quiz.answers).toEqual(['Option 2']);
+            expect(result.quizzes[0].answers).toEqual(['Option 2']);
         });
 
         it('create the body', async () => {
@@ -64,7 +64,7 @@ describe('Quiz', () => {
         });
 
         it('create the answers', async () => {
-            expect(result.quiz.answers).toEqual(['Option 2', 'Option 3']);
+            expect(result.quizzes[0].answers).toEqual(['Option 2', 'Option 3']);
         });
 
         it('create the body', async () => {
@@ -108,42 +108,58 @@ describe('Quiz', () => {
 
     describe('No option', () => {
         it('create the question', async () => {
-            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Quiz has no answers, see the README.md for how to define a quiz document."');
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Some quizzes has no answers, see the README.md for how to define a quiz document."');
         });
     });
 
     describe('No question', () => {
         it('create the question', async () => {
-            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-question.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"No quiz question found, see the README.md for how to define a quiz document."');
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-question.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"No Quiz found, see the README.md for how to define a quiz document."');
         });
     });
 
     describe('Check Quiz', () => {
-
         describe('Single option', () => {
             it('correct single option answer', async () => {
                 const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
-                expect(checkAnswer(result.quiz, ['Option 2'])).toEqual(true);
+                expect(checkAnswer(result.quizzes[0], ['Option 2'])).toEqual(true);
             });
     
             it('incorrect single option answer', async () => {
                 const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
-                expect(checkAnswer(result.quiz, ['Option 1'])).toEqual(false);
+                expect(checkAnswer(result.quizzes[0], ['Option 1'])).toEqual(false);
             });
         })
 
         describe('Multi option', () => {
             it('correct single option answer', async () => {
                 const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
-                expect(checkAnswer(result.quiz, ['Option 2', 'Option 3'])).toEqual(true);
+                expect(checkAnswer(result.quizzes[0], ['Option 2', 'Option 3'])).toEqual(true);
             });
     
             it('incorrect single option answer', async () => {
                 const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
-                expect(checkAnswer(result.quiz, ['Option 2', 'Option 4'])).toEqual(false);
+                expect(checkAnswer(result.quizzes[0], ['Option 2', 'Option 4'])).toEqual(false);
             });
         })
        
+    });
+
+    describe('Multiple Quizzes', () => {
+        let result: QuizDocument;
+        beforeAll(async () => {
+            result = await documentToQuiz(fs.readFileSync('./fixtures/multi-quiz.md', 'utf-8'));
+        });
+
+        it('creates multiple quizzes', async () => {
+            const titles = result.quizzes.map(quiz => quiz.question);
+            expect(titles).toEqual(['Question 1', 'Question 2', 'Question 3']);
+        });
+
+        it('creates multiple answers', async () => {
+            const answers = result.quizzes.map(quiz => quiz.answers);
+            expect(answers).toEqual([['Option 4'], ['Option 2'], ['Option 1', 'Option 2', 'Option 4']]);
+        });
     });
 
 });

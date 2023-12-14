@@ -10,7 +10,7 @@ export interface Quiz {
 }
 
 export interface QuizDocument {
-    quiz: Quiz;
+    quizzes: Quiz[];
     body: {
         content: string;
         metadata: {
@@ -20,20 +20,51 @@ export interface QuizDocument {
     }
 }
 
-const renderListItem = (listText: string, isAnswer: boolean) => {
+const renderListItem = (listText: string, isAnswer: boolean, title: string) => {
     const inputName = isAnswer ? 'answer' : 'wrongAnswer';
     return `
         <li>
             <label class="label cursor-pointer justify-start space-x-4">
-                <input name="${inputName}" type="__INPUT_TYPE__" value="${listText}" class="__INPUT_CLASS__" />
+                <input name="${inputName}" type="${title}__INPUT_TYPE__" value="${listText}" class="${title}__INPUT_CLASS__" />
                 <span class="label-text text-left">${listText}</span>
             </label>
         </li>
     `
 }
 
-const markdownChunkToQuiz = async (markdown: string): Promise<QuizDocument> => {
+const validateQuizDocument = (quizDocument: QuizDocument) => {
+    if (quizDocument.quizzes.length === 0) {
+        throw new Error('No Quiz found, see the README.md for how to define a quiz document.');
+    }
+
+    if (quizDocument.quizzes.some(quiz => quiz.answers.length === 0)) {
+        throw new Error('Some quizzes has no answers, see the README.md for how to define a quiz document.');
+    }
+
+    if (quizDocument.quizzes.some(quiz => quiz.options.length === 0)) {
+        throw new Error('Some quizzes has no options, see the README.md for how to define a quiz document.');
+    }
+}
+
+const injectCSS = (quizDocument: QuizDocument): QuizDocument => {
+    quizDocument.quizzes.forEach(quiz => {
+        let newContent = quizDocument.body.content;
+        if (quiz.answers.length > 1) {
+            newContent = newContent.replaceAll(`${quiz.question}__INPUT_TYPE__`, 'checkbox');
+            newContent = newContent.replaceAll(`${quiz.question}__INPUT_CLASS__`, 'checkbox checkbox-primary');
+        } else {
+            newContent = newContent.replaceAll(`${quiz.question}__INPUT_TYPE__`, 'radio');
+            newContent = newContent.replaceAll(`${quiz.question}__INPUT_CLASS__`, 'radio radio-primary');
+        }
+        quizDocument.body.content = newContent;
+    });
+
+    return quizDocument;
+}
+
+export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
     const frontMatter = matter(markdown, {});
+    const quizzes: Quiz[] = [];
     let quiz: Quiz | undefined = undefined;
 
     marked.use({
@@ -49,7 +80,7 @@ const markdownChunkToQuiz = async (markdown: string): Promise<QuizDocument> => {
                         quiz?.answers.push(sanitizedText);
                     }
                 }
-                return renderListItem(sanitizedText, checked);
+                return renderListItem(sanitizedText, checked, quiz?.question ?? '');
             },
             heading: (text: string, level: number) => {
                 if (level === 2) {
@@ -58,6 +89,7 @@ const markdownChunkToQuiz = async (markdown: string): Promise<QuizDocument> => {
                         options: [],
                         answers: [],
                     }
+                    quizzes.push(quiz);
                 }
                 return `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
             }
@@ -65,34 +97,16 @@ const markdownChunkToQuiz = async (markdown: string): Promise<QuizDocument> => {
     })
 
     const content = await marked.parse(frontMatter.content, { gfm: true, breaks: true })
-    if (quiz === undefined) {
-        throw new Error('No quiz question found, see the README.md for how to define a quiz document.');
-    }
-
-    if (quiz.answers.length === 0) {
-        throw new Error('Quiz has no answers, see the README.md for how to define a quiz document.');
-    }
-
-    let newContent = content;
-    if (quiz.answers.length > 1) {
-        newContent = newContent.replaceAll('__INPUT_TYPE__', 'checkbox');
-        newContent = newContent.replaceAll('__INPUT_CLASS__', 'checkbox checkbox-primary');
-    } else {
-        newContent = newContent.replaceAll('__INPUT_TYPE__', 'radio');
-        newContent = newContent.replaceAll('__INPUT_CLASS__', 'radio radio-primary');
-    }
-
-    return {
-        quiz,
+    const baseDocument = {
+        quizzes,
         body: {
-            content: newContent,
+            content,
             metadata: frontMatter.data as { topic: string, difficulty: 'easy' | 'medium' | 'hard' },
         }
     }
-}
 
-export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
-    return markdownChunkToQuiz(markdown);
+    validateQuizDocument(baseDocument);
+    return injectCSS(baseDocument);
 }
 
 export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
