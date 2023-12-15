@@ -5,27 +5,24 @@ import * as marked from 'marked';
 
 export interface Quiz {
     question: string;
+    topic?: string;
     options: string[];
     answers: string[];
+    content: string[];
 }
 
 export interface QuizDocument {
     quizzes: Quiz[];
-    body: {
-        content: string;
-        metadata: {
-            difficulty: 'easy' | 'medium' | 'hard';
-            topic: string;
-        }
+    metadata: {
+        difficulty: 'easy' | 'medium' | 'hard';
     }
 }
 
-const renderListItem = (listText: string, isAnswer: boolean, title: string) => {
-    const inputName = isAnswer ? 'answer' : 'wrongAnswer';
+const renderListItem = (listText: string) => {
     return `
         <li>
             <label class="label cursor-pointer justify-start space-x-4">
-                <input name="${inputName}" type="${title}__INPUT_TYPE__" value="${listText}" class="${title}__INPUT_CLASS__" />
+                <input name="answer" type="__INPUT_TYPE__" value="${listText}" class="__INPUT_CLASS__" />
                 <span class="label-text text-left">${listText}</span>
             </label>
         </li>
@@ -46,20 +43,18 @@ const validateQuizDocument = (quizDocument: QuizDocument) => {
     }
 }
 
-const injectCSS = (quizDocument: QuizDocument): QuizDocument => {
-    quizDocument.quizzes.forEach(quiz => {
-        let newContent = quizDocument.body.content;
-        if (quiz.answers.length > 1) {
-            newContent = newContent.replaceAll(`${quiz.question}__INPUT_TYPE__`, 'checkbox');
-            newContent = newContent.replaceAll(`${quiz.question}__INPUT_CLASS__`, 'checkbox checkbox-primary');
-        } else {
-            newContent = newContent.replaceAll(`${quiz.question}__INPUT_TYPE__`, 'radio');
-            newContent = newContent.replaceAll(`${quiz.question}__INPUT_CLASS__`, 'radio radio-primary');
-        }
-        quizDocument.body.content = newContent;
-    });
+const quizInputStyle = (quiz: Quiz) => {
+    quiz.content = quiz.content.map(content => {
+        if (content.includes('<input')) {
+            if (quiz.answers.length > 1) {
+                return content.replaceAll('__INPUT_TYPE__', 'checkbox');
+            } else {
 
-    return quizDocument;
+                return content.replaceAll('__INPUT_TYPE__', 'radio');
+            }
+        }
+        return content;
+    })
 }
 
 export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
@@ -69,6 +64,10 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
 
     marked.use({
         renderer: {
+            list: (body: string) => {
+                quiz?.content.push(`<ul>${body}</ul>`);
+                return `<ul>${body}</ul>`
+            },
             listitem(text: string, task: boolean, checked: boolean) {
                 const sanitizedText = text
                     .replaceAll('<input checked="" disabled="" type="checkbox"> ', '')
@@ -80,7 +79,8 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
                         quiz?.answers.push(sanitizedText);
                     }
                 }
-                return renderListItem(sanitizedText, checked, quiz?.question ?? '');
+                const renderedList = renderListItem(sanitizedText);
+                return renderedList;
             },
             heading: (text: string, level: number) => {
                 if (level === 2) {
@@ -88,25 +88,42 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
                         question: text,
                         options: [],
                         answers: [],
+                        content: []
                     }
                     quizzes.push(quiz);
                 }
-                return `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
+                const headingText = `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
+                quiz?.content.push(headingText);
+                return headingText;
+            },
+            paragraph: (text: string) => {
+                quiz?.content.push(`<p>${text}</p>`);
+                return `<p>${text}</p>`
+            },
+            code: (text: string, info: string) => {
+                quiz?.content.push(`<pre><code class="inline-code" language="${info}">${text}</code></pre>`);
+                return `<code class="inline-code" language="${info}">${text}</code>`
+            },
+            table: (head: string, body: string) => {
+                quiz?.content.push(`<table>${head}${body}</table>`);
+                return body;
+            },
+            html: (html: string) => {
+                quiz?.content.push(html);
+                return html;
             }
         }
     })
 
-    const content = await marked.parse(frontMatter.content, { gfm: true, breaks: true })
+    await marked.parse(frontMatter.content, { gfm: true, breaks: true })
     const baseDocument = {
         quizzes,
-        body: {
-            content,
-            metadata: frontMatter.data as { topic: string, difficulty: 'easy' | 'medium' | 'hard' },
-        }
+        metadata: frontMatter.data as { topic: string, difficulty: 'easy' | 'medium' | 'hard' },
     }
 
     validateQuizDocument(baseDocument);
-    return injectCSS(baseDocument);
+    baseDocument.quizzes.forEach(quizInputStyle);
+    return baseDocument
 }
 
 export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
@@ -130,7 +147,13 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
             continue;
         }
 
+        const fileNameAsTopic = file.replace('.md', '');
         const quiz = await documentToQuiz(fs.readFileSync(filePath, 'utf-8'));
+        quiz.quizzes.forEach(quiz => {
+            if (!quiz.topic) {
+                quiz.topic = fileNameAsTopic;
+            }
+        })
         quizzes.push(quiz);
     }
 

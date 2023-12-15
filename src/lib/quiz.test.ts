@@ -23,37 +23,38 @@ describe('Quiz', () => {
         });
 
         it('create the body', async () => {
-            expect(result.body.content).toMatchInlineSnapshot(`
-              "<h1 class=\\"text-1xl font-bold\\">JavaScript</h1><h2 class=\\"text-2xl font-bold\\">Question 1</h2><p>A sample question</p>
-              <ul>
-
+            expect(result.quizzes[0].content).toMatchInlineSnapshot(`
+              [
+                "<h2 class=\\"text-2xl font-bold\\">Question 1</h2>",
+                "<p>A sample question</p>",
+                "<ul>
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"wrongAnswer\\" type=\\"radio\\" value=\\"Option 1\\" class=\\"radio radio-primary\\" />
+                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 1\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 1</span>
                           </label>
                       </li>
                   
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 2\\" class=\\"radio radio-primary\\" />
+                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 2\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 2</span>
                           </label>
                       </li>
                   
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"wrongAnswer\\" type=\\"radio\\" value=\\"Option 3\\" class=\\"radio radio-primary\\" />
+                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 3\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 3</span>
                           </label>
                       </li>
-                  </ul>
-              "
+                  </ul>",
+              ]
             `);
         });
 
         it('create the frontmatter', async () => {
-            expect(result.body.metadata).toEqual({ topic: 'JavaScript', difficulty: 'easy' });
+            expect(result.metadata).toEqual({ topic: 'JavaScript', difficulty: 'easy' });
         });
     });
 
@@ -68,39 +69,40 @@ describe('Quiz', () => {
         });
 
         it('create the body', async () => {
-            expect(result.body.content).toMatchInlineSnapshot(`
-              "<h1 class=\\"text-1xl font-bold\\">JavaScript</h1><h2 class=\\"text-2xl font-bold\\">Question 1</h2><p>A sample question</p>
-              <ul>
-
+            expect(result.quizzes[0].content).toMatchInlineSnapshot(`
+              [
+                "<h2 class=\\"text-2xl font-bold\\">Question 1</h2>",
+                "<p>A sample question</p>",
+                "<ul>
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"wrongAnswer\\" type=\\"checkbox\\" value=\\"Option 1\\" class=\\"checkbox checkbox-primary\\" />
+                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 1\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 1</span>
                           </label>
                       </li>
                   
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 2\\" class=\\"checkbox checkbox-primary\\" />
+                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 2\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 2</span>
                           </label>
                       </li>
                   
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 3\\" class=\\"checkbox checkbox-primary\\" />
+                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 3\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 3</span>
                           </label>
                       </li>
                   
                       <li>
                           <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"wrongAnswer\\" type=\\"checkbox\\" value=\\"Option 4\\" class=\\"checkbox checkbox-primary\\" />
+                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 4\\" class=\\"__INPUT_CLASS__\\" />
                               <span class=\\"label-text text-left\\">Option 4</span>
                           </label>
                       </li>
-                  </ul>
-              "
+                  </ul>",
+              ]
             `);
         });
 
