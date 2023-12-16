@@ -18,5 +18,5 @@
 {/if}
 
 {#if quizAmount}
-    <Quiz total={quizAmount} quizzes={data.quizzes} />
+    <Quiz total={quizAmount} quizzes={data.quizzes ?? []} />
 {/if}
