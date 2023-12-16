@@ -111,6 +111,9 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
             html: (html: string) => {
                 quiz?.content.push(html);
                 return html;
+            },
+            codespan: (code: string) => {
+                return `<span class="text-primary">${code}</span>`
             }
         }
     })
