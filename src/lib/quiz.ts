@@ -163,23 +163,27 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
     return quizzes;
 }
 
-export const loadCategories = async (folder: string): Promise<string[]> => {
+type QuizCategory = {
+    name: string;
+    description?: string;
+}
+
+export const loadCategories = async (folder: string): Promise<QuizCategory[]> => {
     const files = fs.readdirSync(folder);
-    const categories: string[] = [];
+    const categories: QuizCategory[] = [];
 
     for (const file of files) {
         const filePath = path.resolve(path.join(folder, file));
 
         if (fs.statSync(filePath).isDirectory()) {
-            const subCategories = await loadCategories(filePath);
-            categories.push(...subCategories);
+            const metaFile = path.join(filePath, '_meta.json');
+            if (fs.existsSync(metaFile)) {
+                const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'));
+                categories.push(Object.assign({name:file}, meta));
+            } else {
+                categories.push({ name: file });
+            }
             continue;
-        }
-
-        const frontMatter = matter(fs.readFileSync(filePath, 'utf-8'), {});
-        const category = frontMatter.data.category as string;
-        if (category) {
-            categories.push(category);
         }
     }
 

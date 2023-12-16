@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<script>
+    export let data;
+</script>
+
+<h1>Prep</h1>
+{#each data.categories as category}
+<div>
+    <h2>
+       <a href={`/${category.name}`}>{category.name}</a>
+    </h2>
+    <p>{category.description}</p>
+</div>
+{/each}
