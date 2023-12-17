@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"gray-matter": "^4.0.3",
+		"highlight.js": "^11.9.0",
 		"marked": "^11.1.0"
 	}
 }

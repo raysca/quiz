@@ -11,7 +11,7 @@ describe('Quiz', () => {
         });
 
         it('create the question', async () => {
-            expect(result.quizzes[0].question).toEqual('Question 1');
+            expect(result.quizzes[0].title).toEqual('Question 1');
         });
 
         it('create the options', async () => {
@@ -23,32 +23,9 @@ describe('Quiz', () => {
         });
 
         it('create the body', async () => {
-            expect(result.quizzes[0].content).toMatchInlineSnapshot(`
+            expect(result.quizzes[0].body).toMatchInlineSnapshot(`
               [
-                "<h2 class=\\"text-2xl font-bold\\">Question 1</h2>",
                 "<p>A sample question</p>",
-                "<ul>
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 1\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 1</span>
-                          </label>
-                      </li>
-                  
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 2\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 2</span>
-                          </label>
-                      </li>
-                  
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"radio\\" value=\\"Option 3\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 3</span>
-                          </label>
-                      </li>
-                  </ul>",
               ]
             `);
         });
@@ -56,6 +33,21 @@ describe('Quiz', () => {
         it('create the frontmatter', async () => {
             expect(result.metadata).toEqual({ topic: 'JavaScript', difficulty: 'easy' });
         });
+
+        it('create the explanation', async () => {
+            expect(result.quizzes[0].comment).toMatchInlineSnapshot(`
+              [
+                "<p role=\\"comment\\">
+              This is the explanation
+              </p>
+              ",
+              ]
+            `);
+        })
+
+        it('creates the options', () => { 
+            expect(result.quizzes[0].options).toEqual(['Option 1', 'Option 2', 'Option 3']);
+        })
     });
 
     describe('Multi option', () => {
@@ -69,48 +61,17 @@ describe('Quiz', () => {
         });
 
         it('create the body', async () => {
-            expect(result.quizzes[0].content).toMatchInlineSnapshot(`
+            expect(result.quizzes[0].body).toMatchInlineSnapshot(`
               [
-                "<h2 class=\\"text-2xl font-bold\\">Question 1</h2>",
                 "<p>A sample question</p>",
-                "<ul>
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 1\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 1</span>
-                          </label>
-                      </li>
-                  
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 2\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 2</span>
-                          </label>
-                      </li>
-                  
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 3\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 3</span>
-                          </label>
-                      </li>
-                  
-                      <li>
-                          <label class=\\"label cursor-pointer justify-start space-x-4\\">
-                              <input name=\\"answer\\" type=\\"checkbox\\" value=\\"Option 4\\" class=\\"__INPUT_CLASS__\\" />
-                              <span class=\\"label-text text-left\\">Option 4</span>
-                          </label>
-                      </li>
-                  </ul>",
               ]
             `);
         });
-
     });
 
     describe('No option', () => {
         it('create the question', async () => {
-            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Some quizzes has no answers, see the README.md for how to define a quiz document."');
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Some quizzes has no answers, see the README.md for how to define a quiz document. See Question 1"');
         });
     });
 
@@ -154,7 +115,7 @@ describe('Quiz', () => {
         });
 
         it('creates multiple quizzes', async () => {
-            const titles = result.quizzes.map(quiz => quiz.question);
+            const titles = result.quizzes.map(quiz => quiz.title);
             expect(titles).toEqual(['Question 1', 'Question 2', 'Question 3']);
         });
 
