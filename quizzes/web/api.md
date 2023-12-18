@@ -1,3 +1,7 @@
+---
+topic: Web API
+description: These are questions include Web API methods and concepts. e.g localStorage, sessionStorage, and cookies e.t.c
+---
 
 # Web API
 

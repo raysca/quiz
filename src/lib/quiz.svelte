@@ -44,50 +44,6 @@
 	$: inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 </script>
 
-<style>
-    .quiz {
-        margin: 0 auto;
-        max-width: auto;
-    }
-
-    .quiz ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .quiz ul li {
-        margin-bottom: 0.5rem;
-    }
-
-    .quiz ul li label {
-        position: relative;
-        cursor: pointer;
-        display: block;
-    }
-
-    .quiz ul li label:hover {
-        background-color: #eee;
-    }
-
-    /* Change label background if input is checked */
-    .quiz ul li label input {
-        position: absolute;
-        left: 10px;
-        top: 12px;
-    }
-
-    .quiz ul li label input + span {
-        border: 2px solid #000;
-        padding: 10px 30px;
-        display: block;
-    }
-
-    .quiz ul li label input:checked + span {
-        font-weight: bold;
-        background-color: #eee;
-    }
-
-</style>
 
 {#if completed}
 	<h1>Quiz completed ({result}/{selectedQuizzes.length})</h1>
@@ -111,24 +67,30 @@
 {/if}
 
 {#if !completed}
-	<span>{currentQuizIndex + 1}/{selectedQuizzes.length}</span>
-	<div class="quiz">
-		<h2>{@html currentQuiz.title}</h2>
-		<form on:submit={onChoiceSubmitted}>
+	<div class="w-full flex space-x-2 align-middle items-center mt-4 mb-4">
+		<div>
+			<span>{currentQuizIndex + 1}</span>/<span>{selectedQuizzes.length}</span>
+		</div>
+		<progress class="progress progress-accent" value={currentQuizIndex+1} max={selectedQuizzes.length}></progress>
+	</div>
+
+	<div class="quiz grid space-y-8">
+		<h2 class="text-3xl font-semibold">{@html currentQuiz.title}</h2>
+		<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
 			{#each currentQuiz.body as content}
 				{@html content}
 			{/each}
-			<ul>
+			<ul class="flex flex-col space-y-4">
 				{#each currentQuiz.options as option, index (option)}
 					<li>
-						<label for={option}>
-							<input id={option} type={inputType} name="answer" value={option} checked={false} />
+						<label for={option} class="label cursor-pointer justify-start space-x-4 border px-4">
+							<input id={option} type={inputType} name="answer" class={`${inputType} ${inputType}-accent`} value={option} checked={false} />
 							<span>{@html option}</span>
 						</label>
 					</li>
 				{/each}
 			</ul>
-			<input type="submit" value="Next" />
+			<input type="submit" value="Next" class="btn btn-primary btn-wide" />
 		</form>
 	</div>
 {/if}

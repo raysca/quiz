@@ -1,4 +1,9 @@
-# Ajax
+---
+topic: Ajax, Fetch API, and Service Workers
+description: These questions includes Asynchronous JavaScript and XML, Fetch API, and Service Workers.
+---
+
+# AJAX, Fetch API, and Service Workers
 
 ## In the code below, what is the return value of calling the  `fetch` function?
 

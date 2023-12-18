@@ -14,9 +14,8 @@ export interface Quiz {
 
 export interface QuizDocument {
     quizzes: Quiz[];
-    metadata: {
-        difficulty: 'easy' | 'medium' | 'hard';
-    }
+    topic?: string
+    description?: string;
 }
 
 const validateQuizDocument = (quizDocument: QuizDocument) => {
@@ -85,7 +84,7 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
                 return body;
             },
             html: (html: string) => {
-                if(html.indexOf('role="comment"') > -1) {
+                if (html.indexOf('role="comment"') > -1) {
                     quiz?.comment.push(html);
                 } else {
                     quiz?.body.push(html);
@@ -93,7 +92,7 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
                 return html;
             },
             codespan: (code: string) => {
-                return `<span class="text-primary">${code}</span>`
+                return `<span class="text-accent">${code}</span>`
             }
         }
     })
@@ -101,7 +100,7 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
     await marked.parse(frontMatter.content, { gfm: true, breaks: true })
     const baseDocument = {
         quizzes,
-        metadata: frontMatter.data as { topic: string, difficulty: 'easy' | 'medium' | 'hard' },
+        ...frontMatter.data,
     }
 
     validateQuizDocument(baseDocument);
@@ -129,13 +128,7 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
             continue;
         }
 
-        const fileNameAsTopic = file.replace('.md', '');
         const quiz = await documentToQuiz(fs.readFileSync(filePath, 'utf-8'));
-        quiz.quizzes.forEach(quiz => {
-            if (!quiz.topic) {
-                quiz.topic = fileNameAsTopic;
-            }
-        })
         quizzes.push(quiz);
     }
 
@@ -143,8 +136,9 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
 }
 
 type QuizCategory = {
-    name: string;
+    title: string;
     description?: string;
+    quizzes: QuizDocument[];
 }
 
 export const loadCategories = async (folder: string): Promise<QuizCategory[]> => {
@@ -155,10 +149,10 @@ export const loadCategories = async (folder: string): Promise<QuizCategory[]> =>
         const filePath = path.resolve(path.join(folder, file));
 
         if (fs.statSync(filePath).isDirectory()) {
-            const metaFile = path.join(filePath, '_meta.json');
+            const metaFile = path.join(filePath, '_meta.md');
             if (fs.existsSync(metaFile)) {
-                const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'));
-                categories.push(Object.assign({name:file}, meta));
+                const frontMatter = matter(fs.readFileSync(metaFile, 'utf-8'));
+                categories.push(Object.assign({ name: file }, frontMatter.data));
             } else {
                 categories.push({ name: file });
             }
@@ -167,6 +161,22 @@ export const loadCategories = async (folder: string): Promise<QuizCategory[]> =>
     }
 
     return categories;
+}
+
+export const loadCategory = async (folder: string): Promise<QuizCategory> => {
+    const category: QuizCategory = {
+        title: 'Category',
+        description: '',
+        quizzes: []
+    }
+    const metaFile = path.join(folder, '_meta.md');
+    if (fs.existsSync(metaFile)) {
+        const frontMatter = matter(fs.readFileSync(metaFile, 'utf-8'));
+        Object.assign(category, frontMatter.data);
+    }
+
+    category.quizzes = await loadAllQuiz(folder);
+    return category;
 }
 
 export const checkAnswer = (quiz: Quiz, answers: string[]): boolean => {

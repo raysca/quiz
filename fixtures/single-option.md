@@ -1,6 +1,7 @@
 ---
 difficulty: easy
 topic: JavaScript
+description: A sample question
 ---
 
 # JavaScript

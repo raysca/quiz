@@ -1,10 +1,10 @@
-import { loadAllQuiz } from "$lib/quiz"
-import { error } from "@sveltejs/kit"
+import { loadCategory } from "$lib/quiz"
 
 export const load = async ({ params }) => {
-    const docs = await loadAllQuiz(`quizzes/${params.quiz}`)
-    const quizzes = docs.map(doc => doc.quizzes).flat()
+    const category = await loadCategory(`quizzes/${params.quiz}`)
+    const topics = category.quizzes.map(quiz => quiz.topic)
     return {
-        quizzes
+        topics,
+        category,
     }
 }

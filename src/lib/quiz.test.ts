@@ -31,7 +31,7 @@ describe('Quiz', () => {
         });
 
         it('create the frontmatter', async () => {
-            expect(result.metadata).toEqual({ topic: 'JavaScript', difficulty: 'easy' });
+            expect(result.topic).toEqual('JavaScript');
         });
 
         it('create the explanation', async () => {

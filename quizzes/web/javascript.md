@@ -1,3 +1,7 @@
+---
+topic: JavaScript
+description: These questions include JavaScript concepts and features. e.g async/await, closures, and prototype chain e.t.c
+---
 
 # JavaScript
 
@@ -50,7 +54,7 @@
 - [x] `var` is function scoped. `let` is block scoped.
 - [ ] `var` can be reassigned. `let` can not be reassigned.
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 `var` is function scoped. `let` is block scoped. see [var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) and [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for more information.
@@ -73,7 +77,7 @@ function bar() {
 }
 ```
 </p>
-</details>
+</explanation>
 
 
 ## What is the value of `x` after the following code is executed?
@@ -84,9 +88,7 @@ x++;
 ```
 
 - [x] 1
-
 - [ ] 0
-
 - [ ] 2
 
 ## What is a closure in JavaScript, and what is it used for?
@@ -97,7 +99,7 @@ x++;
 - [ ] A closure is a function that has access to the variables in the inner function.
 
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 A closure is a function that has access to the variables in the outer function. see [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) for more information.
@@ -112,7 +114,7 @@ function outer() {
 }
 ```
 </p>
-</details>
+</explanation>
 
 
 ## What is the difference between a function declaration and a function expression?
@@ -122,7 +124,7 @@ function outer() {
 - [x] A function declaration is a function that is hoisted. A function expression is a function that is not hoisted.
 - [ ] A function declaration is a function that is not hoisted. A function expression is a function that is hoisted.
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 A function declaration is a function that is hoisted. A function expression is a function that is not hoisted. see [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) for more information.
@@ -139,7 +141,7 @@ const bar = function() {
 };
 ```
 </p>
-</details>
+</explanation>
 
 
 ## What is event bubbling?
@@ -169,26 +171,23 @@ const bar = function() {
 - [ ] `event.target` is the element that triggered the event. `event.currentTarget` is the element that the event listener is attached to.
 - [ ] `event.target` is the element that the event listener is attached to. `event.currentTarget` is the element that triggered the event.
 - [x] `event.target` is the element that triggered the event. `event.currentTarget` is the element that the event listener is attached to.
-- [ ] `event.target` is the element that the event listener is attached to. `event.currentTarget` is the element that triggered the event.
 
 ## What is the difference between `event.preventDefault()` and `event.stopPropagation()`?
 
 - [ ] `event.preventDefault()` prevents the default behavior of the event. `event.stopPropagation()` stops the propagation of the event.
 - [ ] `event.preventDefault()` stops the propagation of the event. `event.stopPropagation()` prevents the default behavior of the event.
 - [x] `event.preventDefault()` prevents the default behavior of the event. `event.stopPropagation()` stops the propagation of the event.
-- [ ] `event.preventDefault()` stops the propagation of the event. `event.stopPropagation()` prevents the default behavior of the event.
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 `event.preventDefault()` prevents the default behavior of the event. `event.stopPropagation()` stops the propagation of the event. see [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) and [Event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) for more information.
 </p>
-</details>
+</explanation>
 
 ## What is the difference between `event.preventDefault()` and `return false`?
 
 - [ ] `event.preventDefault()` prevents the default behavior of the event. `return false` stops the propagation of the event.
-- [ ] `event.preventDefault()` stops the propagation of the event. `return false` prevents the default behavior of the event.
 - [x] `event.preventDefault()` prevents the default behavior of the event. `return false` stops the propagation of the event.
 - [ ] `event.preventDefault()` stops the propagation of the event. `return false` prevents the default behavior of the event.
 
@@ -199,13 +198,11 @@ const bar = function() {
 </p>
 </details>
 
-
 ## What is the difference between `event.preventDefault()` and `event.stopImmediatePropagation()`?
 
 - [ ] `event.preventDefault()` prevents the default behavior of the event. `event.stopImmediatePropagation()` stops the propagation of the event.
 - [ ] `event.preventDefault()` stops the propagation of the event. `event.stopImmediatePropagation()` prevents the default behavior of the event.
-- [x] `event.preventDefault()` prevents the default behavior of the event. `event.stopImmediatePropagation()` stops the propagation of the event.
-- [ ] `event.preventDefault()` stops the propagation of the event. `event.stopImmediatePropagation()` prevents the default behavior of the event.
+- [x] `event.preventDefault()` prevents the default behavior of the event. `event.
 
 <details>
 <summary>Explanation</summary>
@@ -216,7 +213,6 @@ const bar = function() {
 
 ## What is the purpose of the `this` keyword?
 
-- [ ] To refer to the current object.
 - [ ] To refer to the parent object.
 - [x] To refer to the current object.
 - [ ] To refer to the child object.
@@ -224,16 +220,13 @@ const bar = function() {
 ## What is the purpose of the `new` keyword?
 
 - [ ] To create a new object.
-- [ ] To create a new object.
 - [x] To create a new instance of a constructor function.
 - [ ] To create a new instance of a class.
 
 ## What is the prototype chain?
 
-- [ ] The prototype chain is the chain of objects that are linked together by their prototype objects.
-- [ ] The prototype chain is the chain of objects that are linked together by their prototype objects.
 - [x] The prototype chain is the chain of objects that are linked together by their prototype objects.
-- [ ] The prototype chain is the chain of objects that are linked together by their prototype objects.
+- [ ] The prototype chain is how copy properties from one object to children.
 
 <details>
 <summary>Explanation</summary>
@@ -244,22 +237,18 @@ The prototype chain is the chain of objects that are linked together by their pr
 
 ## What is the difference between `__proto__` and `prototype`?
 
-- [ ] `__proto__` is a property of an object. `prototype` is a property of a function.
 - [x] `__proto__` is a property of an object. `prototype` is a property of a function.
 - [ ] `__proto__` is a property of a function. `prototype` is a property of an object.
-- [ ] `__proto__` is a property of a function. `prototype` is a property of an object.
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 `__proto__` is a property of an object. `prototype` is a property of a function. see [Object.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) and [Function.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) for more information.
 </p>
-</details>
+</explanation>
 
 ## What is the difference between `__proto__` and `Object.getPrototypeOf()`?
 
-- [ ] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
-- [ ] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
 - [x] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
 - [ ] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
 
@@ -292,7 +281,7 @@ function foo() {
 - [ ] `finally` does not exist in JavaScript.
 
 
-<details>
+<explanation>
 <summary>Explanation</summary>
 <p>
 ```javascript
@@ -305,4 +294,4 @@ try {
 }
 ```
 </p>
-</details>
+</explanation>
