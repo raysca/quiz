@@ -45,7 +45,7 @@
 	</ul>
 
 	<div class="flex mt-4 mb-4 space-x-4">
-		<select class="select select-bordered select-primary" bind:value={quizAmount}>
+		<select class="select select-bordered" bind:value={quizAmount}>
 			<option value={10}>10 Questions</option>
 			<option value={15}>15 Questions</option>
 			<option value={20}>20 Questions</option>

@@ -18,6 +18,13 @@ export interface QuizDocument {
     description?: string;
 }
 
+export interface Answered {
+    quiz: Quiz;
+    answers: string[];
+    correct: boolean;
+    choices: string[];
+}
+
 const validateQuizDocument = (quizDocument: QuizDocument) => {
     if (quizDocument.quizzes.length === 0) {
         throw new Error('No Quiz found, see the README.md for how to define a quiz document.');
