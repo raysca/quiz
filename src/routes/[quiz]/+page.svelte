@@ -2,6 +2,7 @@
 	import Quiz from '$lib/quiz.svelte';
 	export let data;
 
+	const questionOptions = [10, 15, 20];
 	let quizAmount: number = 10;
 	let started = false;
 
@@ -20,11 +21,8 @@
 		<span>|</span>
 		<span>{totalQuizzes.length} Questions</span>
 	</div>
-
 	<p class="text-lg mt-4 mb-4">{description}</p>
-
 	<h2 class="text-xl mt-4 mb-4 font-semibold">Covered Topics</h2>
-
 	<ul>
 		{#each topics as topic}
 			<li>
@@ -43,15 +41,14 @@
 			</li>
 		{/each}
 	</ul>
-
 	<div class="flex mt-4 mb-4 space-x-4">
 		<select class="select select-bordered" bind:value={quizAmount}>
-			<option value={10}>10 Questions</option>
-			<option value={15}>15 Questions</option>
-			<option value={20}>20 Questions</option>
+			{#each questionOptions as option}
+				<option value={option}>{option} Questions</option>
+			{/each}
 		</select>
-		<button type="button" class="btn btn-primary btn-wide" on:click={() => (started = true)}
-			>Start Test</button
+		<button type="button" class="btn btn-primary" on:click={() => (started = true)}
+			>Begin</button
 		>
 	</div>
 {/if}
