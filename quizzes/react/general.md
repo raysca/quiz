@@ -1,3 +1,6 @@
+---
+topic: General React
+---
 # General React Questions
 
 ## React Components
@@ -233,4 +236,140 @@ What is prop drilling in React?
             );
         };
     ```
+</comment>
+
+
+### React Rendering
+
+In the code below how would you describe the `Profile` component
+
+```jsx
+  import { memo, useState } from 'react';
+
+  const Profile = memo(function Profile({ name }) {
+    return <>
+        <p>Name:{name}</p>
+    </>;
+  });
+
+  export default function RegForm() {
+    const [name, setName] = useState('John Doe');
+    return (
+      <>
+        <label>
+          Name: <input value={name} onChange={e => setName(e.target.value)} />
+        </label>
+        <EmployeeProfile name={name}/>
+      </>
+    );
+  }
+```
+
+- [ ] A Higher Order Component
+- [x] A Pure Component
+- [ ] A normal component
+- [ ] A reactified component
+
+<comment>
+    <p>
+        The `Profile` component is a pure component. It will only re-render when the `name` prop changes.
+    </p>
+</comment>
+
+## React Rendering
+
+What statment best describes the react virtual DOM?
+
+- [ ] The virtual DOM is a copy of the DOM that is stored in the browser.
+- [ ] The virtual DOM is for looping over an array of data in react. 
+- [x] The virtual DOM is a copy of the DOM that is stored in memory.
+- [ ] The virtual DOM is for rendring child components.
+
+<comment>
+    <p>
+        The virtual DOM is a copy of the DOM that is stored in memory. React uses the virtual DOM to determine what changes need to be made to the DOM. see https://reactjs.org/docs/faq-internals.html
+    </p>
+</comment>
+
+
+## React State
+
+What is the purpose of the second argument in the `useState` hook?
+
+- [ ] The second argument is used to set the initial state of the component.
+- [ ] The second argument is used to update the state of the component.
+- [ ] The second argument will run after the component is mounted.
+- [x] The second argument will run after the state is updated.
+
+<comment>
+    <p>
+        The second argument is used to set the initial state of the component. The second argument is only used when the component is first mounted.
+    </p>
+
+    ```jsx
+        const [count, setCount] = useState(0, () => console.log('State updated'));
+    ```
+</comment>
+
+## React Events
+
+What are synthetic events in React?
+
+- [ ] Synthetic events are events that are created by the browser.
+- [x] Synthetic events are events that are created by React.
+- [ ] Synthetic events are events that are created by the developer.
+- [ ] Synthetic events are events with a `SyntheticEvent` type.
+
+## React Events
+
+What options are true about this react component?
+
+```jsx
+import React, { useState } from 'react';
+
+const ExampleComponent = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <p>Input Value: {inputValue}</p>
+    </div>
+  );
+};
+```
+
+- [x] A functional component.
+- [ ] An uncontrolled component.
+- [x] A controlled component.
+- [ ] A class component.
+
+
+## React Rendering
+
+How would you describle the process of reconciliation in React?
+
+- [x] Reconciliation is the process of updating the DOM.
+- [ ] Reconciliation is the process of updating the virtual DOM.
+- [ ] Reconciliation is the process of updating the state of a component.
+- [ ] Reconciliation is the process of updating the props of a component.
+
+
+## React Rendering
+
+What problem does `React.context` solve?
+
+- [x] `React.context` solves the problem of prop drilling.
+- [ ] `React.context` solves the problem of state management.
+- [ ] `React.context` solves the problem of component rendering.
+- [ ] `React.context` solves the problem of component styling.
+
+<comment>
+    <p>
+        `React.context` solves the problem of prop drilling. Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
+    </p>
 </comment>
