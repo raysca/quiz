@@ -30,6 +30,7 @@ A session cookie is stored on the web browser until the browser is closed. A per
 - [x] Data stored in a cookie is sent to the server with every request. Data stored in a local storage is not sent to the server.
 - [ ] Local storage is used to store data on the web browser. Cookies are used to store data on the web server.
 - [ ] Data stored in a cookie is sent to the server with every request. Data stored in a local storage is sent to the server only when the user logs in.
+- [ ] None of the above.
 
 
 <details>
