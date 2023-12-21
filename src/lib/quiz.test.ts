@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import { describe, it, expect, beforeAll } from 'vitest';
-import { documentToQuiz, type QuizDocument, checkAnswer } from './quiz';
+import { documentToQuiz, type QuizDocument, validateQuizAnswer } from './quiz';
 
 describe('Quiz', () => {
 
     describe('Single option', () => {
         let result: QuizDocument;
         beforeAll(async () => {
-            result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
+            result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'), 'test.md');
         });
 
         it('create the question', async () => {
@@ -53,7 +53,7 @@ describe('Quiz', () => {
     describe('Multi option', () => {
         let result: QuizDocument;
         beforeAll(async () => {
-            result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
+            result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'), 'test.md');
         });
 
         it('create the answers', async () => {
@@ -71,38 +71,38 @@ describe('Quiz', () => {
 
     describe('No option', () => {
         it('create the question', async () => {
-            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"Some quizzes has no answers, see the README.md for how to define a quiz document. See Question 1"');
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-option.md', 'utf-8'), 'test.md')).rejects.toThrowErrorMatchingInlineSnapshot('"Some quizzes has no answers in test.md, see the README.md for how to define a quiz document. See Question 1"');
         });
     });
 
     describe('No question', () => {
         it('create the question', async () => {
-            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-question.md', 'utf-8'))).rejects.toThrowErrorMatchingInlineSnapshot('"No Quiz found, see the README.md for how to define a quiz document."');
+            return expect(() => documentToQuiz(fs.readFileSync('./fixtures/no-question.md', 'utf-8'), 'test.md')).rejects.toThrowErrorMatchingInlineSnapshot('"No Quiz found in test.md, see the README.md for how to define a quiz document."');
         });
     });
 
     describe('Check Quiz', () => {
         describe('Single option', () => {
             it('correct single option answer', async () => {
-                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
-                expect(checkAnswer(result.quizzes[0], ['Option 2'])).toEqual(true);
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'), 'test.md');
+                expect(validateQuizAnswer(result.quizzes[0], ['Option 2'])).toEqual(true);
             });
     
             it('incorrect single option answer', async () => {
-                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'));
-                expect(checkAnswer(result.quizzes[0], ['Option 1'])).toEqual(false);
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/single-option.md', 'utf-8'), 'test.md');
+                expect(validateQuizAnswer(result.quizzes[0], ['Option 1'])).toEqual(false);
             });
         })
 
         describe('Multi option', () => {
             it('correct single option answer', async () => {
-                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
-                expect(checkAnswer(result.quizzes[0], ['Option 2', 'Option 3'])).toEqual(true);
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'), 'test.md');
+                expect(validateQuizAnswer(result.quizzes[0], ['Option 2', 'Option 3'])).toEqual(true);
             });
     
             it('incorrect single option answer', async () => {
-                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'));
-                expect(checkAnswer(result.quizzes[0], ['Option 2', 'Option 4'])).toEqual(false);
+                const result = await documentToQuiz(fs.readFileSync('./fixtures/multi-option.md', 'utf-8'), 'test.md');
+                expect(validateQuizAnswer(result.quizzes[0], ['Option 2', 'Option 4'])).toEqual(false);
             });
         })
        

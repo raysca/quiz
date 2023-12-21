@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
-	import { checkAnswer, type Quiz } from './quiz';
+	import { validateQuizAnswer, type Quiz } from './quiz';
 	import Result from './result.svelte';
 	import QuizContent from '$lib/quiz-content.svelte';
 
@@ -26,7 +26,7 @@
 
 		const form = new FormData(event.target as HTMLFormElement);
 		const choices = Array.from(form.entries()).map((entry) => entry[1] as string);
-		const correct = checkAnswer(currentQuiz, choices);
+		const correct = validateQuizAnswer(currentQuiz, choices);
 		answers.push({
 			quiz: currentQuiz,
 			choices,

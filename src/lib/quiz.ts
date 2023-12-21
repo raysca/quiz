@@ -25,23 +25,33 @@ export interface Answered {
     choices: string[];
 }
 
-const validateQuizDocument = (quizDocument: QuizDocument) => {
+export interface QuizModuleMetaData {
+    title: string;
+    description?: string[];
+    topics?: string[];
+}
+
+export type QuizModule = {
+    quizzes: QuizDocument[];
+} & QuizModuleMetaData
+
+const validateQuizDocument = (quizDocument: QuizDocument, filePath: string) => {
     if (quizDocument.quizzes.length === 0) {
-        throw new Error('No Quiz found, see the README.md for how to define a quiz document.');
+        throw new Error(`No Quiz found in ${filePath}, see the README.md for how to define a quiz document.`);
     }
 
     if (quizDocument.quizzes.some(quiz => quiz.answers.length === 0)) {
         const quizWithoutAnswer = quizDocument.quizzes.find(quiz => quiz.answers.length === 0);
-        throw new Error(`Some quizzes has no answers, see the README.md for how to define a quiz document. See ${quizWithoutAnswer?.title}`);
+        throw new Error(`Some quizzes has no answers in ${filePath}, see the README.md for how to define a quiz document. See ${quizWithoutAnswer?.title}`);
     }
 
     if (quizDocument.quizzes.some(quiz => quiz.options.length === 0)) {
         const quizWithoutOption = quizDocument.quizzes.find(quiz => quiz.options.length === 0);
-        throw new Error(`Some quizzes has no options, see the README.md for how to define a quiz document. ${quizWithoutOption?.title}`);
+        throw new Error(`Some quizzes has no options in ${filePath}, see the README.md for how to define a quiz document. ${quizWithoutOption?.title}`);
     }
 }
 
-export const documentToQuiz = async (markdown: string): Promise<QuizDocument> => {
+export const documentToQuiz = async (markdown: string, filePath: string = ''): Promise<QuizDocument> => {
     const frontMatter = matter(markdown, {});
     const quizzes: Quiz[] = [];
     let quiz: Quiz | undefined = undefined;
@@ -110,7 +120,7 @@ export const documentToQuiz = async (markdown: string): Promise<QuizDocument> =>
         ...frontMatter.data,
     }
 
-    validateQuizDocument(baseDocument);
+    validateQuizDocument(baseDocument, filePath);
     return baseDocument
 }
 
@@ -125,6 +135,10 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
             continue;
         }
 
+        if(file === 'README.md') {
+            continue;
+        }
+
         if (file.startsWith('_')) {
             continue;
         }
@@ -135,58 +149,76 @@ export const loadAllQuiz = async (folder: string): Promise<QuizDocument[]> => {
             continue;
         }
 
-        const quiz = await documentToQuiz(fs.readFileSync(filePath, 'utf-8'));
+        const quiz = await documentToQuiz(fs.readFileSync(filePath, 'utf-8'), filePath);
         quizzes.push(quiz);
     }
 
     return quizzes;
 }
 
-type QuizCategory = {
-    title: string;
-    description?: string;
-    quizzes: QuizDocument[];
+export const loadModuleReadme = async (readmeFile: string): Promise<QuizModuleMetaData> => {
+    const module: QuizModuleMetaData = { description: [], title: 'Module' };
+    if (fs.existsSync(readmeFile)) {
+        marked.use({
+            renderer: {
+                heading: (text: string, level: number) => {
+                    if (level === 1) {
+                        module.title = text;
+                        return '';
+                    }
+                    return text;
+                },
+                paragraph: (text: string) => {
+                    module.description?.push(text);
+                    return text;
+                }
+            }
+        })
+        marked.parse(fs.readFileSync(readmeFile, 'utf-8'));
+        return module;
+    }
+
+    throw new Error(`${readmeFile} found in the module folder`);
 }
 
-export const loadCategories = async (folder: string): Promise<QuizCategory[]> => {
+export const loadQuizModulesMetadata = async (folder: string): Promise<QuizModuleMetaData[]> => {
     const files = fs.readdirSync(folder);
-    const categories: QuizCategory[] = [];
+    const modules: QuizModuleMetaData[] = [];
 
     for (const file of files) {
         const filePath = path.resolve(path.join(folder, file));
 
         if (fs.statSync(filePath).isDirectory()) {
-            const metaFile = path.join(filePath, '_meta.md');
-            if (fs.existsSync(metaFile)) {
-                const frontMatter = matter(fs.readFileSync(metaFile, 'utf-8'));
-                categories.push(Object.assign({ name: file }, frontMatter.data));
-            } else {
-                categories.push({ name: file });
-            }
+            const metaFile = path.join(filePath, 'README.md');
+            const meta = await loadModuleReadme(metaFile);
+            const topics = await loadAllQuiz(filePath);
+            meta.topics = topics.map(q => q.topic ?? 'General').flat();
+            modules.push(meta);
             continue;
         }
     }
-
-    return categories;
+    return modules;
 }
 
-export const loadCategory = async (folder: string): Promise<QuizCategory> => {
-    const category: QuizCategory = {
+export const loadQuizModule = async (folder: string): Promise<QuizModule> => {
+    const category: QuizModule = {
         title: 'Category',
-        description: '',
+        description: [],
         quizzes: []
     }
-    const metaFile = path.join(folder, '_meta.md');
+    const metaFile = path.join(folder, 'README.md');
     if (fs.existsSync(metaFile)) {
-        const frontMatter = matter(fs.readFileSync(metaFile, 'utf-8'));
-        Object.assign(category, frontMatter.data);
+        const meta = await loadModuleReadme(metaFile);
+        category.title = meta.title;
+        category.description = meta.description;
     }
 
     category.quizzes = await loadAllQuiz(folder);
+    category.topics = category.quizzes.map(quiz => quiz.topic ?? 'General').flat()
     return category;
 }
 
-export const checkAnswer = (quiz: Quiz, answers: string[]): boolean => {
+export const validateQuizAnswer = (quiz: Quiz, answers: string[]): boolean => {
     const correctAnswers = quiz.answers.sort();
     const givenAnswers = answers.sort();
     return correctAnswers.every((answer, index) => answer === givenAnswers[index]);

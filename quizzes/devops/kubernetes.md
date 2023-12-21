@@ -40,7 +40,7 @@ These are review questions for the Kubernetes module.
 - [ ] Pods
 - [ ] Nodes
 - [ ] Services
-- [ ] Controllers
+- [x] Controllers
 
 ## What is the recommended way to deploy applications in Kubernetes?
 
@@ -63,17 +63,10 @@ These are review questions for the Kubernetes module.
 - [ ] Providing a stable network identity for pods
 - [ ] None of the above
 
-## What is the difference between a Deployment and a StatefulSet in Kubernetes?
-
-- [ ] Deployments are used for stateful applications, while StatefulSets are used for stateless applications
-- [ ] Deployments provide rolling updates, while StatefulSets provide ordered, stable network identities
-- [ ] Deployments are used for scaling applications, while StatefulSets are used for load balancing
-- [ ] There is no difference, they can be used interchangeably
-
 ## How does Kubernetes handle storage for applications?
 
-- [ ] By automatically provisioning and attaching storage volumes to pods
 - [ ] By using persistent volumes and persistent volume claims
+- [x] By automatically provisioning and attaching storage volumes to pods
 - [ ] By storing data directly in the container file system
 - [ ] By relying on external storage solutions
 

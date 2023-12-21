@@ -9,7 +9,7 @@ topic: Software Testing
 - [ ] Unit Testing
 - [ ] Integration Testing
 - [ ] System Testing
-- [ ] Alpha Testing
+- [x] Alpha Testing
 
 ## What are the benefits of unit testing?
 

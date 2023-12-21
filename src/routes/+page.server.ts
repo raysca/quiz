@@ -1,7 +1,7 @@
-import { loadCategories } from "$lib/quiz"
+import { loadQuizModules } from "$lib/quiz"
 
 export const load = async () => {
-   const categories = await loadCategories('./quizzes')
+   const categories = await loadQuizModules('./quizzes')
    return {
       categories
    }
