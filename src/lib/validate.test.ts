@@ -21,4 +21,8 @@ describe.each(allModules)('Module %s', async (module) => {
     it('has a list of topics', () => {
         expect(moduleData.topics?.length).toBeGreaterThan(0);
     });
+
+    it('has a list of quizzes', () => {
+        expect(moduleData.quizzes.length).toBeGreaterThan(0);
+    });
 });
