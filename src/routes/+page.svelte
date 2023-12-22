@@ -3,18 +3,6 @@
 	const { modules } = data;
 </script>
 
-<svelte:head>
-	<title>PrepMe</title>
-	<meta
-		name="description"
-		content="PrepMe is a multiple choice quiz project that helps to refresh your knowledge before technical interviews."
-	/>
-	<meta
-		name="keywords"
-		content="PrepMe, technical interview, technical multiple choice quiz, technical interview quiz"
-	/>
-</svelte:head>
-
 <div class="hero min-h-1/2 bg-slate-300">
 	<div class="hero-content text-center">
 		<div class="max-w-md">

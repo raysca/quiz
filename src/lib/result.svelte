@@ -17,7 +17,7 @@
 		const correct = answersByTopic[topic].filter((a) => a.correct).length;
 		const percentage = Math.round((correct / total) * 100);
 		const status = percentage > 50 ? 'passed' : 'failed';
-		const progress = percentage > 50 ? 'badge-success' : 'badge-error';
+		const progress = percentage > 50 ? 'text-success' : 'text-error';
 		return Object.assign(acc, {
 			[topic]: {
 				total,
@@ -43,22 +43,14 @@
 						<th>Topic</th>
 						<th>Total</th>
 						<th>Correct</th>
-						<th>Percentage</th>
-						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					{#each Object.keys(answersByTopic) as topic}
 						<tr>
-							<td>{topic}</td>
+							<td class={resultByTopic[topic].progress}>{topic}</td>
 							<td>{resultByTopic[topic].total}</td>
 							<td>{resultByTopic[topic].correct}</td>
-							<td>{resultByTopic[topic].percentage}%</td>
-							<td>
-								<span class={`badge ${resultByTopic[topic].progress}`}
-									>{resultByTopic[topic].status}</span
-								>
-							</td>
 						</tr>
 					{/each}
 				</tbody>

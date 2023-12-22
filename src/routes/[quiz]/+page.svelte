@@ -1,58 +1,24 @@
 <script lang="ts">
-	import Quiz from '$lib/quiz.svelte';
+	import Practice from '$lib/quiz/practice.svelte';
+	import ChooseQuiz from '$lib/quiz/choose.svelte';
 	export let data;
 
-	const questionOptions = [10, 15, 20];
+	const totalQuizzes = data.module.quizzes.map((quizDoc) => quizDoc.quizzes).flat();
+
 	let quizAmount: number = 10;
 	let started = false;
 
-	const {
-		topics,
-		category: { title, description, quizzes }
-	} = data;
-
-	const totalQuizzes = quizzes.map((quizDoc) => quizDoc.quizzes).flat();
+	const onStartQuiz = (event: CustomEvent) => {
+		const { detail } = event;
+		quizAmount = detail.quizAmount;
+		started = true;
+	};
 </script>
 
-<h1 class="text-4xl font-bold mt-4 mb-4">{title}</h1>
 {#if !started}
-	<div class="mt-4 mb-4 flex space-x-4">
-		<span>{topics.length} Topics</span>
-		<span>|</span>
-		<span>{totalQuizzes.length} Questions</span>
-	</div>
-	<p class="text-lg mt-4 mb-4">{description}</p>
-	<h2 class="text-xl mt-4 mb-4 font-semibold">Covered Topics</h2>
-	<ul>
-		{#each topics as topic}
-			<li>
-				<label for={topic} class="cursor-pointer label justify-start space-x-4">
-					<input
-						class="checkbox checkbox-primary"
-						type="checkbox"
-						name="topic"
-						value={topic}
-						id={topic}
-						checked
-						disabled
-					/>
-					<span class="label-text text-lg">{topic}</span>
-				</label>
-			</li>
-		{/each}
-	</ul>
-	<div class="flex mt-4 mb-4 space-x-4">
-		<select class="select select-bordered" bind:value={quizAmount}>
-			{#each questionOptions as option}
-				<option value={option}>{option} Questions</option>
-			{/each}
-		</select>
-		<button type="button" class="btn btn-primary" on:click={() => (started = true)}
-			>Begin</button
-		>
-	</div>
+	<ChooseQuiz quizDoc={data.module} on:start={onStartQuiz} />
 {/if}
 
 {#if started}
-	<Quiz total={quizAmount} quizzes={totalQuizzes} />
+	<Practice total={quizAmount} quizzes={totalQuizzes} />
 {/if}
