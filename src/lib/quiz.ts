@@ -29,6 +29,8 @@ export interface QuizModuleMetaData {
     title: string;
     description?: string[];
     topics?: string[];
+    totalQuizzes?: number;
+    path: string;
 }
 
 export type QuizModule = {
@@ -193,6 +195,8 @@ export const loadQuizModulesMetadata = async (folder: string): Promise<QuizModul
             const meta = await loadModuleReadme(metaFile);
             const topics = await loadAllQuiz(filePath);
             meta.topics = topics.map(q => q.topic ?? 'General').flat();
+            meta.totalQuizzes = topics.reduce((acc, curr) => acc + curr.quizzes.length, 0);
+            meta.path = file;
             modules.push(meta);
             continue;
         }
