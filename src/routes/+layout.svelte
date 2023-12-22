@@ -16,7 +16,7 @@
 </svelte:head>
 
 <div class="navbar bg-neutral text-neutral-content">
-	<button class="btn btn-ghost text-xl">PrepMe</button>
+	<a class="btn btn-ghost text-xl" href="/">PrepMe</a>
 </div>
 
 <div class="mx-auto min-h-screen">

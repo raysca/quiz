@@ -2,23 +2,17 @@
 	import { validateQuizAnswer, type Quiz } from '../quiz';
 	import Result from '../result.svelte';
 	import QuizContent from '$lib/quiz-content.svelte';
+	import { shuffle } from '$lib/shuffle';
 
 	export let total: number;
 	export let quizzes: Quiz[];
 
-	const randomSelectedQuizzes = (amount: number) => {
-		const selectedQuizzes = [];
-		for (let i = 0; i < amount; i++) {
-			const randomIndex = Math.floor(Math.random() * quizzes.length);
-			selectedQuizzes.push(quizzes[randomIndex]);
-		}
-		return selectedQuizzes;
-	};
-
-	let selectedQuizzes = randomSelectedQuizzes(total);
+	const newTotal = Math.min(total, quizzes.length);
+	let selectedQuizzes = shuffle(quizzes).slice(0, newTotal);
 	let currentQuizIndex = 0;
 	let currentQuiz: Quiz = selectedQuizzes[currentQuizIndex];
 	let answers: { quiz: Quiz; choices: string[]; correct: boolean }[] = [];
+	let inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 
 	const onChoiceSubmitted = (event: Event) => {
 		event.preventDefault();
@@ -35,10 +29,10 @@
 		event.preventDefault();
 		currentQuizIndex++;
 		currentQuiz = quizzes[currentQuizIndex];
+		inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 	};
 
 	$: completed = currentQuizIndex === selectedQuizzes.length - 1;
-	let inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 </script>
 
 <div class="w-full md:max-w-lg mx-auto p-8">
@@ -63,7 +57,7 @@
 			<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
 				<QuizContent content={currentQuiz.body} />
 				<ul class="flex flex-col space-y-4">
-					{#each currentQuiz.options as option, index (option)}
+					{#each shuffle(currentQuiz.options) as option, index (option)}
 						<li>
 							<label for={option} class="label cursor-pointer justify-start space-x-4 border px-4">
 								<input
