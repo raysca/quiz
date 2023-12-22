@@ -7,7 +7,6 @@ description: These questions include Web Security concepts. e.g Authentication, 
 
 ## What is the difference between authentication and authorization?
 
-- [ ] Authentication is the process of verifying the identity of a user. Authorization is the process of verifying that a user has access to a resource.
 - [ ] Authentication is the process of verifying that a user has access to a resource. Authorization is the process of verifying the identity of a user.
 - [x] Authentication is the process of verifying the identity of a user. Authorization is the process of verifying that a user has access to a resource.
 - [ ] Authentication is the process of verifying that a user has access to a resource. Authorization is the process of verifying the identity of a user.
@@ -111,8 +110,6 @@ A nonce is a number that is only used once. It is often a random or pseudo-rando
 ## Describe the difference between symmetric and asymmetric encryption.
 
 - [x] Symmetric encryption uses the same key for encryption and decryption. Asymmetric encryption uses different keys for encryption and decryption.
-- [ ] Symmetric encryption uses the same key for encryption and decryption. Asymmetric encryption uses different keys for encryption and decryption.
-- [ ] Symmetric encryption uses different keys for encryption and decryption. Asymmetric encryption uses the same key for encryption and decryption.
 - [ ] Symmetric encryption uses different keys for encryption and decryption. Asymmetric encryption uses the same key for encryption and decryption.
 
 ## Describe the difference between a hash and a cipher.
@@ -152,34 +149,12 @@ A digital signature is a mathematical scheme for verifying the authenticity of d
 ## Describe the difference between a public key and a private key.
 
 - [x] A public key is used for encryption. A private key is used for decryption.
-- [ ] A public key is used for encryption. A private key is used for decryption.
 - [ ] A public key is used for decryption. A private key is used for encryption.
 - [ ] A public key is used for decryption. A private key is used for encryption.
-
 
 <explanantion>
 A public key is used for encryption. A private key is used for decryption. A public key is used for encryption. A private key is used for decryption. see [Public Key Cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) for more information.
 </explanantion>
-
-<!-- ## Describe the difference between a certificate and a certificate authority.
-
-- [ ] A certificate is used to verify the identity of a user. A certificate authority is used to verify the identity of a server.
-- [x] A certificate is used to verify the identity of a server. A certificate authority is used to verify the identity of a server.
-- [ ] A certificate is used to verify the identity of a user. A certificate authority is used to verify the identity of a user.
-
-<explanantion>
-A certificate is used to verify the identity of a server. A certificate authority is used to verify the identity of a server. see [Public Key Certificate](https://en.wikipedia.org/wiki/Public_key_certificate) for more information.
-</explanantion>
-
-## What is an SSL certificate?
-
-- [ ] A certificate is used to verify the identity of a user. A certificate authority is used to verify the identity of a user.
-- [x] A certificate is used to verify the identity of a server. A certificate authority is used to verify the identity of a server.
-- [ ] A certificate is used to verify the identity of a user. A certificate authority is used to verify the identity of a server.
-
-<explanantion>
-A certificate is used to verify the identity of a server. A certificate authority is used to verify the identity of a server. see [Public Key Certificate](https://en.wikipedia.org/wiki/Public_key_certificate) for more information.
-</explanantion> -->
 
 ## What is a self-signed certificate?
 

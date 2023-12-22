@@ -54,8 +54,7 @@ description: These questions include JavaScript concepts and features. e.g async
 - [x] `var` is function scoped. `let` is block scoped.
 - [ ] `var` can be reassigned. `let` can not be reassigned.
 
-<explanation>
-<summary>Explanation</summary>
+<comment>
 <p>
 `var` is function scoped. `let` is block scoped. see [var](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) and [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for more information.
 
@@ -77,8 +76,7 @@ function bar() {
 }
 ```
 </p>
-</explanation>
-
+</comment>
 
 ## What is the value of `x` after the following code is executed?
 
@@ -100,7 +98,6 @@ x++;
 
 
 <explanation>
-<summary>Explanation</summary>
 <p>
 A closure is a function that has access to the variables in the outer function. see [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) for more information.
 
@@ -124,8 +121,7 @@ function outer() {
 - [x] A function declaration is a function that is hoisted. A function expression is a function that is not hoisted.
 - [ ] A function declaration is a function that is not hoisted. A function expression is a function that is hoisted.
 
-<explanation>
-<summary>Explanation</summary>
+<comment>
 <p>
 A function declaration is a function that is hoisted. A function expression is a function that is not hoisted. see [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) for more information.
 
@@ -141,20 +137,15 @@ const bar = function() {
 };
 ```
 </p>
-</explanation>
-
+</comment>
 
 ## What is event bubbling?
 
-- [ ] Event bubbling is the process of capturing an event in the innermost element and then propagating it to the outermost element.
-- [ ] Event bubbling is the process of capturing an event in the outermost element and then propagating it to the innermost element.
 - [x] Event bubbling is the process of capturing an event in the innermost element and then propagating it to the outermost element.
 - [ ] Event bubbling is the process of capturing an event in the outermost element and then propagating it to the innermost element.
 
 ## What is event capturing?
 
-- [ ] Event capturing is the process of capturing an event in the innermost element and then propagating it to the outermost element.
-- [ ] Event capturing is the process of capturing an event in the outermost element and then propagating it to the innermost element.
 - [ ] Event capturing is the process of capturing an event in the innermost element and then propagating it to the outermost element.
 - [x] Event capturing is the process of capturing an event in the outermost element and then propagating it to the innermost element.
 
@@ -162,9 +153,7 @@ const bar = function() {
 ## What is event delegation?
 
 - [ ] Event delegation is the process of capturing an event in the innermost element and then propagating it to the outermost element.
-- [ ] Event delegation is the process of capturing an event in the outermost element and then propagating it to the innermost element.
 - [x] Event delegation is the process of capturing an event in the outermost element and then propagating it to the innermost element.
-- [ ] Event delegation is the process of capturing an event in the innermost element and then propagating it to the outermost element.
 
 ## What is the difference between `event.target` and `event.currentTarget`?
 
@@ -178,12 +167,11 @@ const bar = function() {
 - [ ] `event.preventDefault()` stops the propagation of the event. `event.stopPropagation()` prevents the default behavior of the event.
 - [x] `event.preventDefault()` prevents the default behavior of the event. `event.stopPropagation()` stops the propagation of the event.
 
-<explanation>
-<summary>Explanation</summary>
+<comment>
 <p>
 `event.preventDefault()` prevents the default behavior of the event. `event.stopPropagation()` stops the propagation of the event. see [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) and [Event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) for more information.
 </p>
-</explanation>
+</comment>
 
 ## What is the difference between `event.preventDefault()` and `return false`?
 
@@ -191,12 +179,11 @@ const bar = function() {
 - [x] `event.preventDefault()` prevents the default behavior of the event. `return false` stops the propagation of the event.
 - [ ] `event.preventDefault()` stops the propagation of the event. `return false` prevents the default behavior of the event.
 
-<details>
-<summary>Explanation</summary>
+<comment>
 <p>
 `event.preventDefault()` prevents the default behavior of the event. `return false` stops the propagation of the event. see [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) and [Event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) for more information.
 </p>
-</details>
+</comment>
 
 ## What is the difference between `event.preventDefault()` and `event.stopImmediatePropagation()`?
 
@@ -204,12 +191,11 @@ const bar = function() {
 - [ ] `event.preventDefault()` stops the propagation of the event. `event.stopImmediatePropagation()` prevents the default behavior of the event.
 - [x] `event.preventDefault()` prevents the default behavior of the event. `event.
 
-<details>
-<summary>Explanation</summary>
+<comment>
 <p>
 `event.preventDefault()` prevents the default behavior of the event. `event.stopImmediatePropagation()` stops the propagation of the event. see [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) and [Event.stopImmediatePropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation) for more information.
 </p>
-</details>
+</comment>
 
 ## What is the purpose of the `this` keyword?
 
@@ -228,30 +214,27 @@ const bar = function() {
 - [x] The prototype chain is the chain of objects that are linked together by their prototype objects.
 - [ ] The prototype chain is how copy properties from one object to children.
 
-<details>
-<summary>Explanation</summary>
+<comment>
 <p>
 The prototype chain is the chain of objects that are linked together by their prototype objects. see [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) for more information.
 </p>
-</details>
+</comment>
 
 ## What is the difference between `__proto__` and `prototype`?
 
 - [x] `__proto__` is a property of an object. `prototype` is a property of a function.
 - [ ] `__proto__` is a property of a function. `prototype` is a property of an object.
 
-<explanation>
-<summary>Explanation</summary>
+<comment>
 <p>
 `__proto__` is a property of an object. `prototype` is a property of a function. see [Object.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) and [Function.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) for more information.
 </p>
-</explanation>
+</comment>
 
 ## What is the difference between `__proto__` and `Object.getPrototypeOf()`?
 
 - [x] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
 - [ ] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a method of an object.
-
 
 ## How would do describe the following code?
 
@@ -281,17 +264,14 @@ function foo() {
 - [ ] `finally` does not exist in JavaScript.
 
 
-<explanation>
-<summary>Explanation</summary>
-<p>
-```javascript
-try {
-  throw new Error("foo");
-} catch (error) {
-  console.log(error.message);
-} finally {
-  console.log("bar");
-}
+<comment>
+```js
+  try {
+    throw new Error("foo");
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    console.log("bar");
+  }
 ```
-</p>
-</explanation>
+</comment>
