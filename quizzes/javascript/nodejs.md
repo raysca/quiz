@@ -34,10 +34,10 @@ topic: NodeJS
 
 ## Which module is used to create a web server in Node.js?
 
-- [x] `http`
-- [ ] `fs`
-- [ ] `path`
-- [ ] `url`
+- [x] http
+- [ ] fs
+- [ ] path
+- [ ] url
 
 ## What is the purpose of the `package.json` file in a Node.js project?
 
@@ -55,10 +55,10 @@ topic: NodeJS
 
 ## Which module is used for file system operations in Node.js?
 
-- [ ] `http`
-- [x] `fs`
-- [ ] `path`
-- [ ] `url`
+- [ ] http
+- [x] fs
+- [ ] path
+- [ ] url
 
 ## What is the default package manager for Node.js?
 
@@ -79,7 +79,7 @@ topic: NodeJS
 - [x] Using try/catch blocks
 - [ ] Using error handling middleware
 - [ ] Using the `throw` statement
-- [ ] All of the above
+- [ ] All of the options
 
 ## What is the purpose of the `__dirname` variable in Node.js?
 
@@ -88,9 +88,17 @@ topic: NodeJS
 - [ ] To get the directory name of the main script
 - [ ] To get the directory name of the parent module
 
+<comment>
+    To get the directory name of the current module. `__dirname` is a global variable that contains the directory name of the current module.
+</comment>
+
 ## How can you install a specific version of a package using npm?
 
 - [x] `npm install package-name@version`
 - [ ] `npm install package-name --version`
 - [ ] `npm install package-name -v version`
 - [ ] `npm install package-name --v version`
+
+<comment>
+    `npm install package-name@version`
+</comment>

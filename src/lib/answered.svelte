@@ -1,13 +1,12 @@
 <script lang="ts">
 	import type { Answered } from "$lib/quiz";
     import QuizContent from "$lib/quiz-content.svelte";
-	import { comment } from "postcss";
 
-    export let answer: Answered
-    const { quiz, choices, correct } = answer
-    
-    const choiceType = quiz.answers.length > 1 ? 'checkbox' : 'radio'
-    const choiceClass = correct ? `${choiceType}-success` : `${choiceType}-error`
+	export let answer: Answered;
+	const { quiz, choices, correct } = answer;
+
+	const choiceType = quiz.answers.length > 1 ? 'checkbox' : 'radio';
+	const choiceClass = correct ? `${choiceType}-success` : `${choiceType}-error`;
 </script>
 
 <div class="grid space-y-4">

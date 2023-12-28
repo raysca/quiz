@@ -105,7 +105,7 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
                 return body;
             },
             html: (html: string) => {
-                if (html.indexOf('role="comment"') > -1) {
+                if (html.indexOf('<comment>') > -1) {
                     quiz?.comment.push(html);
                 } else {
                     quiz?.body.push(html);
@@ -123,6 +123,10 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
         quizzes,
         ...frontMatter.data,
     }
+
+    baseDocument.quizzes.forEach(quiz => {
+        quiz.topic = frontMatter.data.topic ?? 'General';
+    })
 
     validateQuizDocument(baseDocument, filePath);
     return baseDocument
@@ -196,7 +200,7 @@ export const loadQuizModulesMetadata = async (folder: string): Promise<QuizModul
             const metaFile = path.join(filePath, 'README.md');
             const meta = await loadModuleReadme(metaFile);
             const topics = await loadAllQuiz(filePath);
-            meta.topics = topics.map(q => q.topic ?? 'General').flat();
+            meta.topics = topics.map(q => q.topic ?? 'Uncategorized').flat();
             meta.totalQuizzes = topics.reduce((acc, curr) => acc + curr.quizzes.length, 0);
             meta.path = file;
             modules.push(meta);

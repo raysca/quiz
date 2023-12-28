@@ -105,7 +105,6 @@ x++;
       function.
 
 <comment>
-<p>
 A closure is a function that has access to the variables in the outer function. see [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) for more information.
 
 ```javascript
@@ -118,7 +117,6 @@ function outer() {
 }
 ```
 
-</p>
 </comment>
 
 ## What is the difference between a function declaration and a function expression?

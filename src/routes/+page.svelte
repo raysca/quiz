@@ -47,6 +47,8 @@
 	</div>
 </div>
 
+<h3 class="text-center text-3xl py-4">Tech Modules</h3>
+
 <div class="flex flex-wrap justify-center">
 	{#each modules as module}
 		<a href={module.path} class="block card w-full md:w-72 shadow m-4 cursor-pointer">

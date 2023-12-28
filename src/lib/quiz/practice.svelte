@@ -2,23 +2,17 @@
 	import { validateQuizAnswer, type Quiz } from '../quiz';
 	import Result from '../result.svelte';
 	import QuizContent from '$lib/quiz-content.svelte';
+	import { shuffle } from '$lib/shuffle';
 
 	export let total: number;
 	export let quizzes: Quiz[];
 
-	const randomSelectedQuizzes = (amount: number) => {
-		const selectedQuizzes = [];
-		for (let i = 0; i < amount; i++) {
-			const randomIndex = Math.floor(Math.random() * quizzes.length);
-			selectedQuizzes.push(quizzes[randomIndex]);
-		}
-		return selectedQuizzes;
-	};
-
-	let selectedQuizzes = randomSelectedQuizzes(total);
+	const newTotal = Math.min(total, quizzes.length);
+	let selectedQuizzes = shuffle(quizzes).slice(0, newTotal);
 	let currentQuizIndex = 0;
 	let currentQuiz: Quiz = selectedQuizzes[currentQuizIndex];
 	let answers: { quiz: Quiz; choices: string[]; correct: boolean }[] = [];
+	let inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 
 	const onChoiceSubmitted = (event: Event) => {
 		event.preventDefault();
@@ -34,11 +28,11 @@
 
 		event.preventDefault();
 		currentQuizIndex++;
-		currentQuiz = quizzes[currentQuizIndex];
+		currentQuiz = selectedQuizzes[currentQuizIndex];
+		inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 	};
 
 	$: completed = currentQuizIndex === selectedQuizzes.length - 1;
-	let inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 </script>
 
 <div class="w-full md:max-w-lg mx-auto p-8">
@@ -59,7 +53,7 @@
 				></progress>
 			</div>
 			<div class="quiz grid space-y-8">
-				<h2 class="text-3xl font-semibold">{@html currentQuiz.title}</h2>
+				<h2 class="text-2xl font-semibold">{@html currentQuiz.title}</h2>
 				<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
 					<QuizContent content={currentQuiz.body} />
 					<ul class="flex flex-col space-y-4">

@@ -24,8 +24,7 @@ description: Topics covered in this category are Flexbox, Grid, and CSS Selector
 - [x] Floats
 - [x] Flexbox
 - [x] Grid
-- [x] Positioning
-- [x] Display
+- [ ] Position
 
 ## How to select the first child of an element?
 
