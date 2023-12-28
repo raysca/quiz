@@ -14,6 +14,6 @@ A sample question
 - [x] Option 2
 - [ ] Option 3
 
-<p role="comment">
+<comment>
 This is the explanation
-</p>
+</comment>
