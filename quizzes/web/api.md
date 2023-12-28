@@ -17,13 +17,9 @@ description: These are questions include Web API methods and concepts. e.g local
 - [x] A session cookie is stored on the web browser. A persistent cookie is stored on the web browser.
 - [ ] A session cookie is stored on the web server. A persistent cookie is stored on the web server.
 
-
-<details>
-<summary>Explanation</summary>
-<p>
+<comment>
 A session cookie is stored on the web browser until the browser is closed. A persistent cookie is stored on the web browser. see [HTTP cookie](https://en.wikipedia.org/wiki/HTTP_cookie) for more information.
-</p>
-</details>
+</comment>
 
 ## What is the difference between a cookie and a local storage?
 
@@ -32,10 +28,6 @@ A session cookie is stored on the web browser until the browser is closed. A per
 - [ ] Data stored in a cookie is sent to the server with every request. Data stored in a local storage is sent to the server only when the user logs in.
 - [ ] None of the above.
 
-
-<details>
-<summary>Explanation</summary>
-<p>
+<comment>
 Only cookies are sent to the server with every request. see [HTTP cookie](https://en.wikipedia.org/wiki/HTTP_cookie) for more information.
-</p>
-</details>
+</comment>

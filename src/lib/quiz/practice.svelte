@@ -65,9 +65,9 @@
 				<ul class="flex flex-col space-y-4">
 					{#each currentQuiz.options as option, index (option)}
 						<li>
-							<label for={option} class="label cursor-pointer justify-start space-x-4 border px-4">
+							<label for={`${currentQuiz.id}-${index}`} class="label cursor-pointer justify-start space-x-4 border px-4">
 								<input
-									id={option}
+									id={`${currentQuiz.id}-${index}`}
 									type={inputType}
 									name="answer"
 									class={`${inputType} ${inputType}-accent`}

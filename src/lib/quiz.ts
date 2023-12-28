@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import * as marked from 'marked';
 
 export interface Quiz {
+    id: string;
     title: string;
     topic?: string;
     comment: string[];
@@ -30,7 +31,7 @@ export interface QuizModuleMetaData {
     description?: string[];
     topics?: string[];
     totalQuizzes?: number;
-    path: string;
+    path?: string;
 }
 
 export type QuizModule = {
@@ -76,6 +77,7 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
             heading: (text: string, level: number) => {
                 if (level === 2) {
                     quiz = {
+                        id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
                         title: text,
                         options: [],
                         answers: [],
@@ -206,6 +208,7 @@ export const loadQuizModulesMetadata = async (folder: string): Promise<QuizModul
 
 export const loadQuizModule = async (folder: string): Promise<QuizModule> => {
     const category: QuizModule = {
+        path: folder,
         title: 'Category',
         description: [],
         quizzes: []

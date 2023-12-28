@@ -18,10 +18,6 @@ console.log('Hello World!');
 - [ ] Option 3
 - [x] Option 4
 
-<details>
-    <summary>Explanation</summary>
-    <p>Explanation goes here</p>
-</details>
 
 ## Question 2
 
@@ -40,10 +36,6 @@ graph TD;
 - [ ] Option 3
 - [ ] Option 4
 
-<details>
-    <summary>Explanation</summary>
-    <p>Explanation goes here</p>
-</details>
 
 ## Question 3
 
