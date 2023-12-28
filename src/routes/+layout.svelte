@@ -4,19 +4,19 @@
 </script>
 
 <svelte:head>
-	<title>PrepMe</title>
+	<title>Revis3</title>
 	<meta
 		name="description"
-		content="PrepMe is a multiple choice quiz project that helps to refresh your knowledge before technical interviews."
+		content="Revis3 is a multiple choice quiz project that helps to refresh your knowledge before technical interviews."
 	/>
 	<meta
 		name="keywords"
-		content="PrepMe, technical interview, technical multiple choice quiz, technical interview quiz"
+		content="Revis3, technical interview, technical multiple choice quiz, technical interview quiz"
 	/>
 </svelte:head>
 
 <div class="navbar bg-neutral text-neutral-content">
-	<button class="btn btn-ghost text-xl">PrepMe</button>
+	<button class="btn btn-ghost text-xl">Revis3</button>
 </div>
 
 <div class="mx-auto min-h-screen">

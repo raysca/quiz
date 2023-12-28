@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Answered } from "$lib/quiz";
     import QuizContent from "$lib/quiz-content.svelte";
+	import { comment } from "postcss";
 
     export let answer: Answered
     const { quiz, choices, correct } = answer
@@ -37,10 +38,14 @@
             </li>
         {/each}
     </ul>
-    <details>
-        <summary>View Explanation</summary>
-        {#each quiz.comment as content}
-            {@html content}
-        {/each}
-    </details>
+
+    {#if quiz.comment.length > 0 } 
+        <details>
+            <summary>View Explanation</summary>
+            {#each quiz.comment as content}
+                {@html content}
+            {/each}
+        </details>
+    {/if}
+
 </div>
