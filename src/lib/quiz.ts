@@ -103,7 +103,7 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
                 return body;
             },
             html: (html: string) => {
-                if (html.indexOf('role="comment"') > -1) {
+                if (html.indexOf('<comment>') > -1) {
                     quiz?.comment.push(html);
                 } else {
                     quiz?.body.push(html);

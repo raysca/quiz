@@ -37,9 +37,9 @@ describe('Quiz', () => {
         it('create the explanation', async () => {
             expect(result.quizzes[0].comment).toMatchInlineSnapshot(`
               [
-                "<p role=\\"comment\\">
+                "<comment>
               This is the explanation
-              </p>
+              </comment>
               ",
               ]
             `);

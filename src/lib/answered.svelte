@@ -14,37 +14,37 @@
 	<QuizContent content={quiz.body} />
 	<ul class="flex flex-col space-y-4">
 		{#each quiz.options as option, index (option)}
-			<li>
-				<label
-					for={option}
-					class="label cursor-pointer justify-start space-x-4 border px-4 border-base-300"
-				>
-					<input
-						id={option}
-						type={choiceType}
-						class={`${choiceType} ${choiceClass}`}
-						value={option}
-						disabled
-						checked={choices.includes(option)}
-					/>
-					<div class="flex w-full justify-between">
-						<span>{@html option}</span>
-						{#if choices.includes(option) && quiz.answers.includes(option)}
-							<span class="badge badge-success">Correct</span>
-						{:else if quiz.answers.includes(option)}
-							<span class="badge badge-success">Correct</span>
-						{/if}
-					</div>
-				</label>
-			</li>
+			{#if quiz.answers.includes(option) || choices.includes(option)}
+				<li>
+					<label
+						for={option}
+						class="label cursor-pointer justify-start space-x-4 border px-4 border-base-300"
+					>
+						<input
+							id={option}
+							type={choiceType}
+							class={`${choiceType} ${choiceClass}`}
+							value={option}
+							disabled
+							checked={choices.includes(option)}
+						/>
+						<div class="flex w-full justify-between">
+							<span>{@html option}</span>
+							{#if quiz.answers.includes(option)}
+								<span>(Correct)</span>
+							{/if}
+						</div>
+					</label>
+				</li>
+			{/if}
 		{/each}
 	</ul>
-	{#if quiz.comment.length > 0}
+	<!-- {#if quiz.comment.length > 0}
 		<details>
 			<summary>View Explanation</summary>
 			{#each quiz.comment as content}
 				{@html content}
 			{/each}
 		</details>
-	{/if}
+	{/if} -->
 </div>
