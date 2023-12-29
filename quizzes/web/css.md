@@ -12,13 +12,6 @@ description: Topics covered in this category are Flexbox, Grid, and CSS Selector
 - [ ] `display: none` removes the element from the page, while `visibility: hidden` hides the element from the page, but the element still takes up space.
 - [ ] None of the above.
 
-## What is the difference between `inline` and `inline-block`?
-
-- [ ] `inline` elements can have a width and height, while `inline-block` elements cannot.
-- [ ] `inline` elements can have a width and height, while `inline-block` elements can only have a width.
-- [x] `inline` elements cannot have a width and height, while `inline-block` elements can.
-- [ ] `inline` elements cannot have a width and height, while `inline-block` elements can only have a width.
-
 ## What are the different ways to layout elements in CSS?
 
 - [x] Floats
@@ -26,16 +19,77 @@ description: Topics covered in this category are Flexbox, Grid, and CSS Selector
 - [x] Grid
 - [ ] Position
 
-## How to select the first child of an element?
+## What are the main css selectors?
 
-- [x] `:first-child`
-- [ ] `:first`
-- [ ] `:first-of-type`
-- [ ] `:first-child-of-type`
+- [ ] Class
+- [ ] ID
+- [ ] Tag
+- [x] All of the above
 
-## How to select the last child of an element?
+## How can you select an element with a class of `container`?
 
-- [x] `:last-child`
-- [ ] `:last`
-- [ ] `:last-of-type`
-- [ ] `:last-child-of-type`
+- [ ] `container`
+- [ ] `#container`
+- [x] `.container`
+- [ ] `container`
+
+## How can you select an element with an ID of `container`?
+
+- [ ] `container`
+- [x] `#container`
+- [ ] `.container`
+- [ ] `container`
+
+
+## How would you apply a hover effect to an element with a class of `container`?
+
+- [x] `.container:hover`
+- [ ] `#container:hover`
+- [ ] `container:hover`
+- [ ] `container:hover`
+
+## What is the difference between `em` and `rem`?
+
+- [ ] `em` is relative to the root element, while `rem` is relative to the parent element.
+- [ ] `em` and `rem` are the same.
+- [ ] `em` is in pixels, while `rem` is in ems.
+- [x] `em` is relative to the parent element, while `rem` is relative to the root element.
+
+
+## What is the difference between `justify-content` and `align-items`?
+
+- [x] `justify-content` is used to aligns flex items along the main axis of the flex container, while `align-items` is used to aligns flex items along the cross axis of the flex container.
+- [ ] `justify-content` is used to aligns flex items along the cross axis of the flex container, while `align-items` is used to aligns flex items along the main axis of the flex container.
+
+---
+
+```css
+.container {
+  display: flex;
+  justify-content: center; /* Center items along the main axis */
+  align-items: center; /* Center items along the cross axis */
+}
+```
+
+---
+
+## Which CSS property is used for adding spacing between HTML elements?
+
+- [ ] `padding`
+- [ ] `border`
+- [ ] `spacing`
+- [x] `margin`
+
+## What is the difference between `margin` and `padding`?
+
+- [x] `margin` is used for adding spacing between HTML elements, while `padding` is used for adding spacing between the content and the border.
+- [ ] `margin` is used for adding spacing between the content and the border, while `padding` is used for adding spacing between HTML elements.
+- [ ] `margin` and `padding` are the same.
+- [ ] `margin` includes the border, while `padding` does not include the border.
+
+## What is the purpose of the CSS property display: none;?
+
+- [ ] To hide an element from the page, but the element still takes up space.
+- [x] Removes the element from the document flow.
+- [ ] To hide an element from the page, but the element still takes up space.
+- [ ] To remove spacing between elements.
