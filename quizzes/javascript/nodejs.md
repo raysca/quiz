@@ -88,9 +88,11 @@ topic: NodeJS
 - [ ] To get the directory name of the main script
 - [ ] To get the directory name of the parent module
 
-<comment>
-    To get the directory name of the current module. `__dirname` is a global variable that contains the directory name of the current module.
-</comment>
+---
+
+To get the directory name of the current module. `__dirname` is a global variable that contains the directory name of the current module.
+
+---
 
 ## How can you install a specific version of a package using npm?
 
@@ -99,6 +101,8 @@ topic: NodeJS
 - [ ] `npm install package-name -v version`
 - [ ] `npm install package-name --v version`
 
-<comment>
-    `npm install package-name@version`
-</comment>
+---
+
+`npm install package-name@version`
+
+---
