@@ -34,14 +34,12 @@ These are general questions about the React ecosystem. The ecosystem are librari
 - [ ] `styled.p`
 - [x] All of them
 
-
 ## Which of the following statements are true about server-side rendering?
 
 - [x] Server-side rendering is the process of rendering a web page on the server and sending the HTML to the client
 - [x] Server-side rendering is better for SEO
 - [ ] Server-side rendering is not supported by React
 - [x] Server-side rendering is faster than client-side rendering
-
 
 ## What does SSR stand for?
 
