@@ -371,3 +371,10 @@ const Profile = memo(function Profile({ name }) {
 ```
 
 ---
+
+## What are the benefits of using React Server Components?
+
+- [x] Improved performance
+- [ ] Improved security
+- [x] Improved SEO
+- [ ] Improved developer experience

@@ -75,3 +75,33 @@ These are general questions related DevOps.
 - [x] To monitor and optimize the performance of applications
 - [ ] To ensure that code changes are tested and integrated frequently
 - [ ] To manage infrastructure as code
+
+
+## What is an API Gateway?
+
+- [ ] A tool for managing API keys
+- [ ] A tool for managing API documentation
+- [ ] A tool for managing API versions
+- [x] A tool for managing API endpoints
+
+## Which of the following is NOT a benefit of using an API Gateway?
+
+- [ ] Improved security
+- [x] Improved performance
+- [ ] Improved scalability
+- [ ] Improved reliability
+  
+
+## Which of the following is NOT a common API Gateway feature?
+
+- [ ] Rate limiting
+- [ ] Authentication
+- [x] Caching
+- [ ] Load balancing
+
+## What are the benefits of a microservices architecture?
+
+- [ ] Better code organization
+- [ ] Improved deployment
+- [x] Single responsibility services
+- [x] Improved scalability
