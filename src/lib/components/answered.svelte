@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Answered } from "$lib/quiz";
-    import QuizContent from "$lib/quiz-content.svelte";
+    import QuizContent from "$lib/components/quiz-content.svelte";
 
 	export let answer: Answered;
 	const { quiz, choices, correct } = answer;

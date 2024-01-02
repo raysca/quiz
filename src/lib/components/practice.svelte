@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { validateQuizAnswer, type Quiz } from '../quiz';
-	import Result from '../result.svelte';
-	import QuizContent from '$lib/quiz-content.svelte';
+	import { validateAnswer } from '$lib/answers';
+	import Result from '$lib/components/result.svelte';
+	import QuizContent from '$lib/components/quiz-content.svelte';
 	import { shuffle } from '$lib/shuffle';
 
 	export let total: number;
@@ -19,7 +19,7 @@
 
 		const form = new FormData(event.target as HTMLFormElement);
 		const choices = Array.from(form.entries()).map((entry) => entry[1] as string);
-		const correct = validateQuizAnswer(currentQuiz, choices);
+		const correct = validateAnswer(currentQuiz, choices);
 		answers.push({
 			quiz: currentQuiz,
 			choices,

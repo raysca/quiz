@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Practice from '$lib/quiz/practice.svelte';
-	import ChooseQuiz from '$lib/quiz/choose.svelte';
+	import Practice from '$lib/components/practice.svelte';
+	import ChooseQuiz from '$lib/components/choose.svelte';
 	export let data;
 
 	const { quizzes, module, topics } = data;
@@ -32,7 +32,7 @@
 		<h1 class="text-5xl font-bold">{module.title}</h1>
 		<div>
 			{#if !started}
-				<ChooseQuiz quizDoc={module} on:start={onStartQuiz} />
+				<ChooseQuiz module={module} on:start={onStartQuiz} />
 			{/if}
 			{#if started}
 				<Practice total={quizAmount} quizzes={quizzes} />

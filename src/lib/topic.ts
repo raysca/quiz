@@ -3,6 +3,12 @@ import matter from 'gray-matter';
 import path from 'node:path';
 import * as marked from 'marked';
 
+export interface Answered {
+    quiz: Quiz;
+    answers: string[];
+    correct: boolean;
+    choices: string[];
+}
 export interface Quiz {
     id: string;
     title: string;
@@ -53,7 +59,7 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
         description: '',
         title: '',
         path: `${modulePath}/${topicPath}`
-    }
+    };
 
     marked.use({
         renderer: {

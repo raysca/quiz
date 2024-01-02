@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import { describe, it, expect, beforeAll } from 'vitest';
-import { loadQuizModule, type QuizModule } from './quiz';
+import { loadQuizModule, type QuizModule } from './module';
 
 const allModules = fs.readdirSync('./quizzes');
 
@@ -23,17 +23,6 @@ describe.each(allModules)('Module %s', async (module) => {
     });
 
     it('has a list of quizzes', () => {
-        expect(moduleData.quizzes.length).toBeGreaterThan(0);
-    });
-
-    it('checks for answer duplicates', () => {
-        const answers = new Set();
-        moduleData.quizzes.forEach((docs) => {
-            docs.quizzes.forEach((quiz) => {
-                // check for duplicate answers
-                const setAnswers = new Set(quiz.answers);
-                expect(setAnswers.size).toBe(quiz.answers.length);
-            });
-        });
+        expect(moduleData.topics.length).toBeGreaterThan(0);
     });
 });

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Answered from './answered.svelte';
+	import Answered from '$lib/components/answered.svelte';
 	export let answers: Record<string, any>[];
 	export let total: number;
 

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { QuizModule } from '$lib/quiz';
+	import type { Module } from '$lib/module';
     import { createEventDispatcher } from 'svelte';
 
-	export let quizDoc: QuizModule;
+	export let module: Module;
     
     const dispatcher = createEventDispatcher();
-	const { topics = [], title, description } = quizDoc;
+	const { topics = [], title, description } = module;
 	const questionOptions = [10, 15, 20];
 
 	const onSubmit = (event: Event) => {

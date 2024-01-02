@@ -15,7 +15,6 @@ This is an explanation for the multiple choice question above.
 
 Even though this is a multiple choice question, it is possible to have a single correct answer.
 
-
 ## Question 2
 
 A Single Choice Question
@@ -28,7 +27,6 @@ A Single Choice Question
 ---
 
 This is an explanation for the single choice question above.
-
 
 ## Question 3 with `code` block in the question
 
