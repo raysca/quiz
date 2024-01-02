@@ -4,7 +4,7 @@
 	export let total: number;
 
 	const answersByTopic = answers.reduce((acc: Record<string, any>, answer: any) => {
-		const topic = answer.quiz.topic ?? 'uncategorized';
+		const topic = answer.quiz.topic?.title;
 		if (!acc[topic]) {
 			acc[topic] = [];
 		}

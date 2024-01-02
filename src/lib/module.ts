@@ -41,8 +41,9 @@ export const loadModuleReadme = async (readmeFile: string): Promise<QuizModuleMe
 }
 
 export const loadQuizModule = async (folder: string): Promise<QuizModule> => {
+    const modulePath = path.relative('./quizzes', folder);
     const category: QuizModule = {
-        path: folder,
+        path: modulePath,
         title: 'Category',
         description: [],
         topics: []

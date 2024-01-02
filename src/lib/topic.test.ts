@@ -6,7 +6,7 @@ describe('Topic', () => {
     let topic: Topic;
 
     beforeAll(async () => {
-        topic = await extractTopicFromMarkdown(fs.readFileSync('./fixtures/fixture-topic.md', 'utf-8'), 'test.md');
+        topic = await extractTopicFromMarkdown(fs.readFileSync('./fixtures/fixture-topic.md', 'utf-8'), 'fixtures/fixture-topic.md');
     });
 
     describe('Basic Metadata', () => {
@@ -20,6 +20,10 @@ describe('Topic', () => {
 
         it('has a list of quizzes', () => {
             expect(topic.quizzes.length).toBe(3);
+        });
+
+        it('has a path', () => {
+            expect(topic.path).toBe('fixtures/fixture-topic.md');
         });
     })
 

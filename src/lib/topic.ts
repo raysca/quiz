@@ -6,7 +6,7 @@ import * as marked from 'marked';
 export interface Quiz {
     id: string;
     title: string;
-    topic?: string;
+    topic?: Topic;
     comment: string[];
     options: string[];
     answers: string[];
@@ -15,7 +15,8 @@ export interface Quiz {
 
 export interface Topic {
     quizzes: Quiz[];
-    title: string
+    title: string;
+    path?: string;
     description?: string;
 }
 
@@ -46,14 +47,44 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
     let quiz: Quiz | undefined = undefined;
     let useExplanation = false;
 
+    const [topicPath, modulePath] = filePath.split('/').reverse();
     const topic: Topic = {
         quizzes: [],
         description: '',
-        title: ''
+        title: '',
+        path: `${modulePath}/${topicPath}`
     }
 
     marked.use({
         renderer: {
+            heading: (text: string, level: number) => {
+
+                if(level === 1) {
+                    topic.title = text;
+                    return '';
+                }
+
+                if (level === 2) {
+                    useExplanation = false;
+                    quiz = {
+                        id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+                        title: text,
+                        options: [],
+                        answers: [],
+                        comment: [],
+                        body: [],
+                        topic: topic
+                    }
+                    topic.quizzes.push(quiz);
+                    return text;
+                }
+
+                if (level !== 2) {
+                    const headingText = `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
+                    quiz?.body.push(headingText);
+                }
+                return text;
+            },
             listitem(text: string, task: boolean, checked: boolean) {
                 const sanitizedText = text
                     .replaceAll('<input checked="" disabled="" type="checkbox"> ', '')
@@ -70,33 +101,6 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
             hr: () => {
                 useExplanation = true;
                 return '';
-            },
-            heading: (text: string, level: number) => {
-
-                if(level === 1) {
-                    topic.title = text;
-                    return '';
-                }
-
-                if (level === 2) {
-                    useExplanation = false;
-                    quiz = {
-                        id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
-                        title: text,
-                        options: [],
-                        answers: [],
-                        comment: [],
-                        body: []
-                    }
-                    topic.quizzes.push(quiz);
-                    return text;
-                }
-
-                if (level !== 2) {
-                    const headingText = `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
-                    quiz?.body.push(headingText);
-                }
-                return text;
             },
             paragraph: (text: string) => {
                 if (useExplanation) {

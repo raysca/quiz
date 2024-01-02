@@ -38,7 +38,7 @@ export type QuizModule = {
     quizzes: QuizDocument[];
 } & QuizModuleMetaData
 
-const validateQuizDocument = (quizDocument: QuizDocument, filePath: string) => {
+const validateTopicDocument = (quizDocument: QuizDocument, filePath: string) => {
     if (quizDocument.quizzes.length === 0) {
         throw new Error(`No Quiz found in ${filePath}, see the README.md for how to define a quiz document.`);
     }
@@ -113,7 +113,7 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
                 return html;
             },
             codespan: (code: string) => {
-                return `<span class="text-accent">${code}</span>`
+                return `<span class="text-primary">${code}</span>`
             }
         }
     })
@@ -128,7 +128,7 @@ export const documentToQuiz = async (markdown: string, filePath: string = ''): P
         quiz.topic = frontMatter.data.topic ?? 'General';
     })
 
-    validateQuizDocument(baseDocument, filePath);
+    validateTopicDocument(baseDocument, filePath);
     return baseDocument
 }
 

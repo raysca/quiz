@@ -35,49 +35,47 @@
 	$: completed = currentQuizIndex === selectedQuizzes.length - 1;
 </script>
 
-<div class="w-full md:max-w-lg mx-auto p-8">
-	{#if completed}
-		<Result {answers} total={selectedQuizzes.length} />
-	{/if}
+{#if completed}
+	<Result {answers} total={selectedQuizzes.length} />
+{/if}
 
-	{#if !completed}
-		<div class="h-screen">
-			<div class="w-full flex space-x-2 align-middle items-center mt-4 mb-4">
-				<div>
-					<span>{currentQuizIndex + 1}</span>/<span>{selectedQuizzes.length}</span>
-				</div>
-				<progress
-					class="progress progress-accent"
-					value={currentQuizIndex + 1}
-					max={selectedQuizzes.length}
-				></progress>
-			</div>
-			<div class="quiz grid space-y-8">
-				<h2 class="text-2xl font-semibold">{@html currentQuiz.title}</h2>
-				<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
-					<QuizContent content={currentQuiz.body} />
-					<ul class="flex flex-col space-y-4">
-						{#each currentQuiz.options as option, index (option)}
-							<li>
-								<label
-									for={`${currentQuiz.id}-${index}`}
-									class="label cursor-pointer justify-start space-x-4 border px-4"
-								>
-									<input
-										id={`${currentQuiz.id}-${index}`}
-										type={inputType}
-										name="answer"
-										class={`${inputType} ${inputType}-accent`}
-										value={option}
-									/>
-									<span>{@html option}</span>
-								</label>
-							</li>
-						{/each}
-					</ul>
-					<input type="submit" value="Next" class="btn btn-primary btn-wide" />
-				</form>
-			</div>
+{#if !completed}
+	<div class="w-full flex space-x-2 align-middle items-center mt-4 mb-4">
+		<div>
+			<span>{currentQuizIndex + 1}</span>/<span>{selectedQuizzes.length}</span>
 		</div>
-	{/if}
-</div>
+		<progress
+			class="progress progress-accent"
+			value={currentQuizIndex + 1}
+			max={selectedQuizzes.length}
+		></progress>
+	</div>
+	<div class="card shrink-0 w-full max-w-lg mx-auto shadow-2xl">
+		<div class="card-body">
+			<h2 class="card-title">{@html currentQuiz.title}</h2>
+			<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
+				<QuizContent content={currentQuiz.body} />
+				<ul class="flex flex-col space-y-4">
+					{#each shuffle(currentQuiz.options) as option, index (option)}
+						<li>
+							<label
+								for={`${currentQuiz.id}-${index}`}
+								class="label cursor-pointer justify-start space-x-4 border px-4"
+							>
+								<input
+									id={`${currentQuiz.id}-${index}`}
+									type={inputType}
+									name="answer"
+									class={`${inputType} ${inputType}-accent`}
+									value={option}
+								/>
+								<span>{@html option}</span>
+							</label>
+						</li>
+					{/each}
+				</ul>
+				<input type="submit" value="Next" class="btn btn-primary btn-full" />
+			</form>
+		</div>
+	</div>
+{/if}
