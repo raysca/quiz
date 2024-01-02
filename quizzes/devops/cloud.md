@@ -1,9 +1,4 @@
----
-topic: Cloud
-description: Questions related to cloud computing.
----
-
-# Cloud Questions
+# Cloud
 
 ## What is cloud computing?
 

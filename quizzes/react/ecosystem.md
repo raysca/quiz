@@ -1,8 +1,4 @@
----
-topic: React Ecosystem
----
-
-# React Ecosystem Questions
+# React Ecosystem
 
 These are general questions about the React ecosystem. The ecosystem are libraries and tools that are used with React but are not part of React itself.
 

@@ -1,8 +1,4 @@
----
-topic: Docker
----
-
-# Docker Questions
+# Docker
 
 ## What is the difference between a Docker image and a Docker container?
 
@@ -16,7 +12,7 @@ topic: Docker
 - [ ] To automate the process of deploying software
 - [ ] To ensure that code changes are tested and integrated frequently
 - [ ] To monitor and optimize the performance of applications
-- [ ] To instruct Docker how to build a Docker image along with its dependencies and source code
+- [x] To instruct Docker how to build a Docker image along with its dependencies and source code
 
 
 ## What is the purpose of a Docker registry?
@@ -77,18 +73,9 @@ services:
 - [ ] This is the command that is run when a Docker container stops
 - [ ] This is the command that is run when a Docker container is restarted
 
-
 ## Which of these are valid Docker commands?
 
 - [x] `docker run`
 - [ ] `docker start`
 - [x] `docker stop`
 - [ ] `docker restart`
-
-
-## What is a Docker volume?
-
-- [ ] A Docker volume is a running instance of a Docker container
-- [ ] A Docker volume is a snapshot of a Docker container
-- [ ] A Docker volume is a running instance of a Docker image
-- [ ] A Docker volume is a snapshot of a Docker image

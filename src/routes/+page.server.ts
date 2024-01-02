@@ -1,7 +1,7 @@
-import { loadQuizModulesMetadata } from "$lib/quiz"
+import { loadQuizModules } from "$lib/module"
 
 export const load = async () => {
-   const modules = await loadQuizModulesMetadata('./quizzes')
+   const modules = await loadQuizModules('./quizzes')
    return {
       modules
    }

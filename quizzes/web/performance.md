@@ -1,8 +1,3 @@
----
-topic: Web Performance
-description: These are questions include Web Performance methods and concepts. e.g lazy loading, code splitting, and tree shaking e.t.c
----
-
 # Web Performance
 
 ## What is the purpose of the `defer` attribute on a script tag?

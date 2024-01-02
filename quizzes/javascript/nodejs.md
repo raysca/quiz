@@ -1,8 +1,4 @@
----
-topic: NodeJS
----
-
-# NodeJS Questions
+# NodeJS
 
 ## What is Node.js?
 
@@ -92,8 +88,6 @@ topic: NodeJS
 
 To get the directory name of the current module. `__dirname` is a global variable that contains the directory name of the current module.
 
----
-
 ## How can you install a specific version of a package using npm?
 
 - [x] `npm install package-name@version`
@@ -104,5 +98,3 @@ To get the directory name of the current module. `__dirname` is a global variabl
 ---
 
 `npm install package-name@version`
-
----

@@ -1,8 +1,3 @@
----
-topic: Web API
-description: These are questions include Web API methods and concepts. e.g localStorage, sessionStorage, and cookies e.t.c
----
-
 # Web API
 
 ## When is a local storage used?
@@ -30,9 +25,8 @@ A session cookie is stored on the web browser until the browser is closed. A per
 - [ ] None of the above.
 
 ---
-Only cookies are sent to the server with every request. see [HTTP cookie](https://en.wikipedia.org/wiki/HTTP_cookie) for more information.
 
----
+Only cookies are sent to the server with every request. see [HTTP cookie](https://en.wikipedia.org/wiki/HTTP_cookie) for more information.
 
 ## What API can help to track the user's location?
 
@@ -51,10 +45,7 @@ Only cookies are sent to the server with every request. see [HTTP cookie](https:
 ---
 The `email` input type will validate the email address. The `required` attribute will ensure that the input is not empty. see [HTML input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for more information.
 
----
-
-
-## HTML Images
+## HTML Images Alt
 
 What is the purpose of the `alt` attribute on an image tag below?
 
@@ -81,7 +72,6 @@ What is the purpose of the `srcset` attribute on an image tag below?
 - [x] It is used to provide a fallback image
 - [ ] It is used to provide a fallback text -->
 
-
 ## HTML Images
 
 What is the purpose of the `sizes` attribute on an image tag below?
@@ -102,20 +92,19 @@ What is the purpose of the `manifest.json` file?
 
 - [ ] It is used to describe the web app
 - [ ] It is used to provide a fallback text
-- [ ] Describes the web app
+- [x] Describes the web app
 - [ ] Provide caching for the web page
-
-___
-The `manifest.json` file is used to describe the web app. see [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) for more information.
 
 ---
 
-## Progressive Web Apps
+The `manifest.json` file is used to describe the web app. see [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) for more information.
+
+## Service Worker
 
 What is the purpose of the `service worker`?
 
 - [ ] It is used to describe the web app
-- [ ] It caches the assets of the web app
+- [x] It caches the assets of the web app
 - [ ] It is used to provide a fallback text
 - [ ] It is used to provide a fallback image
 
@@ -125,4 +114,3 @@ What is the purpose of the `service worker`?
 - [ ] A `service worker` must be included in the code
 - [x] The web app must be served over HTTPS
 - [ ] It must have a `favicon.ico` file
-

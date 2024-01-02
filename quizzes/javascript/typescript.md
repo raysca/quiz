@@ -1,7 +1,3 @@
----
-topic: Typescript
----
-
 # Typescript Questions
 
 ## What is the difference between `interface` and `type`?
@@ -15,8 +11,6 @@ topic: Typescript
 
 `interface` is used for objects, `type` is used for objects and primitives
 
----
-
 ## Which of these are valid types in Typescript?
 
 - [x] `string`
@@ -28,8 +22,6 @@ topic: Typescript
 ---
 
 `string`, `number`, `boolean`
-
----
 
 ## Types
 
@@ -94,7 +86,6 @@ const sayHello = (person: Person & Employee): string => {
 - [ ] The function will accept any object as an argument
 - [ ] The function will only accept an object with the properties `name` and `age`
 - [x] The function will only accept an object with the properties `name`, `age` and `salary`
-
 
 ## Types Generics
 

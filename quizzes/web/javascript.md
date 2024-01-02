@@ -1,8 +1,3 @@
----
-topic: JavaScript
-description: These questions include JavaScript concepts and features. e.g async/await, closures, and prototype chain e.t.c
----
-
 # JavaScript
 
 ## What is the purpose of the `async` keyword?

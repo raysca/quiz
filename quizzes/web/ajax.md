@@ -1,9 +1,4 @@
----
-title: Ajax, Fetch API, and Service Workers
-description: These questions includes Asynchronous JavaScript and XML, Fetch API, and Service Workers.
----
-
-# AJAX, Fetch API, and Service Workers
+# AJAX & Fetch API
 
 ## Fetch Promises
 
@@ -55,7 +50,6 @@ then((response) => {
   // This will abort the fetch request
   controller.abort();
   ```
----
 
 ## What is the purpose of the `AbortController`?
 
@@ -93,6 +87,7 @@ fetch("https://example.com")
 - [x] Logs the json message from the server
 
 ---
+
 The fetch API does not throw an error if the server returns a 500 error. Instead, it will return a response object with a status code of 500. To handle this, you can check the status code of the response object and throw an error if it is not 200.
 
 ```javascript
@@ -108,7 +103,6 @@ fetch("https://example.com")
     console.log(error);
   });
 ```
----
 
 ## The `Fetch API` will automatially retry a request if it fails.
 
@@ -119,8 +113,6 @@ fetch("https://example.com")
 
 The `Fetch API` will not automatically retry a request if it fails. You will need to handle this yourself.
 
----
-
 ## How would you read the response body of a fetch request if it is not JSON?
 
 - [ ] Use the `response.data()` method
@@ -128,7 +120,6 @@ The `Fetch API` will not automatically retry a request if it fails. You will nee
 - [x] Use the `response.arrayBuffer()` method
 - [ ] Use the `response.binary()` method
   
-
 ## CORS Rquest
   
 Whe a `CORS` request is made using the `FETCH API`, what type of request is made first?
@@ -138,10 +129,9 @@ Whe a `CORS` request is made using the `FETCH API`, what type of request is made
 - [ ] A `PATCH` request
 - [x] A `OPTIONS` request
 
-___
-The browser will make a `OPTIONS` request first to determine what methods are allowed. If the method is allowed, then the browser will make the actual request.
-
 ---
+
+The browser will make a `OPTIONS` request first to determine what methods are allowed. If the method is allowed, then the browser will make the actual request.
 
 ## How can you send authentication credentials with a fetch request?
 
@@ -157,5 +147,3 @@ The `credentials` option allows you to send and receive authentication credentia
 - `same-origin` - Only send and receive credentials if the request is on the same domain
 - `include` - Always send and receive credentials
 - `none` - Never send or receive credentials
-
----

@@ -1,8 +1,3 @@
----
-topic: Web Security
-description: These questions include Web Security concepts. e.g Authentication, Authorization, and Web Security e.t.c
----
-
 # Web Security
 
 ## What is the difference between authentication and authorization?

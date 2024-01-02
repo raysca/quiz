@@ -1,7 +1,3 @@
----
-topic: Kubernetes
----
-
 # Kubernetes
 
 These are review questions for the Kubernetes module.

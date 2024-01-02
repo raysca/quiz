@@ -1,7 +1,4 @@
----
-topic: General React
----
-# General React Questions
+# General React
 
 ## The code below is an example of a React component. What type of react component is this?
 
@@ -21,7 +18,6 @@ const MyComponent = () => {
 - [x] Functional Component
 - [ ] Higher Order Component
 - [ ] None of the above
-
 
 ## How would you describe the component named `withLogger` below?
 
@@ -78,7 +74,6 @@ const EnhancedComponent = withLogger(MyComponent);
 
 The index of an array is not a stable value. If the array is sorted or filtered, the index of an element will change. This can cause React to re-render the entire list when it is not necessary.
 
----
 
 ## Which of the following options are **valid** react lifecycle methods?
 
@@ -90,8 +85,6 @@ The index of an array is not a stable value. If the array is sorted or filtered,
 ---
 
 **componentDidMount**, **componentDidUpdate**, and **componentWillUnmount** are all valid lifecycle methods. **componentDidNoMount** is not a valid lifecycle method.
-
----
 
 ## React Rendering
 
@@ -127,9 +120,7 @@ const MyComponent = () => {
 
 ---
 
-    The component will render infinitely because the `useEffect` hook does not have any dependencies. The `useEffect` hook will run after every render.
-
----
+The component will render infinitely because the `useEffect` hook does not have any dependencies. The `useEffect` hook will run after every render.
 
 ## What is the purpose of returning a function from the `useEffect` hook in the component below?
 
@@ -160,9 +151,7 @@ const MyComponent = () => {
 
 ---
 
-  The function returned from the `useEffect` hook will run before the component is unmounted. This is useful for cleaning up any side effects that the component may have created.
-
----
+The function returned from the `useEffect` hook will run before the component is unmounted. This is useful for cleaning up any side effects that the component may have created.
 
 ## React State
 
@@ -175,9 +164,7 @@ What does it mean to lift state up in React?
 
 ---
 
-  Lifting state up in React means to move state from a child component to a parent component. This is useful when multiple components need to share the same state.
-
----
+Lifting state up in React means to move state from a child component to a parent component. This is useful when multiple components need to share the same state.
 
 ## What Props vs State
 
@@ -190,9 +177,7 @@ What is the difference between **props** and **state** in React?
 
 ---
 
-  **props** are used to pass data to a component, while **state** is used to store data in a component.
-
----
+**props** are used to pass data to a component, while **state** is used to store data in a component.
 
 ## What is prop drilling in React?
 
@@ -215,10 +200,7 @@ const ParentComponent = ({ count }) => {
 };
 ```
 
----
-
-
-### In the code below how would you describe the `Profile` component
+## In the code below how would you describe the `Profile` component
 
 ```jsx
   import { memo, useState } from 'react';
@@ -249,9 +231,7 @@ const ParentComponent = ({ count }) => {
 
 ---
 
-  The `Profile` component is a pure component. It will only re-render when the `name` prop changes.
-
----
+The `Profile` component is a pure component. It will only re-render when the `name` prop changes.
 
 ## What statement best describes the react virtual DOM?
 
@@ -264,8 +244,6 @@ const ParentComponent = ({ count }) => {
 
 The virtual DOM is a copy of the DOM that is stored in memory. React uses the virtual DOM to determine what changes need to be made to the DOM. see https://reactjs.org/docs/faq-internals.html
 
----
-
 ## What is the purpose of the second argument in the `useState` hook?
 
 - [ ] The second argument is used to set the initial state of the component.
@@ -273,15 +251,11 @@ The virtual DOM is a copy of the DOM that is stored in memory. React uses the vi
 - [ ] The second argument will run after the component is mounted.
 - [x] The second argument will run after the state is updated.
 
----
-
 The second argument is used to set the initial state of the component. The second argument is only used when the component is first mounted.
 
 ```jsx
     const [count, setCount] = useState(0, () => console.log('State updated'));
 ```
-
----
 
 ## What are synthetic events in React?
 
@@ -334,8 +308,6 @@ const ExampleComponent = () => {
 
   `React.context` solves the problem of prop drilling. Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
 
----
-
 ## In what scenario would you use `React Suspense`?
 
 - [ ] `React Suspense` is used for handling errors in React.
@@ -346,8 +318,6 @@ const ExampleComponent = () => {
 ---
   
 `React Suspense` is used for handling loading states in React. It is used to show a loading indicator while data is being fetched.
-
----
 
 ## What is a pure component in React?
 
@@ -369,8 +339,6 @@ const Profile = memo(function Profile({ name }) {
 });
 
 ```
-
----
 
 ## What are the benefits of using React Server Components?
 

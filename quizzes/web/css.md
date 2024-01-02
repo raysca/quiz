@@ -1,8 +1,3 @@
----
-topic: Cascading Style Sheets (CSS)
-description: Topics covered in this category are Flexbox, Grid, and CSS Selectors e.t.c
----
-
 # Cascading Style Sheets (CSS)
 
 ## What is the difference between `display: none` and `visibility: hidden`?

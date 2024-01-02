@@ -43,9 +43,14 @@ const validateTopic = (topic: Topic, filePath: string) => {
 
 export const extractTopicFromMarkdown = async (markdown: string, filePath: string = ''): Promise<Topic> => {
     const frontMatter = matter(markdown, {});
-    const quizzes: Quiz[] = [];
     let quiz: Quiz | undefined = undefined;
     let useExplanation = false;
+
+    const topic: Topic = {
+        quizzes: [],
+        description: '',
+        title: ''
+    }
 
     marked.use({
         renderer: {
@@ -67,6 +72,12 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
                 return '';
             },
             heading: (text: string, level: number) => {
+
+                if(level === 1) {
+                    topic.title = text;
+                    return '';
+                }
+
                 if (level === 2) {
                     useExplanation = false;
                     quiz = {
@@ -77,8 +88,10 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
                         comment: [],
                         body: []
                     }
-                    quizzes.push(quiz);
+                    topic.quizzes.push(quiz);
+                    return text;
                 }
+
                 if (level !== 2) {
                     const headingText = `<h${level} class="text-${level}xl font-bold">${text}</h${level}>`
                     quiz?.body.push(headingText);
@@ -122,15 +135,6 @@ export const extractTopicFromMarkdown = async (markdown: string, filePath: strin
     })
 
     await marked.parse(frontMatter.content, { gfm: true, breaks: true })
-    const topic = {
-        quizzes,
-        ...frontMatter.data,
-    } as Topic
-
-    topic.quizzes.forEach(quiz => {
-        quiz.topic = frontMatter.data.topic ?? 'General';
-    })
-
     validateTopic(topic, filePath);
     return topic
 }

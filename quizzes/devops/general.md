@@ -1,7 +1,3 @@
----
-topic: General
----
-
 # General
 
 These are general questions related DevOps.
