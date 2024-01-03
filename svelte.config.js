@@ -22,7 +22,10 @@ const config = {
 			base: ''
 		},
 		prerender: {
-			crawl: false,
+			crawl: false
+		},
+		alias: {
+			$components: './src/components'
 		}
 	}
 };

@@ -1,4 +1,3 @@
-
 # Javascript
 
 This module covers the fundamentals of Javascript. The programming language of the web. Javascript is a high-level, multi-paradigm, dynamic language. It is the most popular programming language in the world.

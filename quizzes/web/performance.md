@@ -28,7 +28,6 @@
 - [ ] To load the resource after the DOM is parsed
 - [ ] It is not a valid attribute
 
-
 ## What is the first thing you should do to improve the performance of a web page?
 
 - [ ] Minify the JavaScript
@@ -42,7 +41,6 @@
 - [ ] Use the `console.time` and `console.timeEnd` methods
 - [ ] Use the `console.profile` and `console.profileEnd` methods
 - [x] All of the above
-
 
 ## In web performance, what does the acronym TTI stand for?
 
@@ -64,7 +62,6 @@ Time to Interactive (TTI) is the amount of time it takes for the page to become 
 - [ ] Largest Contentful Paint (LCP)
 - [ ] Time to Interactive (TTI)
 - [x] All of the above
-
 
 ## What would you use a `ResizeObserver` for?
 

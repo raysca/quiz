@@ -44,5 +44,5 @@ const a = 1;
 This explanation contains some code as well
 
 ```js
-console.log('Some code is here')
+console.log('Some code is here');
 ```

@@ -63,7 +63,7 @@
 - [ ] PUT
 - [ ] GET or POST
 
-## What request is sent by a browser *by default* when a user submits a form?
+## What request is sent by a browser _by default_ when a user submits a form?
 
 - [x] GET
 - [ ] POST

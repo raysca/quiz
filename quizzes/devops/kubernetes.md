@@ -23,7 +23,6 @@ These are review questions for the Kubernetes module.
 - [ ] A group of containers that share resources
 - [x] A group of pods that share resources
 
-
 ## What is the primary purpose of Kubernetes?
 
 - [ ] Containerization

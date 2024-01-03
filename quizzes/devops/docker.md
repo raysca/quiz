@@ -14,14 +14,12 @@
 - [ ] To monitor and optimize the performance of applications
 - [x] To instruct Docker how to build a Docker image along with its dependencies and source code
 
-
 ## What is the purpose of a Docker registry?
 
 - [x] A server for hosting Docker images
 - [ ] A tool for managing Docker images
 - [ ] A tool for managing Docker containers
 - [ ] A tool for managing Docker networks
-
 
 ## Docker compose is used for:
 
@@ -30,26 +28,24 @@
 - [x] Managing Docker networks
 - [ ] Managing Docker images
 
-
 ## Networking
 
 Which statements are true about the code below
 
-```yaml 
+```yaml
 version: '3.8'
 
 services:
   web:
     image: nginx
     ports:
-      - "8080:80"
+      - '8080:80'
 ```
 
 - [ ] The service `web` will be accessible on port `80` on the host machine
 - [x] The service `web` will be accessible on port `8080` on the host machine
 - [x] This is a docker-compose file
 - [ ] The service `web` will run both on port `80` and `8080` on the host machine
-
 
 ## Docker volumes are used for:
 
@@ -64,7 +60,6 @@ services:
 - [ ] Faster development
 - [ ] Easier debugging
 - [ ] Easier deployment
-
 
 ## What is a Docker entrypoint?
 

@@ -6,11 +6,11 @@
 import React from 'react';
 
 const MyComponent = () => {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -23,22 +23,21 @@ const MyComponent = () => {
 
 ```jsx
 const withLogger = (WrappedComponent) => {
-  return class WithLogger extends Component {
-    
-    componentDidMount() {
-      console.log(`Component ${WrappedComponent.name} is mounted`);
-    }
-    
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
-  };
+	return class WithLogger extends Component {
+		componentDidMount() {
+			console.log(`Component ${WrappedComponent.name} is mounted`);
+		}
+
+		render() {
+			return <WrappedComponent {...this.props} />;
+		}
+	};
 };
 
 class MyComponent extends Component {
-  render() {
-    return <div>My Component</div>;
-  }
+	render() {
+		return <div>My Component</div>;
+	}
 }
 
 const EnhancedComponent = withLogger(MyComponent);
@@ -74,7 +73,6 @@ const EnhancedComponent = withLogger(MyComponent);
 
 The index of an array is not a stable value. If the array is sorted or filtered, the index of an element will change. This can cause React to re-render the entire list when it is not necessary.
 
-
 ## Which of the following options are **valid** react lifecycle methods?
 
 - [x] componentDidMount
@@ -101,15 +99,15 @@ What is the purpose of the `useEffect` hook in React?
 import { useEffect } from 'react';
 
 const MyComponent = () => {
-  useEffect(() => {
-    console.log('Hello World!');
-  });
-  
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	useEffect(() => {
+		console.log('Hello World!');
+	});
+
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -128,19 +126,19 @@ The component will render infinitely because the `useEffect` hook does not have 
 import { useEffect } from 'react';
 
 const MyComponent = () => {
-  useEffect(() => {
-    console.log('Hello World!');
-    
-    return () => {
-      console.log('Goodbye World!');
-    };
-  }, []);
-  
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	useEffect(() => {
+		console.log('Hello World!');
+
+		return () => {
+			console.log('Goodbye World!');
+		};
+	}, []);
+
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -191,37 +189,39 @@ What is the difference between **props** and **state** in React?
 Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
 
 ```jsx
-const ParentComponent = ({ count }) => {      
-    return (
-        <div>
-        <ChildComponent count={count} />
-        </div>
-    );
+const ParentComponent = ({ count }) => {
+	return (
+		<div>
+			<ChildComponent count={count} />
+		</div>
+	);
 };
 ```
 
 ## In the code below how would you describe the `Profile` component
 
 ```jsx
-  import { memo, useState } from 'react';
+import { memo, useState } from 'react';
 
-  const Profile = memo(function Profile({ name }) {
-    return <>
-        <p>Name:{name}</p>
-    </>;
-  });
+const Profile = memo(function Profile({ name }) {
+	return (
+		<>
+			<p>Name:{name}</p>
+		</>
+	);
+});
 
-  export default function RegForm() {
-    const [name, setName] = useState('John Doe');
-    return (
-      <>
-        <label>
-          Name: <input value={name} onChange={e => setName(e.target.value)} />
-        </label>
-        <EmployeeProfile name={name}/>
-      </>
-    );
-  }
+export default function RegForm() {
+	const [name, setName] = useState('John Doe');
+	return (
+		<>
+			<label>
+				Name: <input value={name} onChange={(e) => setName(e.target.value)} />
+			</label>
+			<EmployeeProfile name={name} />
+		</>
+	);
+}
 ```
 
 - [ ] A Higher Order Component
@@ -236,7 +236,7 @@ The `Profile` component is a pure component. It will only re-render when the `na
 ## What statement best describes the react virtual DOM?
 
 - [ ] The virtual DOM is a copy of the DOM that is stored in the browser.
-- [ ] The virtual DOM is for looping over an array of data in react. 
+- [ ] The virtual DOM is for looping over an array of data in react.
 - [x] The virtual DOM is a copy of the DOM that is stored in memory.
 - [ ] The virtual DOM is for rendring child components.
 
@@ -254,7 +254,7 @@ The virtual DOM is a copy of the DOM that is stored in memory. React uses the vi
 The second argument is used to set the initial state of the component. The second argument is only used when the component is first mounted.
 
 ```jsx
-    const [count, setCount] = useState(0, () => console.log('State updated'));
+const [count, setCount] = useState(0, () => console.log('State updated'));
 ```
 
 ## What are synthetic events in React?
@@ -270,18 +270,18 @@ The second argument is used to set the initial state of the component. The secon
 import React, { useState } from 'react';
 
 const ExampleComponent = () => {
-  const [inputValue, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
+	const handleChange = (event) => {
+		setInputValue(event.target.value);
+	};
 
-  return (
-    <div>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <p>Input Value: {inputValue}</p>
-    </div>
-  );
+	return (
+		<div>
+			<input type="text" value={inputValue} onChange={handleChange} />
+			<p>Input Value: {inputValue}</p>
+		</div>
+	);
 };
 ```
 
@@ -306,7 +306,7 @@ const ExampleComponent = () => {
 
 ---
 
-  `React.context` solves the problem of prop drilling. Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
+`React.context` solves the problem of prop drilling. Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
 
 ## In what scenario would you use `React Suspense`?
 
@@ -316,7 +316,7 @@ const ExampleComponent = () => {
 - [ ] `React Suspense` is used for handling state management in React.
 
 ---
-  
+
 `React Suspense` is used for handling loading states in React. It is used to show a loading indicator while data is being fetched.
 
 ## What is a pure component in React?
@@ -331,13 +331,13 @@ const ExampleComponent = () => {
 A pure component is a component that does not have any state. It will only re-render when the props change.
 
 ```javascript
-
 const Profile = memo(function Profile({ name }) {
-  return <>
-    <p>Name:{name}</p>
-  </>;
+	return (
+		<>
+			<p>Name:{name}</p>
+		</>
+	);
 });
-
 ```
 
 ## What are the benefits of using React Server Components?

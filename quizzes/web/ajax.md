@@ -2,12 +2,11 @@
 
 ## Fetch Promises
 
-In the code below, what is the return value of calling the  `fetch` function?
+In the code below, what is the return value of calling the `fetch` function?
 
 ```javascript
-const response = fetch("https://example.com").
-then((response) => {
-  return response.json();
+const response = fetch('https://example.com').then((response) => {
+	return response.json();
 });
 ```
 
@@ -25,31 +24,32 @@ then((response) => {
 
 ## How do you cancel a fetch request?
 
-- [ ] You can't 
+- [ ] You can't
 - [ ] Ignore the response and close the connection
 - [x] Use an `AbortController`'s `abort` method of the `AbortSignal`
 - [ ] Use the `cancel` method of the `AbortSignal`
 
 ---
-  You can use an `AbortController` to cancel a fetch request. Th example below shows how to do this.
-  
-  ```javascript
-  const controller = new AbortController();
-  const signal = controller.signal;
 
-  fetch("https://example.com", { signal })
-    .then((response) => {
-      return response.json();
-    })
-    .catch((error) => {
-      if (error.name === "AbortError") {
-        console.log("Fetch aborted");
-      }
-    });
+You can use an `AbortController` to cancel a fetch request. Th example below shows how to do this.
 
-  // This will abort the fetch request
-  controller.abort();
-  ```
+```javascript
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('https://example.com', { signal })
+	.then((response) => {
+		return response.json();
+	})
+	.catch((error) => {
+		if (error.name === 'AbortError') {
+			console.log('Fetch aborted');
+		}
+	});
+
+// This will abort the fetch request
+controller.abort();
+```
 
 ## What is the purpose of the `AbortController`?
 
@@ -71,14 +71,14 @@ In the code below, assume that the remote server is down. What will be logged to
 
 ```javascript
 // Assume the remote server returns a 500 error
-fetch("https://example.com")
-  .then(async (response) => {
-    const json = await response.json();
-    console.log(json);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+fetch('https://example.com')
+	.then(async (response) => {
+		const json = await response.json();
+		console.log(json);
+	})
+	.catch((error) => {
+		console.log(error);
+	});
 ```
 
 - [ ] undefined
@@ -91,17 +91,17 @@ fetch("https://example.com")
 The fetch API does not throw an error if the server returns a 500 error. Instead, it will return a response object with a status code of 500. To handle this, you can check the status code of the response object and throw an error if it is not 200.
 
 ```javascript
-fetch("https://example.com")
-  .then(async (response) => {
-    if (response.status !== 200) {
-      throw new Error("Server error");
-    }
-    const json = await response.json();
-    console.log(json);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+fetch('https://example.com')
+	.then(async (response) => {
+		if (response.status !== 200) {
+			throw new Error('Server error');
+		}
+		const json = await response.json();
+		console.log(json);
+	})
+	.catch((error) => {
+		console.log(error);
+	});
 ```
 
 ## The `Fetch API` will automatially retry a request if it fails.
@@ -119,10 +119,10 @@ The `Fetch API` will not automatically retry a request if it fails. You will nee
 - [x] Use the `response.blob()` method
 - [x] Use the `response.arrayBuffer()` method
 - [ ] Use the `response.binary()` method
-  
+
 ## CORS Rquest
-  
-Whe a `CORS` request is made using the `FETCH API`, what type of request is made first?
+
+When a `CORS` request is made using the `FETCH API`, what type of request is made first?
 
 - [ ] A `HEAD` request
 - [ ] A `PUT` request
@@ -141,6 +141,7 @@ The browser will make a `OPTIONS` request first to determine what methods are al
 - [ ] Use the `credentials` method
 
 ---
+
 The `credentials` option allows you to send and receive authentication credentials with a fetch request. The `credentials` option can be set to one of the following values:
 
 - `omit` - Don't send or receive credentials

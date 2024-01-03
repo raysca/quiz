@@ -20,7 +20,7 @@ See the example below:
 
 ```html
 <button aria-label="Close">
-  <span aria-hidden="true">&times;</span>
+	<span aria-hidden="true">&times;</span>
 </button>
 ```
 
@@ -36,7 +36,6 @@ The `aria-label` attribute is used to provide a label for an element. The `aria-
 - [x] Allows us to specify the ID of another element in the DOM as an element's label
 - [ ] To provide a label for an input
 - [ ] To provide a description for an input
-
 
 ![Labelled By](https://web.dev/static/articles/aria-labels-and-relationships/image/using-aria-labelledby-id-d5f1d7bae3169_1920.jpg)
 
@@ -55,7 +54,6 @@ See [ARIA labels and relationships](https://web.dev/aria-labels-and-relationship
 
 ![Described By](https://web.dev/static/articles/aria-labels-and-relationships/image/using-aria-describedby-e-95333568609f3_1920.jpg)
 
-
 ## What is the purpose of the `aria-hidden` attribute?
 
 - [x] To hide an element from the accessibility tree
@@ -69,12 +67,11 @@ See the example below:
 
 ```html
 <button aria-label="Close">
-  <span aria-hidden="true">&times;</span>
+	<span aria-hidden="true">&times;</span>
 </button>
 ```
 
 The `aria-hidden` attribute is used to hide an element from the accessibility tree. see [ARIA labels and relationships](https://web.dev/aria-labels-and-relationships/) for more information.
-
 
 ## Why use a role attribute?
 

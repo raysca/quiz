@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { validateAnswer } from '$lib/answers';
-	import Result from '$lib/components/result.svelte';
-	import QuizContent from '$lib/components/quiz-content.svelte';
+	import Result from '$components/result.svelte';
+	import RenderQuiz from '$components/quiz.svelte';
+	import type { Quiz } from '$lib/topic';
 	import { shuffle } from '$lib/shuffle';
 
 	export let total: number;
@@ -12,7 +13,6 @@
 	let currentQuizIndex = 0;
 	let currentQuiz: Quiz = selectedQuizzes[currentQuizIndex];
 	let answers: { quiz: Quiz; choices: string[]; correct: boolean }[] = [];
-	let inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 
 	const onChoiceSubmitted = (event: Event) => {
 		event.preventDefault();
@@ -26,10 +26,8 @@
 			correct
 		});
 
-		event.preventDefault();
-		currentQuizIndex++;
+		currentQuizIndex += 1;
 		currentQuiz = selectedQuizzes[currentQuizIndex];
-		inputType = currentQuiz?.answers.length > 1 ? 'checkbox' : 'radio';
 	};
 
 	$: completed = currentQuizIndex === selectedQuizzes.length - 1;
@@ -50,32 +48,8 @@
 			max={selectedQuizzes.length}
 		></progress>
 	</div>
-	<div class="card shrink-0 w-full max-w-lg mx-auto shadow-2xl">
-		<div class="card-body">
-			<h2 class="card-title">{@html currentQuiz.title}</h2>
-			<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
-				<QuizContent content={currentQuiz.body} />
-				<ul class="flex flex-col space-y-4">
-					{#each shuffle(currentQuiz.options) as option, index (option)}
-						<li>
-							<label
-								for={`${currentQuiz.id}-${index}`}
-								class="label cursor-pointer justify-start space-x-4 border px-4"
-							>
-								<input
-									id={`${currentQuiz.id}-${index}`}
-									type={inputType}
-									name="answer"
-									class={`${inputType} ${inputType}-accent`}
-									value={option}
-								/>
-								<span>{@html option}</span>
-							</label>
-						</li>
-					{/each}
-				</ul>
-				<input type="submit" value="Next" class="btn btn-primary btn-full" />
-			</form>
-		</div>
-	</div>
+	<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
+		<RenderQuiz quiz={currentQuiz} showComment={false} />
+		<input type="submit" value="Next" class="btn btn-primary btn-full" />
+	</form>
 {/if}

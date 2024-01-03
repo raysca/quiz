@@ -72,7 +72,6 @@ These are general questions related DevOps.
 - [ ] To ensure that code changes are tested and integrated frequently
 - [ ] To manage infrastructure as code
 
-
 ## What is an API Gateway?
 
 - [ ] A tool for managing API keys
@@ -86,7 +85,6 @@ These are general questions related DevOps.
 - [x] Improved performance
 - [ ] Improved scalability
 - [ ] Improved reliability
-  
 
 ## Which of the following is NOT a common API Gateway feature?
 

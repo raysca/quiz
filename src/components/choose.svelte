@@ -1,18 +1,18 @@
 <script lang="ts">
-	import type { Module } from '$lib/module';
-    import { createEventDispatcher } from 'svelte';
+	import type { QuizModule } from '$lib/module';
+	import { createEventDispatcher } from 'svelte';
 
-	export let module: Module;
-    
-    const dispatcher = createEventDispatcher();
+	export let module: QuizModule;
+
+	const dispatcher = createEventDispatcher();
 	const { topics = [], title, description } = module;
 	const questionOptions = [10, 15, 20];
 
 	const onSubmit = (event: Event) => {
 		event.preventDefault();
 		const form = new FormData(event.target as HTMLFormElement);
-        const quizAmount = Number.parseInt(form.get('quizAmount') as string)
-        dispatcher('start', {quizAmount})
+		const quizAmount = Number.parseInt(form.get('quizAmount') as string);
+		dispatcher('start', { quizAmount });
 	};
 </script>
 
@@ -21,18 +21,17 @@
 	<div class="card-body">
 		<h2 class="card-title">Covered Topics</h2>
 		<form class="grid gap-4" on:submit={onSubmit}>
-			
 			<div class="form-control">
 				<ul id="topics">
 					{#each topics as topic}
 						<li>
-							<label for={topic} class="cursor-pointer label justify-start space-x-4">
+							<label for={topic.title} class="cursor-pointer label justify-start space-x-4">
 								<input
 									class="checkbox checkbox-primary"
 									type="checkbox"
 									name="topic"
-									value={topic}
-									id={topic}
+									value={topic.title}
+									id={topic.title}
 									checked
 									disabled
 								/>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Practice from '$lib/components/practice.svelte';
-	import ChooseQuiz from '$lib/components/choose.svelte';
+	import Practice from '$components/practice.svelte';
+	import ChooseQuiz from '$components/choose.svelte';
 	export let data;
 
-	const { quizzes, module, topics } = data;
+	const { quizzes, module } = data;
 
 	let quizAmount: number = 10;
 	let started = false;
@@ -17,10 +17,7 @@
 
 <svelte:head>
 	<title>Revis3 - {module.title}</title>
-	<meta
-		name="description"
-		content={module.description}
-	/>
+	<meta name="description" content={module.description?.map((content) => content).join(' ')} />
 	<meta
 		name="keywords"
 		content="${module.title}, technical interview, technical multiple choice quiz, technical interview quiz"
@@ -32,12 +29,11 @@
 		<h1 class="text-5xl font-bold">{module.title}</h1>
 		<div>
 			{#if !started}
-				<ChooseQuiz module={module} on:start={onStartQuiz} />
+				<ChooseQuiz {module} on:start={onStartQuiz} />
 			{/if}
 			{#if started}
-				<Practice total={quizAmount} quizzes={quizzes} />
+				<Practice total={quizAmount} {quizzes} />
 			{/if}
 		</div>
 	</div>
 </div>
-

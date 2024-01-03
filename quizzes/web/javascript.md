@@ -50,19 +50,19 @@
 
 ```javascript
 function foo() {
-  var x = 0;
-  if (true) {
-    var x = 1;
-  }
-  console.log(x); // 1
+	var x = 0;
+	if (true) {
+		var x = 1;
+	}
+	console.log(x); // 1
 }
 
 function bar() {
-  let x = 0;
-  if (true) {
-    let x = 1;
-  }
-  console.log(x); // 0
+	let x = 0;
+	if (true) {
+		let x = 1;
+	}
+	console.log(x); // 0
 }
 ```
 
@@ -94,11 +94,11 @@ A closure is a function that has access to the variables in the outer function. 
 
 ```javascript
 function outer() {
-  const x = 0;
-  function inner() {
-    console.log(x);
-  }
-  return inner;
+	const x = 0;
+	function inner() {
+		console.log(x);
+	}
+	return inner;
 }
 ```
 
@@ -122,12 +122,12 @@ A function declaration is a function that is hoisted. A function expression is a
 ```javascript
 // Function declaration
 function foo() {
-  return "foo";
+	return 'foo';
 }
 
 // Function expression
 const bar = function () {
-  return "bar";
+	return 'bar';
 };
 ```
 
@@ -264,22 +264,22 @@ The prototype chain is the chain of objects that are linked together by their pr
 
 - [x] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a
       method of an object.
-- [ ] `__proto__` is a property of an object. `Object.getPrototypeOf()` is a
+- [ ] `__proto__` is a property of an function. `Object.getPrototypeOf()` is a
       method of an object.
 
 ## How would do describe the following code?
 
 ```javascript
 function foo() {
-  setTimeout(function () {
-    console.log("foo");
-    setTimeout(function () {
-      console.log("bar");
-      setTimeout(function () {
-        console.log("baz");
-      }, 1000);
-    }, 1000);
-  }, 1000);
+	setTimeout(function () {
+		console.log('foo');
+		setTimeout(function () {
+			console.log('bar');
+			setTimeout(function () {
+				console.log('baz');
+			}, 1000);
+		}, 1000);
+	}, 1000);
 }
 ```
 
@@ -299,11 +299,12 @@ function foo() {
 
 ```javascript
 try {
-  throw new Error("foo");
+	throw new Error('foo');
 } catch (error) {
-  console.log(error.message);
+	console.log(error.message);
 } finally {
-  console.log("bar");
+	console.log('bar');
 }
 ```
+
 ---

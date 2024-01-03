@@ -15,7 +15,7 @@
 - [x] Database as a Service (DBaaS)
 
 ## What is the concept of elasticity in cloud computing?
-   
+
 - [x] The ability to scale resources up or down based on demand
 - [ ] The ability to access cloud services from anywhere in the world
 - [ ] The ability to store unlimited amounts of data in the cloud
@@ -49,7 +49,6 @@
 - [ ] Adding more servers to multiple networks
 - [ ] Adding more resources to multiple servers
 
-
 ## How would you define vertical scaling?
 
 - [x] Adding more resources to a single server
@@ -57,14 +56,12 @@
 - [ ] Adding more servers to multiple networks
 - [ ] Adding more resources to multiple servers
 
-
 ## Whare the use cases of a CDN?
 
 - [x] To improve the performance of websites
 - [ ] To improve the security of websites
 - [ ] To improve the reliability of websites
 - [x] To improve the cachability of websites
-
 
 ## What is an origin server?
 
@@ -92,4 +89,3 @@
 - [ ] To intercept requests from a client to a server
 - [ ] To manipulate requests from a client to a server
 - [ ] To manipulate responses from a server to a client
-

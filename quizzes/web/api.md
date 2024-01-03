@@ -13,6 +13,7 @@
 - [ ] No difference.
 
 ---
+
 A session cookie is stored on the web browser until the browser is closed. A persistent cookie is stored on the web browser. see [HTTP cookie](https://en.wikipedia.org/wiki/HTTP_cookie) for more information.
 
 ---
@@ -34,7 +35,7 @@ Only cookies are sent to the server with every request. see [HTTP cookie](https:
 - [ ] `navigator.location`
 - [ ] `navigator.position`
 - [ ] `navigator.coords`
-  
+
 ## How can you validate a user's email address on the client side?
 
 - [ ] Use a regular expression
@@ -43,6 +44,7 @@ Only cookies are sent to the server with every request. see [HTTP cookie](https:
 - [x] Use the `email` input type and the `required` attribute
 
 ---
+
 The `email` input type will validate the email address. The `required` attribute will ensure that the input is not empty. see [HTML input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for more information.
 
 ## HTML Images Alt
@@ -50,14 +52,17 @@ The `email` input type will validate the email address. The `required` attribute
 What is the purpose of the `alt` attribute on an image tag below?
 
 ```html
-<img src="https://example.com/image.png" alt="some-text">
+<html>
+	<body>
+		<img src="https://example.com/image.png" alt="some-text" />
+	</body>
+</html>
 ```
 
 - [ ] It is used to describe the image
 - [ ] It is used to provide a fallback image
 - [x] It is used to provide a fallback text
 - [ ] It is used to provide a fallback text and image
-
 
 <!-- ## HTML Src Sets
 
@@ -77,14 +82,13 @@ What is the purpose of the `srcset` attribute on an image tag below?
 What is the purpose of the `sizes` attribute on an image tag below?
 
 ```html
-<img src="https://example.com/image.png" sizes="(max-width: 600px) 200px, 50vw">
+<img src="https://example.com/image.png" sizes="(max-width: 600px) 200px, 50vw" />
 ```
 
 - [ ] It is used to describe the image
 - [x] Provide responsive images
 - [ ] It is used to provide a fallback image
 - [ ] It is used to provide a fallback text
-
 
 ## Progressive Web Apps
 

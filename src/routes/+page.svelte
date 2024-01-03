@@ -1,9 +1,13 @@
 <script>
+	// @ts-nocheck
+
 	export let data;
 	const { modules } = data;
 	modules.forEach((module) => {
+		// @ts-ignore
 		module.totalQuizzes = 0;
 		module.topics.forEach((topic) => {
+			// @ts-ignore
 			module.totalQuizzes += topic.totalQuizzes;
 		});
 	});
@@ -29,10 +33,11 @@
 			<div class="card-body">
 				<h2 class="card-title text-accent-content">{module.title}</h2>
 				<div class="flex space-x-2 text-sm text-base-content-secondary">
-					<span>{module.totalQuizzes} Questions </span> 
+					<span>{module.totalQuizzes} Questions </span>
 					<span>|</span>
 					<span>{module.topics.length} Topics</span>
 				</div>
+				<a href={`${module.path}/preview`} class="btn btn-link mt-4">Preview</a>
 			</div>
 		</a>
 	{/each}

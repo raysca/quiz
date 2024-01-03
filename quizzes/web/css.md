@@ -35,7 +35,6 @@
 - [ ] `.container`
 - [ ] `container`
 
-
 ## How would you apply a hover effect to an element with a class of `container`?
 
 - [x] `.container:hover`
@@ -50,7 +49,6 @@
 - [ ] `em` is in pixels, while `rem` is in ems.
 - [x] `em` is relative to the parent element, while `rem` is relative to the root element.
 
-
 ## What is the difference between `justify-content` and `align-items`?
 
 - [x] `justify-content` is used to aligns flex items along the main axis of the flex container, while `align-items` is used to aligns flex items along the cross axis of the flex container.
@@ -60,9 +58,9 @@
 
 ```css
 .container {
-  display: flex;
-  justify-content: center; /* Center items along the main axis */
-  align-items: center; /* Center items along the cross axis */
+	display: flex;
+	justify-content: center; /* Center items along the main axis */
+	align-items: center; /* Center items along the cross axis */
 }
 ```
 

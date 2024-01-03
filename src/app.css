@@ -4,7 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	width: 100%;
+}
 
 body {
-  font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+img {
+	margin: auto;
+}
+
+p {
+	@apply my-4;
 }
