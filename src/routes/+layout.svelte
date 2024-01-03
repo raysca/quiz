@@ -16,7 +16,7 @@
 </svelte:head>
 
 <div class="navbar bg-neutral text-neutral-content">
-	<a class="btn btn-ghost text-xl" href="/">Revis3</a>
+	<a class="btn btn-ghost text-xl" href="/revis3">Revis3</a>
 </div>
 
 <div class="mx-auto min-h-screen container max-w-2xl">

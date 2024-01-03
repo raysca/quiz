@@ -11,6 +11,10 @@
 	const optionBadge = (option: string) => {
 		let border = '';
 
+		if (!choices) {
+			return '';
+		}
+
 		if (choices?.includes(option)) {
 			border =  '!border-error';
 		}
