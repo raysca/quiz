@@ -11,7 +11,7 @@
 		<div class="max-w-md">
 			<h1 class="text-5xl font-bold">Opps! Error</h1>
 			<p class="py-6">{$page.error?.message}</p>
-			<a href="/" class="btn btn-primary">Back to HomePage</a>
+			<a href="/revis3" class="btn btn-primary">Back to HomePage</a>
 		</div>
 	</div>
 </div>

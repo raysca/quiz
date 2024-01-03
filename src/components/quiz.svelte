@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { shuffle } from '$lib/shuffle';
 	import type { Quiz } from '$lib/topic';
+	import hljs from 'highlight.js';
+	import { afterUpdate } from 'svelte';
 
 	export let quiz: Quiz;
 	export let choices: string[];
@@ -26,6 +28,7 @@
 		return border;
 	};
 
+	afterUpdate(() => hljs.highlightAll());
 </script>
 
 <div class="w-auto mx-4">
