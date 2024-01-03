@@ -18,8 +18,7 @@ const config = {
 			outputDir: 'build'
 		}),
 		paths: {
-			// base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-			base: ''
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		},
 		prerender: {
 			crawl: false
