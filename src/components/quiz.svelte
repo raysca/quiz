@@ -3,10 +3,25 @@
 	import type { Quiz } from '$lib/topic';
 
 	export let quiz: Quiz;
+	export let choices: string[];
 	export const showComment: boolean = false;
-	export const choices: string[] = [];
 
 	let inputType = quiz?.answers.length > 1 ? 'checkbox' : 'radio';
+
+	const optionBadge = (option: string) => {
+		let border = '';
+
+		if (choices?.includes(option)) {
+			border =  '!border-error';
+		}
+
+		if (quiz.answers.includes(option)) {
+			border = '!border-success';
+		}
+
+		return border;
+	};
+
 </script>
 
 <div class="w-auto mx-4">
@@ -23,15 +38,17 @@
 			<li class="max-w-full">
 				<label
 					for={`${quiz.id}-${index}`}
-					class="label cursor-pointer justify-start space-x-4 border px-4 w-full"
+					class={`label cursor-pointer justify-start space-x-4 border border-neutral px-4 w-full ${optionBadge(option)}`}
 				>
-					<input
-						id={`${quiz.id}-${index}`}
-						type={inputType}
-						name="answer"
-						class={`${inputType} ${inputType}-accent`}
-						value={option}
-					/>
+					{#if !choices}
+						<input
+							id={`${quiz.id}-${index}`}
+							type={inputType}
+							name="answer"
+							class={`${inputType} ${inputType}-accent`}
+							value={option}
+						/>
+					{/if}
 					<span>{@html option}</span>
 				</label>
 			</li>
