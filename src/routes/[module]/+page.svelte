@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>Revis3 - {module.title}</title>
+	<title>Revis3 - Test your {module.title} knowledge</title>
 	<meta name="description" content={module.description?.map((content) => content).join(' ')} />
 	<meta
 		name="keywords"

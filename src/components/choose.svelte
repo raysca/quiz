@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="form-control mt-6">
-				<input type="submit" class="btn bg-primary" value="Start Test" />
+				<input type="submit" class="btn btn-primary" value="Start Test" />
 			</div>
 		</form>
 	</div>

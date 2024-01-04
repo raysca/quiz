@@ -45,7 +45,7 @@
 			<li class="max-w-full">
 				<label
 					for={`${quiz.id}-${index}`}
-					class={`label cursor-pointer justify-start space-x-4 border border-neutral px-4 w-full ${optionBadge(option)}`}
+					class={`label cursor-pointer justify-start space-x-4 border px-4 w-full ${optionBadge(option)}`}
 				>
 					{#if !choices}
 						<input

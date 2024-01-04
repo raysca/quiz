@@ -13,7 +13,7 @@
 	});
 </script>
 
-<div class="hero min-h-1/2 w-full bg-base-300">
+<div class="hero min-h-1/2 w-full bg-pattern">
 	<div class="hero-content text-center">
 		<div class="max-w-md">
 			<h1 class="text-5xl font-bold">Over 600 Practice Technical Questions</h1>
@@ -29,10 +29,10 @@
 
 <div class="flex flex-wrap justify-center">
 	{#each modules as module}
-		<a href={module.path} class="block card w-full md:w-72 shadow-2xl m-4 cursor-pointer bg-primary">
+		<a href={module.path} class="block card w-full md:w-72 shadow-sm border border-primary m-4 cursor-pointer">
 			<div class="card-body">
-				<h2 class="card-title text-accent-content">{module.title}</h2>
-				<div class="flex space-x-2 text-sm text-info-content">
+				<h2 class="card-title">{module.title}</h2>
+				<div class="flex space-x-2 text-sm">
 					<span>{module.totalQuizzes} Questions </span>
 					<span>|</span>
 					<span>{module.topics.length} Topics</span>
