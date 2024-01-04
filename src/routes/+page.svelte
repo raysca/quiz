@@ -21,7 +21,7 @@
 				Revis3 is open source and community driven technical practice questions.
 			</p>
 			<div class="flex space-x-2 justify-center">
-				<a class="btn btn-primary" href="https://github.com/raysca/revis3">Github</a>
+				<a class="btn btn-primary" href="https://github.com/raysca/revis3" target="_blank">Github</a>
 			</div>
 		</div>
 	</div>

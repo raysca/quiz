@@ -1,0 +1,17 @@
+{
+    "short_name": "Revis3",
+    "name": "Revis3",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "description": "Revis3",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/ios/quiz-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        }
+    ]
+}
