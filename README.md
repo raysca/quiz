@@ -1,18 +1,49 @@
-# create-svelte
+# Revis3
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Revis3 is a markdown powered quiz app that aims to help developers to revise technical concepts and prepare for interviews.
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Structure
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- `quizzes` - This folder contains all the quizzes. Each folder in the quizzes folder is a module
+- `/quizzes/*/README.md` - The `README.md` file contains the module name and description
+- `/quizzes/*.md` - Markdown files contains the quiz content. The files are the different topics in the module.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Structure of a quiz
+
+```markdown
+# Topic Name (Not required)
+
+## Question Title
+
+The question body goes here
+
+- [ ] Option 1
+- [ ] Option 2
+- [x] Option 3 (This is the correct answer)
+- [ ] Option 4
+
+---
+
+The explanation for the question goes here below the horizontal line. The explanation is optional.
+
+
+## Multiple Answer Question
+
+This is an example oof a multiple answer question
+
+- [x] Option 1
+- [ ] Option 2
+- [x] Option 3
+- [ ] Option 4
+
 ```
+
+## Submitting a quiz
+
+- Fork this repository
+- Create a new folder in the `quizzes` folder if it is a new module or add the quiz to an existing module in the topic.
+- Create a pull request
 
 ## Developing
 
@@ -34,5 +65,3 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

@@ -1,6 +1,11 @@
 {
 	"name": "revis3",
 	"version": "0.0.1",
+	"description": "Revis3 - Test your technical knowledge",
+	"homepage": "https://raysca.github.io/revis3/",
+	"author": {
+		"name": "Raymond Ottun"	
+	},
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
