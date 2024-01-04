@@ -3,14 +3,14 @@
 ## The code below is an example of a React component. What type of react component is this?
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const MyComponent = () => {
-	return (
-		<div>
-			<h1>Hello World!</h1>
-		</div>
-	);
+  return (
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  );
 };
 ```
 
@@ -23,21 +23,21 @@ const MyComponent = () => {
 
 ```jsx
 const withLogger = (WrappedComponent) => {
-	return class WithLogger extends Component {
-		componentDidMount() {
-			console.log(`Component ${WrappedComponent.name} is mounted`);
-		}
+  return class WithLogger extends Component {
+    componentDidMount() {
+      console.log(`Component ${WrappedComponent.name} is mounted`);
+    }
 
-		render() {
-			return <WrappedComponent {...this.props} />;
-		}
-	};
+    render() {
+      return <WrappedComponent {...this.props} />;
+    }
+  };
 };
 
 class MyComponent extends Component {
-	render() {
-		return <div>My Component</div>;
-	}
+  render() {
+    return <div>My Component</div>;
+  }
 }
 
 const EnhancedComponent = withLogger(MyComponent);
@@ -66,12 +66,16 @@ const EnhancedComponent = withLogger(MyComponent);
 
 - [ ] It is not a bad idea to use the `index` of an array as a `key` prop
 - [ ] It makes it difficult to find the element in the DOM
-- [ ] It is a bad idea to use the `index` of an array as a `key` prop because it is not unique
-- [x] It is a bad idea to use the `index` of an array as a `key` prop because it is not stable
+- [ ] It is a bad idea to use the `index` of an array as a `key` prop because it
+      is not unique
+- [x] It is a bad idea to use the `index` of an array as a `key` prop because it
+      is not stable
 
 ---
 
-The index of an array is not a stable value. If the array is sorted or filtered, the index of an element will change. This can cause React to re-render the entire list when it is not necessary.
+The index of an array is not a stable value. If the array is sorted or filtered,
+the index of an element will change. This can cause React to re-render the
+entire list when it is not necessary.
 
 ## Which of the following options are **valid** react lifecycle methods?
 
@@ -82,13 +86,16 @@ The index of an array is not a stable value. If the array is sorted or filtered,
 
 ---
 
-**componentDidMount**, **componentDidUpdate**, and **componentWillUnmount** are all valid lifecycle methods. **componentDidNoMount** is not a valid lifecycle method.
+**componentDidMount**, **componentDidUpdate**, and **componentWillUnmount** are
+all valid lifecycle methods. **componentDidNoMount** is not a valid lifecycle
+method.
 
 ## React Rendering
 
 What is the purpose of the `useEffect` hook in React?
 
-- [x] `useEffect` is used to perform side effects in functional components, such as data fetching.
+- [x] `useEffect` is used to perform side effects in functional components, such
+      as data fetching.
 - [ ] `useEffect` is not a valid hook in React.
 - [ ] `useEffect` is used for updating the DOM manually.
 - [ ] `useEffect` is for tracking state changes in a component.
@@ -96,18 +103,18 @@ What is the purpose of the `useEffect` hook in React?
 ## What is the implication of using `useEffect` in the code below?
 
 ```jsx
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const MyComponent = () => {
-	useEffect(() => {
-		console.log('Hello World!');
-	});
+  useEffect(() => {
+    console.log("Hello World!");
+  });
 
-	return (
-		<div>
-			<h1>Hello World!</h1>
-		</div>
-	);
+  return (
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  );
 };
 ```
 
@@ -118,38 +125,43 @@ const MyComponent = () => {
 
 ---
 
-The component will render infinitely because the `useEffect` hook does not have any dependencies. The `useEffect` hook will run after every render.
+The component will render infinitely because the `useEffect` hook does not have
+any dependencies. The `useEffect` hook will run after every render.
 
 ## What is the purpose of returning a function from the `useEffect` hook in the component below?
 
 ```jsx
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const MyComponent = () => {
-	useEffect(() => {
-		console.log('Hello World!');
+  useEffect(() => {
+    console.log("Hello World!");
 
-		return () => {
-			console.log('Goodbye World!');
-		};
-	}, []);
+    return () => {
+      console.log("Goodbye World!");
+    };
+  }, []);
 
-	return (
-		<div>
-			<h1>Hello World!</h1>
-		</div>
-	);
+  return (
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  );
 };
 ```
 
-- [x] The function returned from the `useEffect` hook will run before the component is unmounted.
-- [ ] The function returned from the `useEffect` hook will run after the component is unmounted.
+- [x] The function returned from the `useEffect` hook will run before the
+      component is unmounted.
+- [ ] The function returned from the `useEffect` hook will run after the
+      component is unmounted.
 - [ ] The returned function has no effect at all on the component.
 - [ ] The function has no use at all
 
 ---
 
-The function returned from the `useEffect` hook will run before the component is unmounted. This is useful for cleaning up any side effects that the component may have created.
+The function returned from the `useEffect` hook will run before the component is
+unmounted. This is useful for cleaning up any side effects that the component
+may have created.
 
 ## React State
 
@@ -162,66 +174,77 @@ What does it mean to lift state up in React?
 
 ---
 
-Lifting state up in React means to move state from a child component to a parent component. This is useful when multiple components need to share the same state.
+Lifting state up in React means to move state from a child component to a parent
+component. This is useful when multiple components need to share the same state.
 
 ## What Props vs State
 
 What is the difference between **props** and **state** in React?
 
-- [ ] **props** are used to store data in a component, while **state** is used to pass data to a component.
-- [x] **props** are used to pass data to a component, while **state** is used to store data in a component.
+- [ ] **props** are used to store data in a component, while **state** is used
+      to pass data to a component.
+- [x] **props** are used to pass data to a component, while **state** is used to
+      store data in a component.
 - [ ] **props** is just another name for **state**.
-- [ ] **props** are primarily used in functional components, while **state** is primarily used in class components.
+- [ ] **props** are primarily used in functional components, while **state** is
+      primarily used in class components.
 
 ---
 
-**props** are used to pass data to a component, while **state** is used to store data in a component.
+**props** are used to pass data to a component, while **state** is used to store
+data in a component.
 
 ## What is prop drilling in React?
 
-- [x] Prop drilling is the process of passing props from a parent component to a child component.
-- [ ] Prop drilling is the process of passing props from a child component to a parent component.
+- [x] Prop drilling is the process of passing props from a parent component to a
+      child component.
+- [ ] Prop drilling is the process of passing props from a child component to a
+      parent component.
 - [ ] Destrucuring props in a component.
 - [ ] Sharing state between sibling components.
 
 ---
 
-Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
+Prop drilling is the process of passing props from a parent component to a child
+component. This can be a problem when the child component is nested deep within
+the component tree.
 
 ```jsx
 const ParentComponent = ({ count }) => {
-	return (
-		<div>
-			<ChildComponent count={count} />
-		</div>
-	);
+  return (
+    <div>
+      <ChildComponent count={count} />
+    </div>
+  );
 };
 ```
 
 ## In the code below how would you describe the `Profile` component
 
-```jsx
-import { memo, useState } from 'react';
+```js
 
-const Profile = memo(function Profile({ name }) {
-	return (
-		<>
-			<p>Name:{name}</p>
-		</>
-	);
-});
+  import { memo, useState } from "react";
 
-export default function RegForm() {
-	const [name, setName] = useState('John Doe');
-	return (
-		<>
-			<label>
-				Name: <input value={name} onChange={(e) => setName(e.target.value)} />
-			</label>
-			<EmployeeProfile name={name} />
-		</>
-	);
-}
+  const Profile = memo(function Profile({ name }) {
+    return (
+      <>
+        <p>Name:{name}</p>
+      </>
+    );
+  });
+
+  export default function RegForm() {
+    const [name, setName] = useState("John Doe");
+    return (
+      <>
+        <label>
+          Name: <input value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+        <EmployeeProfile name={name} />
+      </>
+    );
+  }
+  
 ```
 
 - [ ] A Higher Order Component
@@ -231,7 +254,8 @@ export default function RegForm() {
 
 ---
 
-The `Profile` component is a pure component. It will only re-render when the `name` prop changes.
+The `Profile` component is a pure component. It will only re-render when the
+`name` prop changes.
 
 ## What statement best describes the react virtual DOM?
 
@@ -242,7 +266,9 @@ The `Profile` component is a pure component. It will only re-render when the `na
 
 ---
 
-The virtual DOM is a copy of the DOM that is stored in memory. React uses the virtual DOM to determine what changes need to be made to the DOM. see https://reactjs.org/docs/faq-internals.html
+The virtual DOM is a copy of the DOM that is stored in memory. React uses the
+virtual DOM to determine what changes need to be made to the DOM. see
+https://reactjs.org/docs/faq-internals.html
 
 ## What is the purpose of the second argument in the `useState` hook?
 
@@ -251,10 +277,11 @@ The virtual DOM is a copy of the DOM that is stored in memory. React uses the vi
 - [ ] The second argument will run after the component is mounted.
 - [x] The second argument will run after the state is updated.
 
-The second argument is used to set the initial state of the component. The second argument is only used when the component is first mounted.
+The second argument is used to set the initial state of the component. The
+second argument is only used when the component is first mounted.
 
 ```jsx
-const [count, setCount] = useState(0, () => console.log('State updated'));
+const [count, setCount] = useState(0, () => console.log("State updated"));
 ```
 
 ## What are synthetic events in React?
@@ -267,21 +294,21 @@ const [count, setCount] = useState(0, () => console.log('State updated'));
 ## What options are true about this react component?
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ExampleComponent = () => {
-	const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
-	const handleChange = (event) => {
-		setInputValue(event.target.value);
-	};
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
-	return (
-		<div>
-			<input type="text" value={inputValue} onChange={handleChange} />
-			<p>Input Value: {inputValue}</p>
-		</div>
-	);
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <p>Input Value: {inputValue}</p>
+    </div>
+  );
 };
 ```
 
@@ -306,7 +333,9 @@ const ExampleComponent = () => {
 
 ---
 
-`React.context` solves the problem of prop drilling. Prop drilling is the process of passing props from a parent component to a child component. This can be a problem when the child component is nested deep within the component tree.
+`React.context` solves the problem of prop drilling. Prop drilling is the
+process of passing props from a parent component to a child component. This can
+be a problem when the child component is nested deep within the component tree.
 
 ## In what scenario would you use `React Suspense`?
 
@@ -317,7 +346,8 @@ const ExampleComponent = () => {
 
 ---
 
-`React Suspense` is used for handling loading states in React. It is used to show a loading indicator while data is being fetched.
+`React Suspense` is used for handling loading states in React. It is used to
+show a loading indicator while data is being fetched.
 
 ## What is a pure component in React?
 
@@ -328,15 +358,16 @@ const ExampleComponent = () => {
 
 ---
 
-A pure component is a component that does not have any state. It will only re-render when the props change.
+A pure component is a component that does not have any state. It will only
+re-render when the props change.
 
 ```javascript
 const Profile = memo(function Profile({ name }) {
-	return (
-		<>
-			<p>Name:{name}</p>
-		</>
-	);
+  return (
+    <>
+      <p>Name:{name}</p>
+    </>
+  );
 });
 ```
 
@@ -346,3 +377,138 @@ const Profile = memo(function Profile({ name }) {
 - [ ] Improved security
 - [x] Improved SEO
 - [ ] Improved developer experience
+
+## Component
+
+```javascript
+const MyComponent = ({ value }) => {
+  if (value === 0) {
+    return null;
+  }
+
+  return (
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  );
+};
+```
+
+- [x] This is a valid component
+- [ ] This is not a valid component
+
+## What does Hydration mean in React?
+
+- [ ] Hydration is the process of updating the DOM.
+- [ ] Hydration is the process of updating the virtual DOM.
+- [x] Hydration is the process of attaching event handlers to the DOM.
+- [ ] Hydration is the process of updating the state of a component.
+
+## When is using `Fragment` in React useful?
+
+- [ ] When you want to render a list of items.
+- [ ] When you want to render a single item.
+- [x] When you want to render multiple items without adding extra nodes to the
+      DOM.
+- [ ] When you want to render multiple items with adding extra nodes to the DOM.
+
+---
+
+When you want to render multiple items without adding extra nodes to the DOM.
+
+```jsx
+const MyComponent = () => {
+  return (
+    <>
+      <p>Item 1</p>
+      <p>Item 2</p>
+      <p>Item 3</p>
+    </>
+  );
+};
+```
+
+## What React component is used to render a list of items?
+
+- [ ] `<List />`
+- [ ] `<ul />`
+- [x] React does not have a component for rendering lists.
+- [ ] `<ol />`
+
+---
+
+React does not have a component for rendering lists. You can use the `map`
+
+```jsx
+const MyComponent = () => {
+  const items = ["Item 1", "Item 2", "Item 3"];
+
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+## What is the purpose of the `key` prop in React?
+
+- [ ] The `key` prop is used to set the initial state of a component.
+- [x] The `key` prop is used to identify elements in a list.
+- [ ] The `key` prop is used to update the state of a component.
+- [ ] The `key` prop is used to update the DOM.
+
+## What React component can be used to measure rendering performance?
+
+- [ ] `<Measure />`
+- [ ] `<Performance />`
+- [x] `<Profiler />`
+
+---
+
+The `<Profiler />` component can be used to measure rendering performance. see [Profiler](https://react.dev/reference/react/Profiler#measuring-rendering-performance-programmatically)
+
+## What React component can be used to find issues with the component tree?
+
+- [x] `<StrictMode />`
+- [ ] `<Profiler />`
+- [ ] `<Measure />`
+
+## What is `<Suspense />` used for in React?
+
+- [ ] `<Suspense />` is used for handling errors in React.
+- [x] `<Suspense />` is used for handling loading states in React.
+- [ ] `<Suspense />` is used for handling data fetching in React.
+- [ ] `<Suspense />` is used for handling state management in React.
+
+---
+
+`<Suspense />` is used for handling loading states in React. It is used to show a loading indicator while data is being fetched.
+
+```jsx
+const MyComponent = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Profile />
+    </Suspense>
+  );
+};
+```
+
+## Explain the following code
+
+```jsx
+import { lazy } from "react";
+const Profile = lazy(() => import("./Profile"));
+```
+
+- [ ] The `lazy` function is used to load a component asynchronously.
+- [ ] The `lazy` function is used to load a component synchronously.
+- [ ] The `lazy` function is used to load a component dynamically.
+- [x] The `lazy` function is used to load a component lazily.
+
+---
+
+The `lazy` function is used to load a component lazily. This means that the component will not be loaded until it is needed.

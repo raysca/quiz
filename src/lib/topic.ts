@@ -127,15 +127,22 @@ export const extractTopicFromMarkdown = async (
 				return `<p>${text}</p>`;
 			},
 			code: (text: string, info: string | undefined, escaped: boolean) => {
+				var tagsToReplace: any = {
+					'&': '&amp;',
+					'<': '&lt;',
+					'>': '&gt;'
+				};
+				const code = text.replace(/[&<>]/g, (tag) => tagsToReplace[tag] || tag);
+
 				if (useExplanation) {
 					quiz?.comment.push(
-						`<pre><code class="inline-code" language="${info}">${text}</code></pre>`
+						`<pre><code class="inline-code" language="${info}">${code}</code></pre>`
 					);
-					return `<code class="inline-code" language="${info}">${text}</code>`;
+					return `<code class="inline-code" language="${info}">${code}</code>`;
 				}
 
-				quiz?.body.push(`<pre><code class="inline-code" language="${info}">${text}</code></pre>`);
-				return `<code class="inline-code" language="${info}">${text}</code>`;
+				quiz?.body.push(`<pre><code class="inline-code" language="${info}">${code}</code></pre>`);
+				return `<code class="inline-code" language="${info}">${code}</code>`;
 			},
 			table: (head: string, body: string) => {
 				quiz?.body.push(`<table>${head}${body}</table>`);
@@ -150,7 +157,7 @@ export const extractTopicFromMarkdown = async (
 				return html;
 			},
 			codespan: (code: string) => {
-				return `<span class="text-primary">${code}</span>`;
+				return `<span class="text-neutral font-semibold">${code}</span>`;
 			}
 		}
 	});

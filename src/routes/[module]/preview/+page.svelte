@@ -9,6 +9,6 @@
 
 <div class="flex flex-col space-y-4">
 	{#each quizzes as quiz}
-		<Quiz {quiz} showComment={true} />
+		<Quiz {quiz} showComment />
 	{/each}
 </div>
