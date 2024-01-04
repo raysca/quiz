@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import Practice from '$components/practice.svelte';
 	import ChooseQuiz from '$components/choose.svelte';
 	export let data;
@@ -29,10 +31,14 @@
 		<h1 class="text-5xl font-bold">{module.title}</h1>
 		<div>
 			{#if !started}
-				<ChooseQuiz {module} on:start={onStartQuiz} />
+				<div transition:slide={{ delay: 150, duration: 300, easing: quintOut, axis: 'y' }}>
+					<ChooseQuiz {module} on:start={onStartQuiz} />
+				</div>
 			{/if}
 			{#if started}
-				<Practice total={quizAmount} {quizzes} />
+				<div transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'y' }}>
+					<Practice total={quizAmount} {quizzes} />
+				</div>
 			{/if}
 		</div>
 	</div>

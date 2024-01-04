@@ -5,7 +5,7 @@
 	import { afterUpdate } from 'svelte';
 
 	export let quiz: Quiz;
-	export let choices: string[];
+	export let choices: string[] | undefined = undefined;
 	export const showComment: boolean = false;
 
 	let inputType = quiz?.answers.length > 1 ? 'checkbox' : 'radio';
