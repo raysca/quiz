@@ -27,7 +27,7 @@
 						<li>
 							<label for={topic.title} class="cursor-pointer label justify-start space-x-4">
 								<input
-									class="checkbox checkbox-primary"
+									class="checkbox checkbox-accent"
 									type="checkbox"
 									name="topic"
 									value={topic.title}
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="form-control mt-6">
-				<input type="submit" class="btn btn-primary" value="Begin" />
+				<input type="submit" class="btn bg-primary" value="Start Test" />
 			</div>
 		</form>
 	</div>

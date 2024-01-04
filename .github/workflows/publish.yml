@@ -23,6 +23,7 @@ jobs:
       - name: build
         env:
           BASE_PATH: '/revis3'
+          PUBLIC_BASE_PATH: '/revis3'
         run: |
           npm run build
 
