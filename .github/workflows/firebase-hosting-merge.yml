@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_RAYCA_94E78 }}'
           channelId: live
           projectId: rayca-94e78
+    env:
+      PUBLIC_BASE_PATH: '/'
