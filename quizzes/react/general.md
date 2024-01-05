@@ -378,17 +378,23 @@ const Profile = memo(function Profile({ name }) {
 - [x] Improved SEO
 - [ ] Improved developer experience
 
-## Component
+## React Hook
 
-```javascript
-const MyComponent = ({ value }) => {
-  if (value === 0) {
-    return null;
-  }
+In the code below, what react hook will be better to use?
+
+```jsx
+import React, { useState } from 'react';
+
+const ExampleComponent = () => {
+  const [firstState, setFirstState] = useState(0);
+  const [secondState, setSecondState] = useState(0);
 
   return (
     <div>
-      <h1>Hello World!</h1>
+      <div>First State: {firstState}</div>
+      <div>Second State: {secondState}</div>
+      <button onClick={() => setFirstState(++firstState)} >First State</button>
+      <button onClick={() => setSecondState(++secondState)} >Second State</button>
     </div>
   );
 };
@@ -408,8 +414,7 @@ const MyComponent = ({ value }) => {
 
 - [ ] When you want to render a list of items.
 - [ ] When you want to render a single item.
-- [x] When you want to render multiple items without adding extra nodes to the
-      DOM.
+- [x] When you want to render multiple items without adding extra nodes to the DOM.
 - [ ] When you want to render multiple items with adding extra nodes to the DOM.
 
 ---
@@ -512,3 +517,10 @@ const Profile = lazy(() => import("./Profile"));
 ---
 
 The `lazy` function is used to load a component lazily. This means that the component will not be loaded until it is needed.
+
+## What are the use cases of the `useRef` hook?
+
+- [x] Measuring the size of a DOM element
+- [ ] Persisting state between renders
+- [ ] Persisting state between components
+- [x] Manually updating the DOM 

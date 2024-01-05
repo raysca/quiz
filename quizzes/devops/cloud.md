@@ -89,3 +89,17 @@
 - [ ] To intercept requests from a client to a server
 - [ ] To manipulate requests from a client to a server
 - [ ] To manipulate responses from a server to a client
+
+## What is ingress traffic?
+
+- [ ] Traffic that is sent from a client to a server
+- [x] Incoming traffic into a network
+- [ ] Outgoing traffic from a network
+- [ ] Traffic that is sent from a server to a client
+
+## What is egress traffic?
+
+- [ ] Traffic that is sent from a client to a server
+- [ ] Incoming traffic into a network
+- [x] Outgoing traffic from a network
+- [ ] Traffic that is sent from a server to a client

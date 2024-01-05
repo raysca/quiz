@@ -99,3 +99,11 @@ These are general questions related DevOps.
 - [ ] Improved deployment
 - [x] Single responsibility services
 - [x] Improved scalability
+
+
+## What is canary deployment?
+
+- [ ] A deployment strategy that uses a canary to test the performance of a new version of an application
+- [ ] A deployment strategy that uses a canary to test the security of a new version of an application
+- [x] A deployment strategy that uses a canary to test the reliability of a new version of an application
+- [ ] A deployment strategy that uses a canary to test the usability of a new version of an application
