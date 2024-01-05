@@ -2,6 +2,7 @@
 	import Quiz from '$components/quiz.svelte';
 	export let answers: Record<string, any>[];
 	export let total: number;
+	export let showQuizzes: boolean = true;
 
 	const answersByTopic = answers.reduce((acc: Record<string, any>, answer: any) => {
 		const topic = answer.quiz.topic?.title;
@@ -17,7 +18,7 @@
 		const correct = answersByTopic[topic].filter((a: any) => a.correct).length;
 		const percentage = Math.round((correct / total) * 100);
 		const status = percentage > 50 ? 'passed' : 'failed';
-		const progress = percentage > 50 ? 'text-success' : 'text-error';
+		const progress = percentage > 50 ? 'text-info' : 'text-error';
 		return Object.assign(acc, {
 			[topic]: {
 				total,
@@ -46,7 +47,7 @@
 				</thead>
 				<tbody>
 					{#each Object.keys(answersByTopic) as topic}
-						<tr>
+						<tr class="font-semibold">
 							<td class={resultByTopic[topic].progress}>{topic}</td>
 							<td>{resultByTopic[topic].total}</td>
 							<td>{resultByTopic[topic].correct}</td>
@@ -55,15 +56,20 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="card-actions justify-end">
-			<button class="btn btn-primary" on:click={() => window.location.reload()}>Restart Test</button
-			>
-		</div>
+		{#if showQuizzes}
+			<div class="card-actions justify-end">
+				<button class="btn btn-primary" on:click={() => window.location.reload()}
+					>Restart Test</button
+				>
+			</div>
+		{/if}
 	</div>
 </div>
 
-<div class="flex flex-col space-y-4">
-	{#each answers as answer}
-		<Quiz quiz={answer.quiz} choices={answer.choices} showComment={true} />
-	{/each}
-</div>
+{#if showQuizzes}
+	<div class="flex flex-col space-y-4">
+		{#each answers as answer}
+			<Quiz quiz={answer.quiz} choices={answer.choices} showComment={true} />
+		{/each}
+	</div>
+{/if}

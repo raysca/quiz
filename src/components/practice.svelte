@@ -34,7 +34,7 @@
 </script>
 
 {#if completed}
-	<Result {answers} total={selectedQuizzes.length} />
+	<Result {answers} total={selectedQuizzes.length} showQuizzes />
 {/if}
 
 {#if !completed}

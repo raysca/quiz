@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { shuffle } from '$lib/shuffle';
 	import type { Quiz } from '$lib/topic';
 	import hljs from 'highlight.js';
 	import { afterUpdate } from 'svelte';
@@ -8,7 +7,7 @@
 	export let choices: string[] | undefined = undefined;
 	export let showComment: boolean = false;
 
-	let inputType = quiz?.answers.length > 1 ? 'checkbox' : 'radio';
+	let inputType = quiz?.isMultipleChoice ? 'checkbox' : 'radio';
 
 	const optionBadge = (option: string) => {
 		let border = '';
@@ -41,7 +40,7 @@
 	</p>
 	<p />
 	<ul class="my-4 flex flex-col space-y-4">
-		{#each shuffle(quiz.options) as option, index (option)}
+		{#each quiz.options as option, index (option)}
 			<li class="max-w-full">
 				<label
 					for={`${quiz.id}-${index}`}

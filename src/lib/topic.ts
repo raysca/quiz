@@ -17,6 +17,7 @@ export interface Quiz {
 	options: string[];
 	answers: string[];
 	body: string[];
+	isMultipleChoice?: boolean;
 }
 
 export interface Topic {
@@ -167,6 +168,7 @@ export const extractTopicFromMarkdown = async (
 	// ensure that quizzes options are unique
 	topic.quizzes.forEach((quiz) => {
 		quiz.options = [...new Set(quiz.options)];
+		quiz.isMultipleChoice = quiz.answers.length > 1;
 	});
 
 	validateTopic(topic, filePath);

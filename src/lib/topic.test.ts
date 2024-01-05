@@ -40,6 +40,10 @@ describe('Topic', () => {
 			expect(topic.quizzes[0].title).toEqual('Question 1');
 		});
 
+		it('marks as multiple choice', () => {
+			expect(topic.quizzes[0].isMultipleChoice).toBe(true);
+		});
+
 		it('creates the options', () => {
 			expect(topic.quizzes[0].options).toEqual(['Option 1', 'Option 2', 'Option 3', 'Option 4']);
 		});
@@ -93,6 +97,10 @@ describe('Topic', () => {
                 "<p>This is an explanation for the single choice question above.</p>",
               ]
             `);
+		});
+
+		it('marks as single choice', () => {
+			expect(topic.quizzes[1].isMultipleChoice).toBe(false);
 		});
 	});
 
