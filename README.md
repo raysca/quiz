@@ -1,9 +1,14 @@
-# Revis3
+
+<h1 align="center"> Revis3 </h1>
+<div align="center"> 
+<a href="revis3.web.app">Revis3 Website</a>  |
+<a href="revis3.web.app/react">React Quiz</a>  | 
+<a href="revis3.web.app/web">Full Stack Quiz</a>
+</div>
 
 Revis3 is a markdown powered quiz app that aims to help developers to revise technical concepts and prepare for interviews.
 
-
-## Structure
+## Project Structure
 
 - `quizzes` - This folder contains all the quizzes. Each folder in the quizzes folder is a module
 - `/quizzes/*/README.md` - The `README.md` file contains the module name and description
@@ -12,11 +17,11 @@ Revis3 is a markdown powered quiz app that aims to help developers to revise tec
 ## Structure of a quiz
 
 ```markdown
-# Topic Name (Not required)
+# Topic Title (Not required)
 
 ## Question Title
 
-The question body goes here
+The question body goes here. It can be a paragraph or a code snippet or both.
 
 - [ ] Option 1
 - [ ] Option 2
@@ -26,7 +31,6 @@ The question body goes here
 ---
 
 The explanation for the question goes here below the horizontal line. The explanation is optional.
-
 
 ## Multiple Answer Question
 
