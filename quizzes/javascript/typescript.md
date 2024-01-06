@@ -1,4 +1,4 @@
-# Typescript Questions
+# Typescript
 
 ## What is the difference between `interface` and `type`?
 

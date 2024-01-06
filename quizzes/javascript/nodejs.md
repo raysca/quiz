@@ -1,4 +1,4 @@
-# NodeJS
+# Node.JS
 
 ## What is Node.js?
 
@@ -98,3 +98,97 @@ To get the directory name of the current module. `__dirname` is a global variabl
 ---
 
 `npm install package-name@version`
+
+## Node.js runs http requests in a single thread?
+
+- [x] True
+- [ ] False
+
+---
+
+Node.js runs http requests in a single thread. Node.js is single-threaded, but it uses an event loop to handle asynchronous operations.
+
+## All I/O operations in Node.js are asynchronous?
+
+- [x] True
+- [ ] False
+
+---
+
+All I/O operations in Node.js are asynchronous. Node.js is single-threaded, but it uses an event loop to handle asynchronous operations.
+
+## What is the purpose of the `process` object in Node.js?
+
+- [ ] To get information about the current process
+- [ ] To get information about the current module
+- [ ] To get information about the current script
+- [x] All of the above
+
+## What is the best practice of gracefully shutting down a Node.js process?
+
+- [ ] Using the `process.exit()` method
+- [ ] Using the `process.kill()` method
+- [x] Using the `process.on('SIGTERM')` event
+- [ ] Using the `process.on('SIGINT')` event
+
+---
+
+Using the `process.on('SIGTERM')` event. The `SIGTERM` event is emitted when the process is terminated. It is a good practice to gracefully shut down a Node.js process by listening for this event and then calling `process.exit()`.
+
+## What is the value of the `process.argv` property in Node.js?
+
+- [ ] The arguments passed to the Node.js process
+- [ ] The arguments passed to the Node.js script
+- [x] All of the above
+
+## How do you read environment variables in Node.js?
+
+- [x] Using the `process.env` object
+- [ ] Using the `process.env()` method
+- [ ] Using the `process.getEnv()` method
+- [ ] All of the above
+
+## What is the purpose of the `Buffer` class in Node.js?
+
+- [ ] To read and write files
+- [ ] To handle HTTP requests
+- [x] To handle binary data
+- [ ] To handle errors
+
+## Node.js is a single-threaded runtime environment?
+
+- [x] True
+- [ ] False
+
+## Node.js Streams
+
+What is the purpose of the `pipe` method in Node.js streams?
+
+- [ ] To read data from a stream
+- [ ] To write data to a stream
+- [x] To read data from a readable stream and write it to a writable stream
+- [ ] To close a stream
+
+---
+
+To read data from a readable stream and write it to a writable stream. The `pipe` method is used to read data from a readable stream and write it to a writable stream.
+
+## Node.js Streams Types
+
+Which of these are types of streams in Node.js?
+
+- [x] Readable
+- [x] Writable
+- [ ] Functional
+- [x] Transform
+
+## When does `setTimeout` execute the callback function?
+
+- [ ] After the specified number of milliseconds
+- [ ] Before the specified number of milliseconds
+- [x] After the specified number of milliseconds, but not exactly
+- [ ] Before the specified number of milliseconds, but not exactly
+
+---
+
+`setTimeout` executes the callback function after the specified number of milliseconds, but because of the event loop, it is not guaranteed to be executed exactly after the specified number of milliseconds.
