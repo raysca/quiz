@@ -98,3 +98,84 @@ To get the directory name of the current module. `__dirname` is a global variabl
 ---
 
 `npm install package-name@version`
+
+
+## What is the purpose of the `module.exports` object in Node.js?
+
+- [ ] To import modules
+- [ ] To define global variables
+- [x] To export functions or objects from a module
+- [ ] To handle HTTP requests
+
+## Requiring modules
+
+Here is module `foo.js`:
+
+```js
+consol.log('Hello from foo.js')
+```
+
+And here is module `index.js` requiring `foo.js`:
+
+```js
+require('./foo')
+require('./foo')
+```
+
+What will be the output of `node index.js`?
+
+- [x] `Hello from foo.js`
+- [ ] `Hello from foo.js` `Hello from foo.js`
+- [ ] Nothing is printed to the console
+
+---
+
+Node.js caches modules on first require. So the output will be `Hello from foo.js` only once.
+
+## When is `child_process.exec()` preferable to `child_process.spawn()`?
+
+- [ ] When you want to execute a command in a new process
+- [ ] When you want to execute a command in a new thread
+- [x] When you want to execute a command in a shell
+- [ ] When you want to execute a command in a new terminal
+
+
+## Error handling
+
+Why is the following code not a good practice?
+
+```js
+
+process.on('uncaughtException', (err) => {
+  console.log('Caught exception: ' + err);
+});
+
+```
+
+- [ ] Because it will catch all exceptions
+- [x] Because it will catch all unhandled exceptions but the process will continue to run
+- [ ] Because it will catch all unhandled exceptions and the process will exit
+- [ ] Because it will catch all unhandled exceptions and the process will restart
+
+---
+
+`process.on('uncaughtException')` is used to catch unhandled exceptions. However, the process will continue to run after the exception is caught. This is not a good practice because the process may be in an inconsistent state.
+
+## Errors and promises
+
+What is the output of the following code?
+
+```js
+const p = new Promise(function (resolve, reject) { 
+    reject(new Error('Oops'));
+});
+
+p.catch(function (err) {
+    console.log(err.message);
+});
+```
+
+- [ ] `Error: Oops`
+- [x] `Oops`
+- [ ] `Error`
+- [ ] `undefined`
