@@ -29,9 +29,12 @@
 	<title>Revis3 - Test your technical knowledge</title>
 	<meta
 		name="description"
-		content="Revis3 is a multiple choice quiz project that helps to test your knowledge before technical interviews."
+		content="Open source technical quiz platform"
 	/>
 	<meta name="keywords" content="Revis3, technical interview, technical multiple choice quiz" />
+	<meta name="application-name" content="Revis3" />
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 </svelte:head>
 
 <div class="navbar bg-neutral text-neutral-content">

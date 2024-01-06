@@ -19,11 +19,7 @@
 
 <svelte:head>
 	<title>Revis3 - Test your {module.title} knowledge</title>
-	<meta name="description" content={module.description?.map((content) => content).join(' ')} />
-	<meta
-		name="keywords"
-		content="${module.title}, technical interview, technical multiple choice quiz, technical interview quiz"
-	/>
+	<meta name="description" content={`Test your ${module.title} knowledge`} />
 </svelte:head>
 
 <div class="hero min-h-screen">
