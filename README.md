@@ -43,6 +43,15 @@ This is an example oof a multiple answer question
 
 ```
 
+### Example Topics
+
+- [React Hooks](quizzes/react/hooks.md)
+- [Node.js](quizzes/javascript/nodejs.md)
+- [Web Security](quizzes/web/security.md)
+- [HTTP](quizzes/web/http.md)
+
+```markdown
+
 ## Submitting a quiz
 
 - Fork this repository

@@ -142,7 +142,7 @@ Node.js caches modules on first require. So the output will be `Hello from foo.j
 
 ## Error handling
 
-Why is the following code not a good practice?
+Why is the following code not a good practice in error handling?
 
 ```js
 

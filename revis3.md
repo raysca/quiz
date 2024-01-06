@@ -1,14 +1,12 @@
-# Preparing for the role of a (Senior) Full Stack Developer
+# Preparing for the Role of a (Senior) Full Stack Developer
 
-In this new year, are you looking for a new job? Maybe you are looking to become a (Senior) Full Stack Developer. If you are, you might be wondering what topics you should revise to be ready for a Full Stack Developer interview.
+As we embark on a new year, if you are considering a career change or aspiring to step into the realm of a (Senior) Full Stack Developer, it's essential to prepare thoroughly for potential interviews. 
 
-In this article, I will share some topics that you should be familiar with to be ready for a Full Stack Developer interview.
+This article aims to guide you on the key topics you should be well-versed in to confidently tackle Full Stack Developer interviews.
 
 ## HTML, CSS, JavaScript
 
-These are the basic building blocks of the web. As a Full Stack Developer, you should be comfortable with these three technologies.
-
-Here are some common topics that you should be familiar with:
+Mastering the fundamentals of web development is crucial. As a Full Stack Developer, ensure your proficiency in:
 
 - Accessibility
 - SEO
@@ -17,18 +15,28 @@ Here are some common topics that you should be familiar with:
 - CSS Layout (e.g. Flexbox, Grid)
 - JavaScript Fundamentals (e.g. `this`, `prototype`, `async`, `await`, `Promise`)
 
+### Example HTML, CSS, JavaScript Questions
+
+- What is the difference between `null` and `undefined`?
+- What is event bubbling?
+
 ## Web Frameworks
 
-You should be familiar with at least one web framework. The most popular ones are React, Vue, and Angular. Here are some topics that you should be familiar with:
+Familiarity with at least one web framework is expected. Notable frameworks include React, Vue, and Angular. Focus on the following areas:
 
 - Components
 - State Management
 - Routing
 - Server Side Rendering
 
+### Example React Question
+
+- Why use `useReducer` instead of `useState`?
+- What is prop drilling and how can it be avoided?
+
 ## Server Programming Language (e.g. Node.js or Python)
 
-Full stack engineers are usually expected to be very comfortable with at least one server programming language usually Node.js. Here are some topics that you should be familiar with:
+Full stack developers should excel in at least one server programming language, typically Node.js. Key areas of expertise include:
 
 - Express (or other web frameworks)
 - REST APIs
@@ -39,9 +47,21 @@ Full stack engineers are usually expected to be very comfortable with at least o
 - REST APIs
 - GraphQL
 
+### Example Node.js Questions
+
+Why is the following code not a good practice in error handling?
+
+```js
+
+process.on('uncaughtException', (err) => {
+  console.log('Caught exception: ' + err);
+});
+
+```
+
 ## Web Security
 
-As a Full Stack Developer, you should be familiar with common web security vulnerabilities and how to prevent them. Here are some topics that you should be familiar with:
+Understanding common web security vulnerabilities is crucial. Equip yourself with knowledge in:
 
 - CORS
 - CSRF
@@ -51,29 +71,46 @@ As a Full Stack Developer, you should be familiar with common web security vulne
 - Content Security Policy
 - Authentication (e.g. JWT, OAuth)
 
+### Example Web Security Questions
+
+- What is the purpose of a CSRF token?
+- What is the purpose of a CORS policy?
+- What is the purpose of a Content Security Policy?
+
 ## DevOps
 
-You will be expected to know how to deploy your applications to production and maintain them. Here are some topics that you should be familiar with:
+Efficient deployment and maintenance are integral skills. Focus on the following:
 
 - Docker
 - CI/CD
 - AWS (or other cloud providers like Azure or GCP)
 - Observability (e.g. logging, monitoring, tracing)
 - Infrastructure as Code (e.g. Terraform)
+
+### Example DevOps Questions
+- What is the relationship between Docker and Kubernetes?
+- Why is application observability important?
+- What are the common stages in a CI/CD pipeline?
   
 ## General Engineering Practices
 
-You should be familiar with common engineering practices. Here are some topics that you should be familiar with:
+Adopting standard engineering practices is key. Ensure familiarity with:
 
 - Testing (e.g. unit testing, integration testing, end-to-end testing)
 - Git (e.g. branching, merging, rebasing, squashing)
 - Agile (e.g. Scrum, Kanban)
 - Refactoring
-- Code Review 
+- Code Review
+
+### Example General Engineering Questions
+
+- What is the difference between unit testing and integration testing?
+- What is the difference between rebasing and merging?
+
 
 ## Databases
 
-Database knowledge is important for Full Stack Developers. The role of a Full Stack Developer might involve designing and maintaining databases. Here are some topics that you should be familiar with:
+Database knowledge is foundational. Key areas of understanding include:
 
 - SQL (e.g. joins, aggregations, indexes)
 - NoSQL (e.g. key-value stores, document stores, graph databases)
@@ -81,17 +118,20 @@ Database knowledge is important for Full Stack Developers. The role of a Full St
 - Transactions
 - Database Indexing
 
-There are many other topics that you should be familiar with. This is just a starting point. You should also be familiar with the topics that are relevant to the company that you are applying to.
+### Example Database Questions
 
-These all might seem overwhelming. Don't worry, you don't need to know everything. You can learn these topics over time. You can also learn these topics on the job. The most important thing is to be curious and willing to learn.
+- What is the purpose of a database index?
+- What is the difference between a `primary key` and a `foreign key`?
 
-To help me revise for a Full Stack Developer role, I created a list of questions that I can use to test my knowledge and eventually built a small web app to help me revise. Maybe you will find it useful too.
+Remember, this list is a starting point. Tailor your preparation to align with the specific needs of the company you are applying to.
 
-## [Revis3](https://revis3.web.app/)
+It's natural to feel overwhelmed, but focus on continuous learning. You can acquire these skills gradually and even on the job. Be curious and open to learning.
+
+To aid your revision for a Full Stack Developer role, consider using the list of questions I've compiled in this repo in the form a quiz with a small web app to practice [Github Revis3](https://github.com/raysca/revis3), categorized by topics:
 
 - [Full Stack Questions](https://revis3.web.app/web)
-- [Front End Questions](https://revis3.web.app/front-end)
 - [DevOps Questions](https://revis3.web.app/devops)
 - [JavaScript Questions](https://revis3.web.app/javascript)
+- [React Questions](https://revis3.web.app/react)
 
 I hope you find this useful. If you have any feedback, please let me know.
