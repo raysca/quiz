@@ -1,9 +1,9 @@
 
 <h1 align="center"> Revis3 </h1>
 <div align="center"> 
-<a href="revis3.web.app">Revis3 Website</a>  |
-<a href="revis3.web.app/react">React Quiz</a>  | 
-<a href="revis3.web.app/web">Full Stack Quiz</a>
+<a href="https://revis3.web.app">Revis3 Website</a>  |
+<a href="https://revis3.web.app/react">React Quiz</a>  | 
+<a href="https://revis3.web.app/web">Full Stack Quiz</a>
 </div>
 
 Revis3 is a markdown powered quiz app that aims to help developers to revise technical concepts and prepare for interviews.
