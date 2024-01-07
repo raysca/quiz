@@ -1,14 +1,10 @@
 {
-  "hosting": {
-    "site": "revis3",
-    "public": "build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "europe-west1"
-    }
-  }
+	"hosting": {
+		"site": "revis3",
+		"public": "build",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"frameworksBackend": {
+			"region": "europe-west1"
+		}
+	}
 }

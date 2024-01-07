@@ -22,20 +22,18 @@
 	<meta name="description" content={`Test your ${module.title} knowledge`} />
 </svelte:head>
 
-<div class="hero min-h-screen">
-	<div class="hero-content flex-col">
-		<h1 class="text-5xl font-bold">{module.title}</h1>
-		<div>
-			{#if !started}
-				<div transition:slide={{ delay: 150, duration: 300, easing: quintOut, axis: 'y' }}>
-					<ChooseQuiz {module} on:start={onStartQuiz} />
-				</div>
-			{/if}
-			{#if started}
-				<div transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'y' }}>
-					<Practice total={quizAmount} {quizzes} />
-				</div>
-			{/if}
-		</div>
+<div class="p-4">
+	<h1 class="text-5xl font-bold text-center">{module.title}</h1>
+	<div>
+		{#if !started}
+			<div transition:slide={{ delay: 150, duration: 300, easing: quintOut, axis: 'y' }}>
+				<ChooseQuiz {module} on:start={onStartQuiz} />
+			</div>
+		{/if}
+		{#if started}
+			<div transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'y' }}>
+				<Practice total={quizAmount} {quizzes} />
+			</div>
+		{/if}
 	</div>
 </div>

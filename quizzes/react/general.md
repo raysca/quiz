@@ -3,14 +3,14 @@
 ## The code below is an example of a React component. What type of react component is this?
 
 ```jsx
-import React from "react";
+import React from 'react';
 
 const MyComponent = () => {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -23,21 +23,21 @@ const MyComponent = () => {
 
 ```jsx
 const withLogger = (WrappedComponent) => {
-  return class WithLogger extends Component {
-    componentDidMount() {
-      console.log(`Component ${WrappedComponent.name} is mounted`);
-    }
+	return class WithLogger extends Component {
+		componentDidMount() {
+			console.log(`Component ${WrappedComponent.name} is mounted`);
+		}
 
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
-  };
+		render() {
+			return <WrappedComponent {...this.props} />;
+		}
+	};
 };
 
 class MyComponent extends Component {
-  render() {
-    return <div>My Component</div>;
-  }
+	render() {
+		return <div>My Component</div>;
+	}
 }
 
 const EnhancedComponent = withLogger(MyComponent);
@@ -103,18 +103,18 @@ What is the purpose of the `useEffect` hook in React?
 ## What is the implication of using `useEffect` in the code below?
 
 ```jsx
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const MyComponent = () => {
-  useEffect(() => {
-    console.log("Hello World!");
-  });
+	useEffect(() => {
+		console.log('Hello World!');
+	});
 
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -131,22 +131,22 @@ any dependencies. The `useEffect` hook will run after every render.
 ## What is the purpose of returning a function from the `useEffect` hook in the component below?
 
 ```jsx
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const MyComponent = () => {
-  useEffect(() => {
-    console.log("Hello World!");
+	useEffect(() => {
+		console.log('Hello World!');
 
-    return () => {
-      console.log("Goodbye World!");
-    };
-  }, []);
+		return () => {
+			console.log('Goodbye World!');
+		};
+	}, []);
 
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+	);
 };
 ```
 
@@ -211,40 +211,38 @@ the component tree.
 
 ```jsx
 const ParentComponent = ({ count }) => {
-  return (
-    <div>
-      <ChildComponent count={count} />
-    </div>
-  );
+	return (
+		<div>
+			<ChildComponent count={count} />
+		</div>
+	);
 };
 ```
 
 ## In the code below how would you describe the `Profile` component
 
 ```js
+import { memo, useState } from 'react';
 
-  import { memo, useState } from "react";
+const Profile = memo(function Profile({ name }) {
+	return (
+		<>
+			<p>Name:{name}</p>
+		</>
+	);
+});
 
-  const Profile = memo(function Profile({ name }) {
-    return (
-      <>
-        <p>Name:{name}</p>
-      </>
-    );
-  });
-
-  export default function RegForm() {
-    const [name, setName] = useState("John Doe");
-    return (
-      <>
-        <label>
-          Name: <input value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <EmployeeProfile name={name} />
-      </>
-    );
-  }
-  
+export default function RegForm() {
+	const [name, setName] = useState('John Doe');
+	return (
+		<>
+			<label>
+				Name: <input value={name} onChange={(e) => setName(e.target.value)} />
+			</label>
+			<EmployeeProfile name={name} />
+		</>
+	);
+}
 ```
 
 - [ ] A Higher Order Component
@@ -281,7 +279,7 @@ The second argument is used to set the initial state of the component. The
 second argument is only used when the component is first mounted.
 
 ```jsx
-const [count, setCount] = useState(0, () => console.log("State updated"));
+const [count, setCount] = useState(0, () => console.log('State updated'));
 ```
 
 ## What are synthetic events in React?
@@ -294,21 +292,21 @@ const [count, setCount] = useState(0, () => console.log("State updated"));
 ## What options are true about this react component?
 
 ```jsx
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const ExampleComponent = () => {
-  const [inputValue, setInputValue] = useState("");
+	const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
+	const handleChange = (event) => {
+		setInputValue(event.target.value);
+	};
 
-  return (
-    <div>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <p>Input Value: {inputValue}</p>
-    </div>
-  );
+	return (
+		<div>
+			<input type="text" value={inputValue} onChange={handleChange} />
+			<p>Input Value: {inputValue}</p>
+		</div>
+	);
 };
 ```
 
@@ -363,11 +361,11 @@ re-render when the props change.
 
 ```javascript
 const Profile = memo(function Profile({ name }) {
-  return (
-    <>
-      <p>Name:{name}</p>
-    </>
-  );
+	return (
+		<>
+			<p>Name:{name}</p>
+		</>
+	);
 });
 ```
 
@@ -386,17 +384,17 @@ In the code below, what react hook will be better to use?
 import React, { useState } from 'react';
 
 const ExampleComponent = () => {
-  const [firstState, setFirstState] = useState(0);
-  const [secondState, setSecondState] = useState(0);
+	const [firstState, setFirstState] = useState(0);
+	const [secondState, setSecondState] = useState(0);
 
-  return (
-    <div>
-      <div>First State: {firstState}</div>
-      <div>Second State: {secondState}</div>
-      <button onClick={() => setFirstState(++firstState)} >First State</button>
-      <button onClick={() => setSecondState(++secondState)} >Second State</button>
-    </div>
-  );
+	return (
+		<div>
+			<div>First State: {firstState}</div>
+			<div>Second State: {secondState}</div>
+			<button onClick={() => setFirstState(++firstState)}>First State</button>
+			<button onClick={() => setSecondState(++secondState)}>Second State</button>
+		</div>
+	);
 };
 ```
 
@@ -423,13 +421,13 @@ When you want to render multiple items without adding extra nodes to the DOM.
 
 ```jsx
 const MyComponent = () => {
-  return (
-    <>
-      <p>Item 1</p>
-      <p>Item 2</p>
-      <p>Item 3</p>
-    </>
-  );
+	return (
+		<>
+			<p>Item 1</p>
+			<p>Item 2</p>
+			<p>Item 3</p>
+		</>
+	);
 };
 ```
 
@@ -446,15 +444,15 @@ React does not have a component for rendering lists. You can use the `map`
 
 ```jsx
 const MyComponent = () => {
-  const items = ["Item 1", "Item 2", "Item 3"];
+	const items = ['Item 1', 'Item 2', 'Item 3'];
 
-  return (
-    <ul>
-      {items.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
-  );
+	return (
+		<ul>
+			{items.map((item) => (
+				<li key={item}>{item}</li>
+			))}
+		</ul>
+	);
 };
 ```
 
@@ -494,19 +492,19 @@ The `<Profiler />` component can be used to measure rendering performance. see [
 
 ```jsx
 const MyComponent = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Profile />
-    </Suspense>
-  );
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<Profile />
+		</Suspense>
+	);
 };
 ```
 
 ## Explain the following code
 
 ```jsx
-import { lazy } from "react";
-const Profile = lazy(() => import("./Profile"));
+import { lazy } from 'react';
+const Profile = lazy(() => import('./Profile'));
 ```
 
 - [ ] The `lazy` function is used to load a component asynchronously.
@@ -523,4 +521,4 @@ The `lazy` function is used to load a component lazily. This means that the comp
 - [x] Measuring the size of a DOM element
 - [ ] Persisting state between renders
 - [ ] Persisting state between components
-- [x] Manually updating the DOM 
+- [x] Manually updating the DOM

@@ -1,6 +1,6 @@
 # Preparing for the Role of a (Senior) Full Stack Developer
 
-As we embark on a new year, if you are considering a career change or aspiring to step into the realm of a (Senior) Full Stack Developer, it's essential to prepare thoroughly for potential interviews. 
+As we embark on a new year, if you are considering a career change or aspiring to step into the realm of a (Senior) Full Stack Developer, it's essential to prepare thoroughly for potential interviews.
 
 This article aims to guide you on the key topics you should be well-versed in to confidently tackle Full Stack Developer interviews.
 
@@ -52,11 +52,9 @@ Full stack developers should excel in at least one server programming language, 
 Why is the following code not a good practice in error handling?
 
 ```js
-
 process.on('uncaughtException', (err) => {
-  console.log('Caught exception: ' + err);
+	console.log('Caught exception: ' + err);
 });
-
 ```
 
 ## Web Security
@@ -88,10 +86,11 @@ Efficient deployment and maintenance are integral skills. Focus on the following
 - Infrastructure as Code (e.g. Terraform)
 
 ### Example DevOps Questions
+
 - What is the relationship between Docker and Kubernetes?
 - Why is application observability important?
 - What are the common stages in a CI/CD pipeline?
-  
+
 ## General Engineering Practices
 
 Adopting standard engineering practices is key. Ensure familiarity with:
@@ -106,7 +105,6 @@ Adopting standard engineering practices is key. Ensure familiarity with:
 
 - What is the difference between unit testing and integration testing?
 - What is the difference between rebasing and merging?
-
 
 ## Databases
 

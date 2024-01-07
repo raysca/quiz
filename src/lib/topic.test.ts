@@ -106,7 +106,9 @@ describe('Topic', () => {
 
 	describe('Code', () => {
 		it('creates the question', () => {
-			expect(topic.quizzes[2].title).toMatchInlineSnapshot('"Question 3 with <span class=\\"text-neutral font-semibold\\">code</span> block in the question"');
+			expect(topic.quizzes[2].title).toMatchInlineSnapshot(
+				'"Question 3 with <span class=\\"text-neutral font-semibold\\">code</span> block in the question"'
+			);
 		});
 
 		it('creates the options', () => {

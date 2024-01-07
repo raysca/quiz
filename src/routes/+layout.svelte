@@ -7,8 +7,7 @@
 	import '../app.css';
 
 	afterUpdate(() => {
-
-		if(process.env.NODE_ENV === 'development') return;
+		if (process.env.NODE_ENV === 'development') return;
 
 		const firebaseConfig = {
 			apiKey: 'AIzaSyAFUq4ma1IjRMXoBeTTOj_x0XF6TMvN7kM',
@@ -27,14 +26,11 @@
 
 <svelte:head>
 	<title>Revis3 - Test your technical knowledge</title>
-	<meta
-		name="description"
-		content="Open source technical quiz platform"
-	/>
+	<meta name="description" content="Open source technical quiz platform" />
 	<meta name="keywords" content="Revis3, technical interview, technical multiple choice quiz" />
 	<meta name="application-name" content="Revis3" />
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </svelte:head>
 
 <div class="navbar bg-accent">

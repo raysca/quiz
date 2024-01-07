@@ -55,8 +55,7 @@ What is the difference between a `Set` and an `Array` in JavaScript?
 What is the result of the following code
 
 ```javascript
-
-null == undefined
+null == undefined;
 ```
 
 - [x] `true`
@@ -71,7 +70,7 @@ The `==` operator in JavaScript performs type coercion. In this case, `null` is 
 What is the result of the following code
 
 ```javascript
-typeof null
+typeof null;
 ```
 
 - [ ] `null`
@@ -82,7 +81,7 @@ typeof null
 ## NaN Test
 
 ```javascript
-isNaN(NaN)
+isNaN(NaN);
 ```
 
 - [x] `true`
@@ -95,7 +94,7 @@ The `isNaN` function returns `true` if the argument is `NaN`, and `false` otherw
 ## NaN Test 2
 
 ```javascript
-isNaN('')
+isNaN('');
 ```
 
 - [ ] `true`
@@ -108,8 +107,7 @@ The `isNaN` function returns `false` because the empty string is converted to th
 ## NaN Test 3
 
 ```javascript
-
-isNaN(null)
+isNaN(null);
 ```
 
 - [ ] `true`

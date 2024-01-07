@@ -117,7 +117,6 @@
 - [ ] The date the resource was last modified.
 - [x] The response header that uniquely identifies the version of the resource.
 
-
 ## What is the difference between `HTTP` and `HTTPS`?
 
 - [ ] `HTTP` is used for static websites. `HTTPS` is used for dynamic websites.

@@ -93,7 +93,7 @@ Next.js is a popular framework for building React applications. It provides seve
 
 ## Define the `flux` pattern.
 
-- [x] A uni directional pattern for managing state in React applications 
+- [x] A uni directional pattern for managing state in React applications
 - [ ] A pattern for managing routing in React applications
 - [ ] A pattern for managing data in React applications
 - [ ] A pattern for managing forms in React applications
@@ -115,7 +115,7 @@ Next.js is a popular framework for building React applications. It provides seve
 
 ---
 
-Single source of truth means that the state of an application is stored in a single object. This object is often referred to as the "store" or "state tree". 
+Single source of truth means that the state of an application is stored in a single object. This object is often referred to as the "store" or "state tree".
 
 ![Single source of truth](/single-source-of-truth.png)
 
@@ -133,7 +133,7 @@ Single source of truth means that the state of an application is stored in a sin
 - [ ] A component that creates a new state in a Redux application
 - [x] A component that provides the redux store to other components
 
-## Redux 
+## Redux
 
 What is the purpose of the `connect` function in this code below?
 
@@ -141,11 +141,11 @@ What is the purpose of the `connect` function in this code below?
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-  data: state.data,
+	data: state.data
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchData: () => dispatch(fetchDataAction()),
+	fetchData: () => dispatch(fetchDataAction())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
@@ -155,4 +155,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
 - [ ] To connect `MyComponent` to the React Context
 - [ ] To connect `MyComponent` to the pure functions
 - [ ] To compose `MyComponent` with other components
-

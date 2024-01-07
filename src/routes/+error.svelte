@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import { PUBLIC_BASE_PATH } from '$env/static/public'
+	import { PUBLIC_BASE_PATH } from '$env/static/public';
 </script>
 
 <svelte:head>

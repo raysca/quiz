@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
-	import Quiz from "$components/quiz.svelte";
-	import Result from "$components/result.svelte";
+	import Quiz from '$components/quiz.svelte';
+	import Result from '$components/result.svelte';
 
 	export let data;
 	const { modules, testQuiz, testAnswers } = data;
@@ -24,7 +24,11 @@
 				Revis3 is open source and community driven technical practice questions.
 			</p>
 			<div class="flex space-x-2 justify-center">
-				<a class="btn btn-accent rounded-none" href="https://github.com/raysca/revis3" target="_blank">See on Github</a>
+				<a
+					class="btn btn-accent rounded-none"
+					href="https://github.com/raysca/revis3"
+					target="_blank">See on Github</a
+				>
 			</div>
 		</div>
 	</div>
@@ -38,7 +42,7 @@
 	<div class="flex-1 bg-base-200">
 		<h3 class="text-3xl font-bold text-center p-8">See The Result</h3>
 		<div class="p-4">
-			<Result showQuizzes={false} answers={testAnswers} total={testAnswers.length}  />
+			<Result showQuizzes={false} answers={testAnswers} total={testAnswers.length} />
 		</div>
 	</div>
 </div>
@@ -48,7 +52,10 @@
 		<h3 class="text-3xl font-bold text-center p-8">Start Practicing</h3>
 		<div class="flex flex-wrap justify-center">
 			{#each modules as module}
-				<a href={module.path} class="block card w-full md:w-72 shadow-sm border-4 m-4 cursor-pointer bg-base-200 rounded-none">
+				<a
+					href={module.path}
+					class="block card w-full md:w-72 shadow-sm border-4 m-4 cursor-pointer bg-base-200 rounded-none"
+				>
 					<div class="card-body">
 						<h2 class="card-title">{module.title}</h2>
 						<div class="flex space-x-2 text-sm">
@@ -59,6 +66,6 @@
 					</div>
 				</a>
 			{/each}
-		</div>	
+		</div>
 	</div>
 </div>

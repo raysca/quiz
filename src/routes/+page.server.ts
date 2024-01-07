@@ -8,6 +8,6 @@ export const load = async () => {
 	return {
 		modules,
 		testQuiz: reactTopics[1].quizzes[0],
-		testAnswers,
+		testAnswers
 	};
 };

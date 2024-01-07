@@ -13,19 +13,19 @@ Which react hooks can be used to make the variable `count` reactive?
 
 ```js
 const SampleComponent = () => {
-    const count = 0;
-   
-   const setCount = (newCount) => {
-       count = newCount;
-    }
-   
-    return (
-        <div>
-        <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>Click me</button>
-        </div>
-    );
-}
+	const count = 0;
+
+	const setCount = (newCount) => {
+		count = newCount;
+	};
+
+	return (
+		<div>
+			<p>You clicked {count} times</p>
+			<button onClick={() => setCount(count + 1)}>Click me</button>
+		</div>
+	);
+};
 ```
 
 - [x] `useState`
@@ -57,10 +57,10 @@ Which of the following are true about custom hooks?
 
 ```javascript
 const useFancyFunc = () => {
-    const [count, setCount] = useState(0);
-    const increment = () => setCount(count + 1);
-    return [count, increment];
-}
+	const [count, setCount] = useState(0);
+	const increment = () => setCount(count + 1);
+	return [count, increment];
+};
 ```
 
 - [ ] Custom hooks must start with the word `use`
@@ -117,33 +117,30 @@ const useFancyFunc = () => {
 Using `useContext` you can pass props to any component in the tree without having to pass them through all the intermediate components.
 
 ```js
-
 const MyContext = React.createContext();
 
 const ParentComponent = () => {
-    const [count, setCount] = useState(0);
-    return (
-        <MyContext.Provider value={{ count, setCount }}>
-            <ChildComponent />
-        </MyContext.Provider>
-    );
-}
+	const [count, setCount] = useState(0);
+	return (
+		<MyContext.Provider value={{ count, setCount }}>
+			<ChildComponent />
+		</MyContext.Provider>
+	);
+};
 
 const ChildComponent = () => {
-    return (
-        <GrandChildComponent />
-    );
-}
+	return <GrandChildComponent />;
+};
 
 const GrandChildComponent = () => {
-    const { count, setCount } = useContext(MyContext);
-    return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-        </div>
-    );
-}
+	const { count, setCount } = useContext(MyContext);
+	return (
+		<div>
+			<p>You clicked {count} times</p>
+			<button onClick={() => setCount(count + 1)}>Click me</button>
+		</div>
+	);
+};
 ```
 
 ## What problem does the `useCallback` hook solve?
@@ -166,14 +163,13 @@ const GrandChildComponent = () => {
 
 ```js
 const MyComponent = () => {
-    const [count, setCount] = useState(0);
-    const increment = useCallback(() => setCount(count + 1), [count]);
-    return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={increment}>Click me</button>
-        </div>
-    );
-}
+	const [count, setCount] = useState(0);
+	const increment = useCallback(() => setCount(count + 1), [count]);
+	return (
+		<div>
+			<p>You clicked {count} times</p>
+			<button onClick={increment}>Click me</button>
+		</div>
+	);
+};
 ```
-

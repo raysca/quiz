@@ -49,7 +49,9 @@
 		></progress>
 	</div>
 	<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
-		<RenderQuiz quiz={currentQuiz} showComment={false} />
+		{#key currentQuiz}
+			<RenderQuiz quiz={currentQuiz} showComment={false} />
+		{/key}
 		<input type="submit" value="Next" class="btn btn-accent rounded-none btn-full" />
 	</form>
 {/if}

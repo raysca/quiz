@@ -13,16 +13,15 @@
 In the code below, what would happen when `doSomethingAsync()` is called?
 
 ```js
-
 function doSomethingAsync() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject('error');
-    }, 1000);
-  });
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			reject('error');
+		}, 1000);
+	});
 }
 
-doSomethingAsync()
+doSomethingAsync();
 ```
 
 - [ ] The promise will resolve with the value `'error'`
@@ -45,15 +44,9 @@ A promise that rejects will throw an error if not handled properly.
 Promise.all() takes an array of promises and returns a new promise that will resolve when all of the promises in the array have resolved or reject if any of the promises in the array reject.
 
 ```js
-
-Promise.all([
-  Promise.resolve(1),
-  Promise.resolve(2),
-  Promise.resolve(3),
-]).then((values) => {
-  console.log(values); // [1, 2, 3]
+Promise.all([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)]).then((values) => {
+	console.log(values); // [1, 2, 3]
 });
-
 ```
 
 ## When is the `finally` method called on a promise?
@@ -69,15 +62,13 @@ The `finally` method is called when the promise resolves or rejects. It is usefu
 for performing cleanup operations that should be done regardless of whether the promise resolves or rejects.
 
 ```js
-
 Promise.resolve(1)
-  .finally(() => {
-    console.log('finally');
-  })
-  .then((value) => {
-    console.log(value);
-  });
-
+	.finally(() => {
+		console.log('finally');
+	})
+	.then((value) => {
+		console.log(value);
+	});
 ```
 
 ## Async Value
@@ -85,13 +76,11 @@ Promise.resolve(1)
 What will be logged to the console when the following code is run?
 
 ```js
-
 async function doSomethingAsync() {
-  return 1;
+	return 1;
 }
 
 console.log(doSomethingAsync());
-
 ```
 
 - [ ] `1`
@@ -144,19 +133,17 @@ What is the purpose of the `for await...of` statement?
 The `for await...of` statement is used to iterate over the values of an async iterable. It is similar to the `for...of` statement, but it can be used with async iterables.
 
 ```js
-
 async function* asyncGenerator() {
-  yield 1;
-  yield 2;
-  yield 3;
+	yield 1;
+	yield 2;
+	yield 3;
 }
 
 (async () => {
-  for await (const value of asyncGenerator()) {
-    console.log(value);
-  }
+	for await (const value of asyncGenerator()) {
+		console.log(value);
+	}
 })();
-
 ```
 
 ## Async Iterables
@@ -177,13 +164,11 @@ An async iterable is an object that can be iterated over asynchronously and retu
 Which of these code snippets will log the numbers 1, 2, 3 to the console?
 
 ```js
-
 async function* asyncGenerator() {
-  yield 1;
-  yield 2;
-  yield 3;
+	yield 1;
+	yield 2;
+	yield 3;
 }
-
 ```
 
 - [x] `for await (const value of asyncGenerator()) { console.log(value); }`
@@ -200,13 +185,11 @@ The `for await...of` statement is used to iterate over the values of an async it
 What will be the value of `newValues` when the following code is run?
 
 ```js
-
 const values = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
 
 const newValues = values.map(async (value) => {
-  return value + 1;
+	return value + 1;
 });
-
 ```
 
 - [ ] `[2, 3, 4]`

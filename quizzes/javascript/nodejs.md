@@ -205,14 +205,14 @@ Which of these are types of streams in Node.js?
 Here is module `foo.js`:
 
 ```js
-consol.log('Hello from foo.js')
+consol.log('Hello from foo.js');
 ```
 
 And here is module `index.js` requiring `foo.js`:
 
 ```js
-require('./foo')
-require('./foo')
+require('./foo');
+require('./foo');
 ```
 
 What will be the output of `node index.js`?
@@ -232,17 +232,14 @@ Node.js caches modules on first require. So the output will be `Hello from foo.j
 - [x] When you want to execute a command in a shell
 - [ ] When you want to execute a command in a new terminal
 
-
 ## Error handling
 
 Why is the following code not a good practice in error handling?
 
 ```js
-
 process.on('uncaughtException', (err) => {
-  console.log('Caught exception: ' + err);
+	console.log('Caught exception: ' + err);
 });
-
 ```
 
 - [ ] Because it will catch all exceptions
@@ -259,12 +256,12 @@ process.on('uncaughtException', (err) => {
 What is the output of the following code?
 
 ```js
-const p = new Promise(function (resolve, reject) { 
-    reject(new Error('Oops'));
+const p = new Promise(function (resolve, reject) {
+	reject(new Error('Oops'));
 });
 
 p.catch(function (err) {
-    console.log(err.message);
+	console.log(err.message);
 });
 ```
 
