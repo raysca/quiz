@@ -27,7 +27,7 @@
 						<li>
 							<label for={topic.title} class="cursor-pointer label justify-start space-x-4">
 								<input
-									class="checkbox checkbox-accent"
+									class="checkbox checkbox-accent rounded-none"
 									type="checkbox"
 									name="topic"
 									value={topic.title}

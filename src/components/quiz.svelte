@@ -7,7 +7,8 @@
 	export let choices: string[] | undefined = undefined;
 	export let showComment: boolean = false;
 
-	let inputType = quiz?.isMultipleChoice ? 'checkbox' : 'radio';
+	const inputType = quiz?.isMultipleChoice ? 'checkbox' : 'radio';
+	const inputRounded = quiz?.isMultipleChoice ? 'rounded-none' : '';
 
 	const optionBadge = (option: string) => {
 		let border = '';
@@ -51,7 +52,7 @@
 							id={`${quiz.id}-${index}`}
 							type={inputType}
 							name="answer"
-							class={`${inputType} ${inputType}-accent`}
+							class={`${inputType} ${inputType}-accent ${inputRounded}`}
 							value={option}
 						/>
 					{/if}
