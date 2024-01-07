@@ -10,7 +10,7 @@
 </div>
 
 <div class="w-full text-center">
-	<a href="/{module.path}" class="btn btn-primary btn-wide mx-auto">Take Quiz</a>
+	<a href="/{module.path}" class="btn btn-accent rounded-none btn-wide mx-auto">Take Quiz</a>
 </div>
 
 <div class="flex flex-col space-y-4 border m-4">

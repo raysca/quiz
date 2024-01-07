@@ -12,7 +12,7 @@
 		<div class="max-w-md">
 			<h1 class="text-5xl font-bold">Opps! Error</h1>
 			<p class="py-6">{$page.error?.message}</p>
-			<a href={PUBLIC_BASE_PATH} class="btn btn-primary">Back to HomePage</a>
+			<a href={PUBLIC_BASE_PATH} class="btn btn-accent rounded-none">Back to HomePage</a>
 		</div>
 	</div>
 </div>

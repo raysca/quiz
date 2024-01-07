@@ -31,7 +31,7 @@
 	}, {});
 </script>
 
-<div class="card w-auto bg-base-100 shadow-xl">
+<div class="card w-auto bg-base-100 shadow-xl rounded-none">
 	<div class="card-body">
 		<div class="card-title">
 			<span>{total} Total Questions</span>
@@ -58,7 +58,7 @@
 		</div>
 		{#if showQuizzes}
 			<div class="card-actions justify-end">
-				<button class="btn btn-primary" on:click={() => window.location.reload()}
+				<button class="btn btn-accent rounded-none" on:click={() => window.location.reload()}
 					>Restart Test</button
 				>
 			</div>

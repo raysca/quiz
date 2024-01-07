@@ -24,7 +24,7 @@
 				Revis3 is open source and community driven technical practice questions.
 			</p>
 			<div class="flex space-x-2 justify-center">
-				<a class="btn btn-primary" href="https://github.com/raysca/revis3" target="_blank">See on Github</a>
+				<a class="btn btn-accent rounded-none" href="https://github.com/raysca/revis3" target="_blank">See on Github</a>
 			</div>
 		</div>
 	</div>
@@ -48,7 +48,7 @@
 		<h3 class="text-3xl font-bold text-center p-8">Start Practicing</h3>
 		<div class="flex flex-wrap justify-center">
 			{#each modules as module}
-				<a href={module.path} class="block card w-full md:w-72 shadow-sm border border-primary m-4 cursor-pointer">
+				<a href={module.path} class="block card w-full md:w-72 shadow-sm border-4 m-4 cursor-pointer bg-base-200 rounded-none">
 					<div class="card-body">
 						<h2 class="card-title">{module.title}</h2>
 						<div class="flex space-x-2 text-sm">

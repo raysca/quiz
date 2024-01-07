@@ -50,6 +50,6 @@
 	</div>
 	<form on:submit={onChoiceSubmitted} class="flex flex-col space-y-4">
 		<RenderQuiz quiz={currentQuiz} showComment={false} />
-		<input type="submit" value="Next" class="btn btn-primary btn-full" />
+		<input type="submit" value="Next" class="btn btn-accent rounded-none btn-full" />
 	</form>
 {/if}

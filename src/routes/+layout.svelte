@@ -37,7 +37,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 </svelte:head>
 
-<div class="navbar bg-neutral text-neutral-content">
+<div class="navbar bg-accent">
 	<a class="btn btn-ghost text-xl" href={PUBLIC_BASE_PATH}>Revis3</a>
 </div>
 

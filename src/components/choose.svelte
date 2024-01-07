@@ -17,7 +17,7 @@
 </script>
 
 <p class="py-6">{description}</p>
-<div class="card shrink-0 w-full max-w-sm mx-auto shadow-2xl">
+<div class="card shrink-0 w-full max-w-sm mx-auto shadow-2xl rounded-none bg-base-200">
 	<div class="card-body">
 		<h2 class="card-title">Covered Topics</h2>
 		<form class="grid gap-4" on:submit={onSubmit}>
@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="form-control">
-				<select class="select select-bordered" name="quizAmount">
+				<select class="select select-bordered rounded-none" name="quizAmount">
 					{#each questionOptions as option}
 						<option value={option}>{option} Questions</option>
 					{/each}
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="form-control mt-6">
-				<input type="submit" class="btn btn-primary" value="Start Test" />
+				<input type="submit" class="btn btn-accent rounded-none" value="Start Test" />
 			</div>
 		</form>
 	</div>
