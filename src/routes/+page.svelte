@@ -19,7 +19,7 @@
 <div class="hero min-h-1/2 w-full bg-pattern">
 	<div class="hero-content">
 		<div class="max-w-lg text-center">
-			<h1 class="text-5xl font-bold">Over 600 Practice Technical Questions</h1>
+			<h1 class="text-5xl font-bold">Over 300 Practice Technical Questions</h1>
 			<p class="py-6 text-lg">
 				Revis3 is open source and community driven technical practice questions.
 			</p>
@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<div class="flex flex-col lg:flex-row lg:space-x-8 my-8 border-t border-b">
+<div class="flex flex-col lg:flex-row lg:space-x-8 my-8 border max-w-4xl mx-auto">
 	<div class="flex-1">
 		<h3 class="text-3xl font-bold text-center p-8">Example Question</h3>
 		<Quiz quiz={testQuiz} />

@@ -9,6 +9,10 @@
 	<h3 class="text-lg text-center">Total of {quizzes.length} Questions</h3>
 </div>
 
+<div class="w-full text-center">
+	<a href="/{module.path}" class="btn btn-primary btn-wide mx-auto">Take Quiz</a>
+</div>
+
 <div class="flex flex-col space-y-4 border m-4">
 	{#each quizzes as quiz}
 		<Quiz {quiz} showComment />
