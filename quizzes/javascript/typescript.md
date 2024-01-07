@@ -104,7 +104,6 @@ const sayHello = <T>(name: T): string => {
 - [x] The `name` argument can be of any type
 - [x] The `T` is the generic type
 
-
 ## Type Inference
 
 Which statements are true about TypeScript's type inference?
@@ -133,6 +132,130 @@ Is the following code valid TypeScript?
 
 const fancyValue: unknown = 'Hello World';
 const newValue: string = fancyValue;
+## Abstract Classes
+
+```javascript
+
+abstract class Animal {
+  abstract makeSound(): void;
+  move(): void {
+    console.log("roaming the earth...");
+  }
+}
+
+console.log(new Animal().move());
+
+```
+
+What will the code above print?
+
+- [x] The code will throw an error
+- [ ] The code will print `roaming the earth...`
+- [ ] The code will print `undefined`
+- [ ] The code will print `null`
+
+---
+
+Abstract classes cannot be instantiated, they can only extended therefore the code will throw an error.
+
+## Inheritance
+
+```javascript
+
+class Animal {
+  move(): void {
+    console.log("roaming the earth...");
+  }
+}
+
+class Dog extends Animal {
+  move(): void {
+    super.move();
+    console.log("...and running away");
+  }
+}
+
+conzsole.log(new Dog().move());
+
+```
+
+What will the code above print?
+
+- [ ] The code will throw an error
+- [ ] The code will print `roaming the earth...`
+- [ ] The code will print `...and running away`
+- [x] The code will print `roaming the earth... and running away`
+
+
+## Constructor
+
+Examine the code below
+
+```javascript
+
+class Animal {
+  constructor(public name: string) {}
+
+  move(): void {
+    console.log(`${this.name} is roaming the earth...`);
+  }
+}
+
+console.log(new Animal('Dog').move());
+```
+
+What will the code above print?
+
+- [ ] The code will throw an error because name is not initialized
+- [x] The code will print `Dog is roaming the earth...`
+- [ ] The cod will print `undefined is roaming the earth...`
+- [ ] The code will print `null is roaming the earth...`
+
+---
+
+The constructor initializes the `name` property of the class, therefore the code will print `Dog is roaming the earth...`
+
+## Interfaces
+  
+  ```javascript
+
+interface Animal {
+  name: string;
+  move(): void;
+}
+
+class Dog {
+  constructor(public name: string) {}
+
+  move(): void {
+    console.log(`${this.name} is roaming the earth...`);
+  }
+}
+
+const dog: Animal = new Dog('Dog');
+```
+
+Will the code above compile?
+
+- [x] Yes
+- [ ] No
+
+---
+
+The class `Dog` implicitly implements the interface `Animal` therefore the code will compile.
+
+
+## Code Check
+
+Will the code below compile?
+
+```javascript
+
+function getLength(obj: string | string[]) {
+  return obj.length;
+}
+
+console.log(getLength(null));
 
 ```
 
@@ -384,3 +507,26 @@ type Individual = Person & Employee;
 - [x] To tell TypeScript that a value is of a certain type
 - [ ] To tell TypeScript that a value is not of a certain type
 - [ ] To cast a value to a different type
+The code will not compile because `null` is not a valid argument for the function `getLength`
+
+
+## The `!` operator
+
+In the code below, what does the `!` operator do?
+
+```javascript
+
+const name: string | undefined = undefined;
+
+console.log(name!.length);
+
+```
+
+- [ ] It will throw an error
+- [ ] It will print `undefined`
+- [ ] It will print `null`
+- [x] Nothing
+
+---
+
+The `!` operator tells the compiler to check that the variable is not `null` or `undefined` before accessing its properties. Therefore the code will not throw an error.

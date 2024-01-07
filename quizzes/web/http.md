@@ -116,3 +116,46 @@
 - [ ] The response header that names the resource.
 - [ ] The date the resource was last modified.
 - [x] The response header that uniquely identifies the version of the resource.
+
+
+## What is the difference between `HTTP` and `HTTPS`?
+
+- [ ] `HTTP` is used for static websites. `HTTPS` is used for dynamic websites.
+- [ ] `HTTP` is used for dynamic websites. `HTTPS` is used for static websites.
+- [x] `HTTPS` is `HTTP` over TLS/SSL.
+- [ ] `HTTP` is used for websites. `HTTPS` is used for APIs.
+
+## What is the purpose of the `Access-Control-Allow-Origin` header?
+
+- [ ] To tell the server what type of response the client is expecting.
+- [x] To tell the client which origins are allowed to access the resource.
+- [ ] To tell the server the nature of the request body.
+- [ ] To tell the client the nature of the response body.
+
+## What is a CORS preflight request?
+
+- [ ] A request that is sent by the server to the client to check if the client is allowed to access the resource.
+- [x] A request that is sent by the client to the server to check if the client is allowed to access the resource.
+- [ ] A request that is sent by the server to the client to check if the server is allowed to access the resource.
+- [ ] `CORS` does not require a preflight request.
+
+## What is a `CACHE MISS`?
+
+- [x] When resource is not found in the cache.
+- [ ] When resource is found in the cache.
+- [ ] When resource can not be found.
+- [ ] When the resource is stale.
+
+## What is a `CACHE HIT`?
+
+- [ ] When resource is not found in the cache.
+- [x] When resource is found in the cache.
+- [ ] When resource can not be found.
+- [ ] When the resource is stale.
+
+## What is the purpose of the `Cache-Control` header?
+
+- [ ] To tell the server what type of response the client is expecting.
+- [x] To tell the client how to cache the response.
+- [ ] To tell the client the nature of the response body.
+- [ ] To tell the server the nature of the request body.

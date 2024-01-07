@@ -90,3 +90,69 @@ State management systems are libraries or patterns that help manage the state of
 ---
 
 Next.js is a popular framework for building React applications. It provides several features, including server-side rendering (SSR), static site generation (SSG), built-in routing, and more. Next.js is commonly used for projects that require SEO-friendly pages, improved performance, and advanced routing capabilities.
+
+## Define the `flux` pattern.
+
+- [x] A uni directional pattern for managing state in React applications 
+- [ ] A pattern for managing routing in React applications
+- [ ] A pattern for managing data in React applications
+- [ ] A pattern for managing forms in React applications
+
+## What are the principles of the `flux` pattern?
+
+- [x] Single source of truth
+- [ ] Single source of data
+- [x] State is read-only
+- [ ] Single source of action
+- [x] State is changed using pure functions
+
+## What do you understand by the term "single source of truth"?
+
+- [x] The state of an application is stored in a single object
+- [ ] The state of an application is stored in a single component
+- [ ] The state of an application is stored in a single function
+- [ ] The state of an application is stored in a single file
+
+---
+
+Single source of truth means that the state of an application is stored in a single object. This object is often referred to as the "store" or "state tree". 
+
+![Single source of truth](/single-source-of-truth.png)
+
+## What is the purpose of the `redux-thunk` package?
+
+- [ ] To create a new state in a Redux application
+- [x] To perform asynchronous operations in a Redux application
+- [ ] To debug a Redux application
+- [ ] None of the options
+
+## What is a `Provider` component in a Redux application?
+
+- [ ] A component that provides data to other components
+- [ ] A component that helps to debug a Redux application
+- [ ] A component that creates a new state in a Redux application
+- [x] A component that provides the redux store to other components
+
+## Redux 
+
+What is the purpose of the `connect` function in this code below?
+
+```js
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: () => dispatch(fetchDataAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+```
+
+- [x] To connect `MyComponent` to the Redux store
+- [ ] To connect `MyComponent` to the React Context
+- [ ] To connect `MyComponent` to the pure functions
+- [ ] To compose `MyComponent` with other components
+
