@@ -21,7 +21,7 @@ function doSomethingAsync() {
 	});
 }
 
-doSomethingAsync();
+await doSomethingAsync();
 ```
 
 - [ ] The promise will resolve with the value `'error'`
@@ -64,6 +64,7 @@ for performing cleanup operations that should be done regardless of whether the 
 ```js
 Promise.resolve(1)
 	.finally(() => {
+		// Perform cleanup operations
 		console.log('finally');
 	})
 	.then((value) => {
@@ -185,32 +186,41 @@ The `for await...of` statement is used to iterate over the values of an async it
 What will be the value of `newValues` when the following code is run?
 
 ```js
-const values = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
+const values = [
+	Promise.resolve(1), 
+	Promise.resolve(2), 
+	Promise.resolve(3)
+];
 
 const newValues = values.map(async (value) => {
-	return value + 1;
+	return (await value) + 1;
 });
 ```
 
 - [ ] `[2, 3, 4]`
 - [ ] `[Promise { <pending> }, Promise { <pending> }, Promise { <pending> }]`
-- [ ] `[Promise { <resolved>: 2 }, Promise { <resolved>: 3 }, Promise { <resolved>: 4 }]`
-- [x] `[Promise { 2 }, Promise { 3 }, Promise { 4 }]`
+- [x] `[Promise { <fulfilled>: 2 }, Promise { <fulfilled>: 3 }, Promise { <fulfilled>: 4 }]`
 
-## What is `Promise.race` used for?
+## Running Async
+
+What is `Promise.race` used for?
 
 - [ ] To create a new promise
 - [ ] To create a promise that will resolve when all promises passed to it have resolved
 - [ ] To create a promise that will resolve when all promises passed to it have resolved or reject if any of the promises passed to it reject
 - [x] To create a promise that will resolve when any of the promises passed to it have resolved
 
-## What is the difference between `Promise.all` and `Promise.race`?
+## `Promise.all` and `Promise.race`
+
+What is the difference between `Promise.all` and `Promise.race`?
 
 - [ ] `Promise.all` will resolve when any of the promises passed to it have resolved, while `Promise.race` will resolve when all of the promises passed to it have resolved
 - [x] `Promise.race` will resolve when any of the promises passed to it have resolved, while `Promise.all` will resolve when all of the promises passed to it have resolved
 - [ ] They behave the same way
 
-## `Promise.allSettled` is useful for which of the following scenario?
+## Promise.allSettled
+
+`Promise.allSettled` is useful for which of the following scenario?
 
 - [ ] To run multiple promises in parallel and return the result of the first one that resolves
 - [ ] To run multiple promises in parallel and return the result of the last one that resolves

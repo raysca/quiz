@@ -46,7 +46,7 @@ What is the difference between a `Map` and an `Object` in JavaScript?
 
 What is the difference between a `Set` and an `Array` in JavaScript?
 
-- [x] A `Set` is used to store **unique** values, while an `Array` is used to store values
+- [x] A `Set` is used to store unique values, while an `Array` is used to store values
 - [ ] A `Set` is used to store values, while an `Array` is used to store key-value pairs
 - [ ] A `Set` is used to store key-value pairs, while an `Array` is used to store values
 

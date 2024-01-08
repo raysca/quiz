@@ -48,7 +48,7 @@
 				<tbody>
 					{#each Object.keys(answersByTopic) as topic}
 						<tr class="font-semibold">
-							<td class={resultByTopic[topic].progress}>{topic}</td>
+							<td class={resultByTopic[topic].progress}>{@html topic}</td>
 							<td>{resultByTopic[topic].total}</td>
 							<td>{resultByTopic[topic].correct}</td>
 						</tr>
