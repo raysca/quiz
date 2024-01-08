@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>Revis3 - Test your technical knowledge</title>
+	<title>Revis3 - Test your technical knowledge in React, Javascript, Typescript, Node.js e.t.c</title>
 	<meta name="description" content="Open source technical quiz platform" />
 	<meta name="keywords" content="Revis3, technical interview quiz, technical multiple choice quiz" />
 	<meta name="application-name" content="Revis3" />
