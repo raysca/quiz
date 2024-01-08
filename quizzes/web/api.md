@@ -112,7 +112,7 @@ What is the purpose of the `service worker`?
 - [ ] It is used to provide a fallback text
 - [ ] It is used to provide a fallback image
 
-## For a web app to be considered a progressive web app, it must have the following:
+## For a web app to be considered a progressive web app, it must have the following
 
 - [x] A `manifest.json` file
 - [ ] A `service worker` must be included in the code

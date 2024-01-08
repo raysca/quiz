@@ -60,10 +60,10 @@ controller.abort();
 
 ## What does the `Fetch API` credentials option do?
 
-- [ ] It allows you to send cookies credentials to a server
-- [ ] It allows you to receive cookie credentials from a server
-- [x] It allows you to send and receive cookie credentials from a server
-- [ ] It allows you to send and receive credentials from a server, but only if the server is on the same domain
+- [ ] Attaches special credentials to the request
+- [x] Includes cookie credentials in the request
+- [ ] Includes and receives HTTP headers in the request
+- [ ] All of the above
 
 ## Error Handling
 
@@ -104,7 +104,7 @@ fetch('https://example.com')
 	});
 ```
 
-## The `Fetch API` will automatially retry a request if it fails.
+## The `Fetch API` will automatically retry a request if it fails
 
 - [ ] True
 - [x] False
