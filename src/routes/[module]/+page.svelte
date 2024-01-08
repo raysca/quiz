@@ -20,6 +20,7 @@
 <svelte:head>
 	<title>Revis3 - Test your {module.title} knowledge</title>
 	<meta name="description" content={`Test your ${module.title} knowledge`} />
+	<meta name="keywords" content={`${module.title} quiz, technical multiple choice quiz`} />
 </svelte:head>
 
 <div class="p-4">

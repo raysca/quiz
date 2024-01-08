@@ -20,14 +20,14 @@
 		};
 
 		const app = initializeApp(firebaseConfig);
-		const analytics = getAnalytics(app);
+		getAnalytics(app);
 	});
 </script>
 
 <svelte:head>
 	<title>Revis3 - Test your technical knowledge</title>
 	<meta name="description" content="Open source technical quiz platform" />
-	<meta name="keywords" content="Revis3, technical interview, technical multiple choice quiz" />
+	<meta name="keywords" content="Revis3, technical interview quiz, technical multiple choice quiz" />
 	<meta name="application-name" content="Revis3" />
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
