@@ -9,9 +9,9 @@
 
 ## What is the purpose of a Dockerfile?
 
-- [ ] To automate the process of deploying software
-- [ ] To ensure that code changes are tested and integrated frequently
-- [ ] To monitor and optimize the performance of applications
+- [ ] To define the configuration of a Docker container
+- [ ] To define the configuration of a Docker image
+- [ ] To monitor and optimize the performance of containerized applications
 - [x] To instruct Docker how to build a Docker image along with its dependencies and source code
 
 ## What is the purpose of a Docker registry?
@@ -21,7 +21,7 @@
 - [ ] A tool for managing Docker containers
 - [ ] A tool for managing Docker networks
 
-## Docker compose is used for:
+## Docker compose is used for which of the following?
 
 - [ ] Building Docker images
 - [x] Running Docker containers
@@ -47,12 +47,12 @@ services:
 - [x] This is a docker-compose file
 - [ ] The service `web` will run both on port `80` and `8080` on the host machine
 
-## Docker volumes are used for:
+## Docker volumes are used for which of the following?
 
-- [ ] Building Docker images
-- [ ] Running Docker containers
-- [ ] Managing Docker networks
-- [x] Managing and Creating Storage
+- [ ] To store Docker images
+- [x] To store persistent data
+- [ ] To store Docker containers
+- [ ] To store Docker networks
 
 ## Which of these are benefits of using Docker during development?
 
@@ -63,10 +63,10 @@ services:
 
 ## What is a Docker entrypoint?
 
-- [ ] This is the first command that is run when a Docker container starts
-- [x] This is the last command that is run when a Docker container starts
-- [ ] This is the command that is run when a Docker container stops
-- [ ] This is the command that is run when a Docker container is restarted
+- [ ] A Docker image
+- [ ] A Docker container
+- [x] A command that is run when a Docker container is started
+- [ ] A command that is run when a Docker container is stopped
 
 ## Which of these are valid Docker commands?
 
@@ -74,3 +74,19 @@ services:
 - [ ] `docker start`
 - [x] `docker stop`
 - [ ] `docker restart`
+
+## Docker commands
+
+what is the difference between `docker run` and `docker start`?
+
+- [ ] `docker run` creates a new container, while `docker start` starts an existing container
+- [x] `docker run` creates a new container, while `docker start` starts a stopped container
+- [ ] `docker run` starts a new container, while `docker start` creates a new container
+- [ ] `docker run` starts a new container, while `docker start` starts a stopped container
+
+## What is the difference between `CMD` and `ENTRYPOINT` in a Dockerfile?
+
+- [ ] `ENTRYPOINT` and `CMD` are the same default command executed when a container is started
+- [x] `ENTRYPOINT` is the default command executed when a container is started, while `CMD` is the instruction passed to the `ENTRYPOINT` command
+- [ ] `ENTRYPOINT` is the instruction passed to the `CMD` command, while `CMD` is the default command executed when a container is started
+- [ ] `ENTRYPOINT` and `CMD` are the same instruction passed to the default command executed when a container is started

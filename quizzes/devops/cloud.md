@@ -3,11 +3,11 @@
 ## What is cloud computing?
 
 - [ ] A method of storing data on local servers
-- [x] A method of accessing and managing data over the internet
-- [ ] A method of encrypting data for secure storage
+- [x] A method of accessing and managing data and computing services over the internet
+- [ ] A method of compressing data for efficient storage
 - [ ] A method of compressing data for efficient storage
 
-## Which of the following is not a cloud service model?
+## Which of the following is NOT a cloud service model?
 
 - [ ] Infrastructure as a Service (IaaS)
 - [ ] Platform as a Service (PaaS)
@@ -23,10 +23,10 @@
 
 ## What is a virtual machine in cloud computing?
 
-- [ ] A software emulation of a physical computer
+- [x] A software emulation of a physical computer
 - [ ] A network of interconnected cloud servers
 - [ ] A storage device for cloud data
-- [x] A physical server dedicated to a single user
+- [ ] A physical server dedicated to a single user
 
 ## What is the purpose of load balancing in cloud computing?
 
@@ -44,9 +44,9 @@
 
 ## How would you define horizontal scaling?
 
-- [ ] Adding more resources to a single server
-- [x] Adding more servers to a single network
-- [ ] Adding more servers to multiple networks
+- [ ] Adding more resources to a single server in a network/cluster
+- [x] Adding more servers to a single network/cluster
+- [ ] Adding more servers to multiple networks in a network/cluster
 - [ ] Adding more resources to multiple servers
 
 ## How would you define vertical scaling?
@@ -56,7 +56,7 @@
 - [ ] Adding more servers to multiple networks
 - [ ] Adding more resources to multiple servers
 
-## Whare the use cases of a CDN?
+## What are the use cases of a CDN?
 
 - [x] To improve the performance of websites
 - [ ] To improve the security of websites
@@ -79,16 +79,17 @@
 
 ## What are the purposes of a forward proxy?
 
-- [ ] To intercept requests from a client to a server
-- [x] To manipulate requests from a client to a server
-- [x] To manipulate responses from a server to a client
+- [x] Performance optimization
+- [x] Security
+- [ ] Anonymity
+- [x] Content filtering
 
 ## What is the purpose of a reverse proxy?
 
-- [x] To provide a single point of access to multiple servers
-- [ ] To intercept requests from a client to a server
-- [ ] To manipulate requests from a client to a server
-- [ ] To manipulate responses from a server to a client
+- [x] Security
+- [ ] Cache optimization
+- [ ] Data wrangling
+- [x] Server load balancing
 
 ## What is ingress traffic?
 
@@ -103,3 +104,24 @@
 - [ ] Incoming traffic into a network
 - [x] Outgoing traffic from a network
 - [ ] Traffic that is sent from a server to a client
+
+## What is the purpose of a VPN?
+
+- [ ] To improve the performance of a network
+- [x] To improve the security of a network
+- [ ] To improve the reliability of a network
+- [ ] To improve the scalability of a network
+
+## What is the purpose of a firewall?
+
+- [x] To monitor and control incoming and outgoing network traffic
+- [ ] To monitor and control incoming network traffic
+- [ ] To monitor and control outgoing network traffic
+- [ ] To monitor and control network traffic between two networks
+
+## What is the purpose of a load balancer?
+
+- [ ] To distribute network traffic evenly across multiple networks
+- [ ] To distribute network traffic evenly across multiple clients
+- [x] To distribute network traffic evenly across multiple servers
+- [ ] To distribute network traffic evenly across multiple devices

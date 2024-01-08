@@ -5,9 +5,9 @@ These are review questions for the Kubernetes module.
 ## What is Kubernetes?
 
 - [ ] A containerization platform
-- [ ] A container orchestration platform
+- [x] A container orchestration platform
 - [ ] A container management platform
-- [x] All of the above
+- [ ] All of the above
 
 ## What are pods?
 
